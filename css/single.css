@@ -1,0 +1,388 @@
+.page_content{
+    align-items: flex-start;
+    display: flex;
+    gap: 18px;
+}
+.posts_carousel{
+    display: none;
+}
+
+.main_content{
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    background-color: #fff;
+    border-radius: 1rem;
+    min-width: 0;
+}
+
+
+.post_section{
+    position: relative;
+    padding: 70px 14px 40px 14px;
+}
+
+.post_section .post_category_container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 1rem;
+    border-bottom-left-radius: 0;
+    width: 100%;
+    height: 32px;
+    padding: 6px 22px;
+    background: url(../assets/shapes/category_title_background.svg) 0 0 no-repeat;
+}
+
+.post_section .post_category_container h2 {
+    margin: 0;
+    color: #fff;
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.post_section .post_category_container h2 a {
+    color: #fff;
+}
+
+.post_section .post_meta{
+    margin: 10px 46px 24px 46px;
+}
+
+.post_section .post_meta .post_date{
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+    
+}
+.post_section .post_meta .post_date .date_separator{
+    font-size: 14px;
+    font-weight: 600;
+    color: #BCBCBC;
+    line-height: 20px;
+}
+.post_section .post_meta .date_span{
+    white-space: no-wrap;
+    font-size: 12px;
+    font-weight: 500;
+    color: #BCBCBC;
+    line-height: 20px;
+}
+
+.post_section .post_meta .post_date .date_bold{
+    font-weight: 600;
+    color: #686868;
+}
+
+
+
+.post_section .post_meta .post_title{
+    font-size: 28px;
+    line-height: 40px;
+    margin-top: 0;
+    color: #000;
+    font-weight: 500;
+}   
+
+.post_section .post_image{
+    max-width: 680px;
+    margin: 0 30px 32px 30px;
+}
+
+.post_section .post_image figcaption{
+    text-align: left;    
+    margin: 0.75rem 1rem 0 1rem;
+    font-size: 14px;
+    font-weight: 400;
+    color: #BCBCBC;
+
+}
+.post_section .post_content .wp-caption-text{
+    text-align: left;    
+    margin: 0.75rem 1rem 0 1rem;
+    font-size: 14px;
+    font-weight: 400;
+    color: #BCBCBC;
+}
+
+.post_section .post_content{
+    margin: 0 46px ;
+}
+
+.post_section .post_content p, .post_section .post_content span{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.post_section .post_content b span{
+    font-weight: 500;
+}
+
+.post_section .post_content i,.post_section .post_content em {
+    font-style: italic;
+}
+.post_section .post_content blockquote{
+    padding: 1rem ;
+    border-left: 4px solid #A01F23;
+    background-color: #f5f5f5;
+    margin: 1rem 0;
+    border-radius: 12px;
+    /* border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px; */
+}
+.post_section .post_content blockquote p{
+    font-size: 14px;
+    margin: 0;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.post_section .post_content > *{
+    max-width: 100%;
+}
+
+
+
+.post_section .author_bio {
+    margin: 0 46px  32px 46px;
+    padding: 8px 12px;
+    align-items: center;
+}
+.post_section .author_bio .img_container{
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+}
+
+.post_section .author_bio .author_name{
+    font-size: 14px;
+}
+.post_section .author_bio .author_meta{
+    font-size: 12px;
+}
+
+
+.posts_carousel .swiper{
+    padding: 20px 0;
+}
+.posts_carousel .swiper .swiper-wrapper{
+    align-items: stretch;
+}
+.posts_carousel .swiper .swiper-slide{
+    flex-grow: 1;
+}
+.posts_carousel .swiper .post-block .post_title{
+    font-size: 14px;
+}
+
+.main_content .share_buttons{
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    bottom: -21px;
+    left: 60px;
+}
+
+.main_content .share_buttons a{
+    display: flex;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    background-color: #ECEEF2;
+}
+.main_content .share_buttons a:hover{
+    background-color: #eceef2b7;
+}
+.main_content .share_buttons .share{
+    background-color: #202635;
+}
+.main_content .share_buttons .share:hover{
+    background-color: #202635e5;
+}
+
+.main_content .share_buttons .share .check_icon{
+    display: none;
+    color: #fff;
+}
+.main_content .share_buttons .share.active {
+    background-color: rgb(94, 205, 50);
+}
+
+.main_content .share_buttons .share.active .check_icon{
+    display: block;
+}
+.main_content .share_buttons .share.active .share_icon{
+    display: none;
+}
+
+
+.post_section .post_content .shortcode_post{
+    margin: 16px 0;
+}
+.post_section .post_content .shortcode_post .post-block{
+    flex-direction: row;
+    height: 156px;
+    min-height: 156px;
+}
+.post_section .post_content .shortcode_post .post_meta_container{
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    gap: 12px;
+}
+.post_section .post_content .shortcode_post .post_img_container{
+    height: 156px;
+    width: 260px;
+    flex-shrink: 0;
+}
+.ngg-imagebrowser h3{
+    display: none;
+}
+.ngg-imagebrowser-nav{
+    display: flex;
+    gap: 1rem;
+    justify-content: end;
+}
+.ngg-imagebrowser-nav .counter{
+    display: none;
+}
+.ngg-imagebrowser-nav .ngg-imagebrowser-desc{
+    display: none;
+}
+.ngg-imagebrowser-nav .back a.ngg-browser-prev{
+    background-color: #A01F23;
+    border-radius: 4px;
+}
+.ngg-imagebrowser-nav .next a.ngg-browser-next{
+    background-color: #A01F23;
+    border-radius: 4px;
+}
+
+.mobile_verified{
+    display: none;
+}
+
+@media (max-width:1024px) {
+    .post_section .post_content .shortcode_post .post_title{
+        font-size: 14px;
+    }
+    .post_section .post_content .shortcode_post .post_img_container{
+        width: 200px;
+    }   
+}
+
+@media (max-width:880px) {
+    aside{
+        display: none;
+    }
+    .page_content{
+        display: block;
+    }
+    .posts_carousel{
+        display: block;
+        margin: 32px 0;
+    }
+    .post_section .post_meta .post_title{
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .mobile_verified{
+        display: block;
+        margin: 3rem 0 2rem 0;
+    }
+    .mobile_verified .verified_container{
+        max-width: none;
+    }
+}
+@media (max-width:660px) {
+    .post_section .post_meta .post_date .date_separator{
+       display: none;
+    }
+    .post_section .post_meta .post_date{
+        flex-direction: column;
+        gap: 0.25rem;
+        margin-bottom: 0.75rem;
+    }
+}
+@media(max-width:580px){
+    .post_section .post_meta .post_title{
+        font-size: 18px;
+    }
+    .post_section .post_meta{
+        margin: 10px 10px 24px 10px;
+    }
+    .post_section .author_bio{
+        flex-direction: row;
+        margin: 0 10px 32px 10px;
+    }
+    .post_section .author_bio .author_info{
+        flex-direction: row;
+        text-align: start;
+    }
+    .post_section .post_image{
+        margin: 0 12px 32px 12px;
+    }
+    .post_section .post_content{
+        margin: 0 12px ;
+    }
+    .post_section .post_content p , .post_section .post_content span{
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+    .post_section .post_content .wp-caption-text{
+        font-size: 12px;
+    }
+    .post_section .post_content blockquote {
+        padding: 0.5rem;
+    }
+    .post_section .post_content blockquote p{
+        font-size: 12px;
+    }
+    .post_section .post_image figcaption{
+        font-size: 12px;
+    }
+    .post_section .wp-caption-text{
+        font-size: 12px;
+    }
+}
+
+@media (max-width:560px) {
+    .post_section .post_content .shortcode_post .post-block{
+        flex-direction: column;
+        height: auto;
+    }
+    .post_section .post_content .shortcode_post .post_meta_container{
+        display: flex;
+    flex-grow: 1;
+    min-height: 150px;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4px;
+    padding: 12px 14px 20px 14px ;
+    }
+    .post_section .post_content .shortcode_post .post_img_container{
+        height: 250px;
+        width:100%;
+    }
+    
+}
+
+@media (max-width:540px) {
+
+    .post_section .author_bio{
+        position: relative;
+        padding: 12px 12px 24px 12px ;
+    }
+    .post_section .author_bio .author_links{
+        position: absolute;
+        right: 10px;
+        bottom: -20px;
+    }
+}

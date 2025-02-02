@@ -1,0 +1,189 @@
+.page-template-podcasts-template .page_content{
+    max-width: 75rem;
+    padding: 0 0.75rem;
+}
+.podcasts_content{
+    max-width: 648px;
+    padding: 0 0.5rem;
+}
+.podcasts_content h1{
+    text-transform: uppercase;
+}
+.podcasts_content p{
+    margin-block-end: 1.5rem;
+}
+.podcasts_main{
+    margin-top: 4rem;
+}
+.podcasts_main .podcasts_notice{
+    padding: 1rem 3rem;
+    border: 1px solid #A01F23;
+    border-radius: 12px;
+    margin-bottom: 4rem;
+}
+
+.podcasts_main .podcasts_notice p{
+    font-weight: 500;
+    font-size: 14px;
+    margin: 0;
+    color: #000;
+}
+
+.podcasts_main .podcasts_grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto); 
+    gap: 20px; 
+    margin-bottom: 2rem;
+}
+
+
+
+
+
+.posts_pagination{
+    width: fit-content;
+    margin:  0 auto;
+    margin-top:44px;
+}
+
+.posts_pagination .page-numbers{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 24px;
+    font-weight: 600;
+    color: #1E293B;
+    transition: background-color 0.3s ease;
+}
+.posts_pagination .next, .prev{
+    display: none !important;
+}
+
+.posts_pagination .page-numbers.current{
+    background-color: #020617;
+    color: #fff;
+}
+
+.posts_pagination  .page-numbers:hover{
+    background-color:#BCBCBC ;
+    color: #fff;
+}
+
+.posts_pagination .page-numbers.dots:hover{
+    background-color:#fff ;
+    color: #1E293B;
+}
+
+.podcast_content iframe{
+    width: 100%;
+}
+.podcast_content{
+    margin: 0 46px;
+}
+.podcast_content p{
+    margin: 2rem 0;
+}
+
+.post_section .post_content > *{
+    max-width: 100%;
+}
+
+/* .podcasts_carousel .post_primary_category{
+    display: none;
+} */
+#podcastset .podcast_block{
+    margin-bottom: 20px;
+}
+
+
+
+.podcast_content .podcast_players .player_icon{
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+    background-size: contain;
+}
+
+.podcast_content .podcast_players .google_podcast{
+    background: url(../images/google_podcasts_icon_130919.png.webp)0 0 no-repeat;
+    background-size: contain;
+}
+
+.podcast_content .podcast_players .whooshkaa{
+    background: url(../images/icons/whooshkaa.png.webp)0 0 no-repeat;
+    background-size: contain;
+}
+
+.podcast_content .podcast_players .itunes{
+    background: url(../images/icons/itunes-logo.png.webp)0 0 no-repeat;
+    background-size: contain;
+}
+.podcast_content .podcast_players .youtube{
+    background: url(../images/icons/youtube-logo.png.webp)center center no-repeat;
+    background-size: contain;
+}
+.podcast_content .podcast_players .rss{
+    background: url(../images/icons/rss-logo.png.webp)center center no-repeat;
+    background-size: 80%;
+}
+.podcast_content .podcast_players .web_site{
+    background: url(../images/icons/web-logo.png.webp)center center no-repeat;
+    background-size: contain;
+}
+
+.podcast_content .podcast_players .soundcloud{
+    background: url(../images/icons/soundcloud-logo.jpg.webp)center center no-repeat;
+    background-size: contain;
+}
+
+.podcast_content .podcast_players .facebook{
+    background: url(../images/icons/fb-logo.png.webp)center center no-repeat;
+    background-size: contain;
+}
+
+.podcast_content .podcast_players .anchor{
+    background: url(../images/icons/anchor-logo.png.webp)center center no-repeat;
+    background-size: contain;
+}
+
+
+@media (max-width:768px) {
+    .podcasts_main .podcasts_notice{
+        padding: 1rem ;
+        margin-bottom: 2rem;
+    }
+    .podcasts_main{
+        margin-top: 2rem;
+    }
+    .podcasts_main .podcasts_notice p{
+        font-size: 12px;
+    }
+    
+}
+
+
+@media (max-width:1024px) {
+    .podcasts_main .podcasts_grid{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, auto);
+    }
+    .page-template-podcasts-template .page_content{
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width:620px) {
+    .podcasts_main .podcasts_grid{
+        display: flex;
+        flex-direction: column;
+    }
+    .podcast_content{
+        margin: 0 1rem;
+    }
+}
