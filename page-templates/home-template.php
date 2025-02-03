@@ -106,7 +106,11 @@ get_header();
                     // endif;
                     endforeach; ?>
             </div>
-        </div>
+
+            <div class="swiper-button-prev swiper-button"></div>
+            <div class="swiper-button-next swiper-button"></div>
+
+        </div>          
     </div>
 
 <div class="posts_add_banner_double">
