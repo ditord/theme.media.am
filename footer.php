@@ -92,24 +92,37 @@
                 <?php lang(get_theme_mod('footer_p2_arm'),get_theme_mod('footer_p2_eng'))?>
             </p>
         </div>
-        <div class="footer_sponsor_logos">
-            <a href="<?php echo get_theme_mod('footer_internews') ?>" target="_blank">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/logos/internews.svg"
-                class="footer_internews_logo"
-                alt="MIC logo"  width="148px">
-            </a> 
-            <a href="<?php echo get_theme_mod('footer_usaid') ?>" target="_blank">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/logos/usaid.svg" 
-                class="footer_usaid_logo"
-                alt="MIC logo"  width="148px">
-            </a>
-            <a href="<?php echo get_theme_mod('footer_mic') ?>" target="_blank">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/logos/mic_logo_eng.svg"
-                class="footer_mic_logo"
-                alt="MIC logo"  width="148px">
-            </a>
 
-        </div>
+        <?php 
+            $internews_url = get_theme_mod('footer_internews');
+            $usaid_url = get_theme_mod('footer_usaid');
+            $mic_url = get_theme_mod('footer_mic'); 
+        ?>
+        <?php if($internews_url || $usaid_url || $mic_url):?>
+            <div class="footer_sponsor_logos">
+                <?php if($internews_url):?>
+                    <a href="<?php echo $internews_url ?>" target="_blank">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/logos/internews.svg"
+                        class="footer_internews_logo"
+                        alt="MIC logo"  width="148px">
+                    </a> 
+                <?php endif ?>   
+                <?php if($usaid_url):?> 
+                    <a href="<?php echo $usaid_url ?>" target="_blank">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/logos/usaid.svg" 
+                        class="footer_usaid_logo"
+                        alt="MIC logo"  width="148px">
+                    </a>
+                <?php endif ?>
+                <?php if($mic_url): ?> 
+                    <a href="<?php echo $mic_url ?>" target="_blank">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/logos/mic_logo_eng.svg"
+                        class="footer_mic_logo"
+                        alt="MIC logo"  width="148px">
+                    </a>
+                <?php endif ?>    
+            </div>
+        <?php endif ?>    
         <div class="footer_matemat">
             <p>Modernized by <a href="https://matemat.io/" target="_blank">MATEMAT</a></p>
         </div>
