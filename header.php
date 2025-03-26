@@ -51,7 +51,7 @@
             </div>
             <div class="header_mediaethics">
                 <a href="https://mediaethics.am/media-outlets/media-am/" target="_blank">
-                    <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/logos/media_ethics_white.png" alt="Quality Sign BW">
+                    <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/logos/media_ethics_new.png" alt="Quality Sign BW">
                 </a>              
             </div>
         </div>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="header_mediaethics">
                         <a href="https://mediaethics.am/media-outlets/media-am/" target="_blank">
-                            <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/logos/media_ethics_white.png" alt="Quality Sign BW">
+                            <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/assets/logos/media_ethics_new.png" alt="Quality Sign BW">
 
                         </a>              
                     </div>
