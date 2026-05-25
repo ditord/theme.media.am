@@ -33,20 +33,20 @@
     gap: 1.5rem;
 }
 
-@media (max-width: 64rem) {
+@media (max-width: 1024px) {
     .verified-posts-section__soft-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 768px) {
     .verified-posts-section__overlay-grid,
     .verified-posts-section__soft-grid {
         grid-template-columns: 1fr;
     }
 }
 
-@media (max-width: 38.75rem) {
+@media (max-width: 620px) {
     .verified-posts-section {
         padding: 1.5rem 0;
     }

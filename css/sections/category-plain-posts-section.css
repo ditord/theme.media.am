@@ -41,7 +41,7 @@
     min-width: 0;
 }
 
-@media (max-width: 64rem) {
+@media (max-width: 1024px) {
     .category-plain-posts-section__layout {
         flex-direction: column-reverse;
     }
@@ -51,7 +51,7 @@
     }
 }
 
-@media (max-width: 38.75rem) {
+@media (max-width: 620px) {
     .category-plain-posts-section {
         padding: 1.5rem 0;
     }

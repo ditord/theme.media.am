@@ -4,7 +4,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     
 
-  const swiper = new Swiper('.swiper', {
+  const authorsSwiper = new Swiper('.authors_carousel .swiper', {
     direction: 'horizontal',
     loop: true,
     slidesPerView: 1,
@@ -34,7 +34,13 @@
     }
   });
 
-
+  const librarySwiper = new Swiper('.library-slider-section__swiper', {
+    direction: 'horizontal',
+    loop: false,
+    slidesPerView: 'auto',
+    spaceBetween: 24,
+    autoplay: false,
+  });
 
   })
 })();

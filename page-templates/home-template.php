@@ -46,6 +46,12 @@ get_header();
         include get_template_directory() . '/templates/sections/verified-posts-section.php';
     ?>
 
+    <?php
+        $library_slider_category_slug = 'in-the-library';
+        $library_slider_posts_count = 6;
+        include get_template_directory() . '/templates/sections/library-slider-section.php';
+    ?>
+
     <div class="section-container">
     <div class="posts_grid">
         <?php

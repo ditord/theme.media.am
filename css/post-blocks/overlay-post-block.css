@@ -66,13 +66,13 @@
     line-height: 1.25rem;
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 768px) {
     .overlay-post-block {
         min-height: 22.5rem;
     }
 }
 
-@media (max-width: 32.5rem) {
+@media (max-width: 520px) {
     .overlay-post-block {
         min-height: 18.75rem;
     }

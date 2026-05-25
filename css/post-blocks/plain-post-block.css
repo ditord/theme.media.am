@@ -107,7 +107,7 @@
     -webkit-line-clamp: 2;
 }
 
-@media (max-width: 38.75rem) {
+@media (max-width: 620px) {
     .plain-post-block__tag {
         top: 0.75rem;
         left: 0.75rem;
