@@ -2,7 +2,7 @@
 //Displaying all posts page content
 get_header();
 ?>
-<div class="page_content">
+<div class="page_content section-container">
     <div class="main_content">
         <div class="category_posts">    
             <div class="title_container">

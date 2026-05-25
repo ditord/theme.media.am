@@ -137,8 +137,10 @@
 
 .home_posts .posts_add_banner{
     width: 100%;
-    margin-bottom: 2rem;
+    margin: 6rem 0;
     height: 200px;
+    overflow: hidden;
+    border-radius: 1rem;
 }
 .home_posts .posts_add_banner li,figure{
     list-style-type: none;

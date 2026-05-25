@@ -8,7 +8,7 @@ get_header();
 
 
 <?php the_post() ?>
-<div class="page_content">
+<div class="page_content section-container">
     <div class="main_content">
         <div class="post_section">
             

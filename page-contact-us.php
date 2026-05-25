@@ -1,6 +1,6 @@
 <?php get_header() ?>
 
-<div class="page_content">
+<div class="page_content section-container">
     <div class="contact_us_content">
         <?php the_content() ?>
         <div class="form_container">

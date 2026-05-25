@@ -30,7 +30,7 @@ function sortByOrder($a, $b) {
 //usort($loop->posts, 'sortByOrder');
 
 ?>
-<div class="page_content"> 
+<div class="page_content section-container"> 
     <div class="podcasts_content">
         <?php the_content() ?>
     </div>

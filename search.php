@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="page_content">
+<div class="page_content section-container">
     <div class="search_content">
         <div class="title_container">
             <span><?php lang('ՈՐՈՆՈՒՄ','SEARCH') ?></span>

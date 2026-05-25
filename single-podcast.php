@@ -25,7 +25,7 @@ $filed = get_fields($the_query);
 ?>
 <?php get_header() ?>
 
-<div class="page_content">
+<div class="page_content section-container">
     <div class="main_content">
         <div class="post_section">
             

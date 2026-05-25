@@ -7,6 +7,7 @@ get_header();
 ?>
 <div class="page_content">
 <div class="home_posts">
+    <div class="section-container">
     <?php
 
     $featured_post_id = null;
@@ -31,7 +32,21 @@ get_header();
     <div class="posts_add_banner">
         <?php dynamic_sidebar('advertisement-banner-1');  ?>
     </div>
+    </div>
 
+    <?php
+        $section_category_slug = 'newsroom';
+        $section_posts_count = 5;
+        include get_template_directory() . '/templates/sections/category-plain-posts-section.php';
+    ?>
+
+    <?php
+        $verified_section_category_slug = 'verified';
+        $verified_section_posts_count = 5;
+        include get_template_directory() . '/templates/sections/verified-posts-section.php';
+    ?>
+
+    <div class="section-container">
     <div class="posts_grid">
         <?php
             $all_posts = new WP_Query(array(
@@ -51,8 +66,10 @@ get_header();
     <div class="posts_add_banner">
         <?php dynamic_sidebar('advertisement-banner-2');  ?>
     </div>
+    </div>
 </div>
 
+<div class="section-container">
 <div class="authors_carousel">
         <div class="title_container">
             <h3><?php lang('ՀԵՂԻՆԱԿՆԵՐ', 'AUTHORS') ?></h3>
@@ -112,15 +129,13 @@ get_header();
 
         </div>          
     </div>
+</div>
 
-<div class="posts_add_banner_double">
+<div class="posts_add_banner_double section-container">
         <?php dynamic_sidebar('advertisement-banner-3');  ?>
 </div>
 
 </div>
 
-
-
-</div>
 
 <?php get_footer(); ?>

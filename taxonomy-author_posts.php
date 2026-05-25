@@ -1,7 +1,7 @@
 <?php
 get_header();
 ?>
-<div class="page_content">
+<div class="page_content section-container">
     <div class="main_content">
         <div class="author_bio">
             <div class="author_info">
