@@ -822,6 +822,123 @@ function custom_post_block_shortcode($atts) {
 }
 add_shortcode('post_block', 'custom_post_block_shortcode');
 
+function media_am_post_block_inserter_admin_assets($hook) {
+    if (!in_array($hook, array('post.php', 'post-new.php'), true)) {
+        return;
+    }
+
+    $screen = get_current_screen();
+    if (!$screen || $screen->post_type !== 'post') {
+        return;
+    }
+
+    wp_enqueue_script(
+        'media-am-post-block-inserter',
+        get_template_directory_uri() . '/js/admin-post-block-inserter.js',
+        array('jquery'),
+        '1.0',
+        true
+    );
+
+    wp_localize_script(
+        'media-am-post-block-inserter',
+        'mediaAmPostBlockInserter',
+        array(
+            'ajaxUrl' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('media_am_post_block_search'),
+            'strings' => array(
+                'noPostsFound' => return_lang('Գրառումներ չեն գտնվել։', 'No posts found.'),
+                'searching' => return_lang('Որոնում...', 'Searching...'),
+                'searchFailed' => return_lang('Որոնումը ձախողվեց։', 'Search failed.'),
+                'idLabel' => return_lang('ID', 'ID'),
+            ),
+        )
+    );
+
+    wp_enqueue_style(
+        'media-am-post-block-inserter',
+        get_template_directory_uri() . '/css/admin-post-block-inserter.css',
+        array(),
+        '1.0'
+    );
+}
+add_action('admin_enqueue_scripts', 'media_am_post_block_inserter_admin_assets');
+
+function media_am_post_block_inserter_button($editor_id) {
+    if ($editor_id !== 'content') {
+        return;
+    }
+
+    $screen = get_current_screen();
+    if (!$screen || $screen->post_type !== 'post') {
+        return;
+    }
+    ?>
+    <button type="button" class="button media-am-post-block-open">
+        <?php echo esc_html(return_lang('Տեղադրել գրառման բլոկ', 'Insert post block')); ?>
+    </button>
+    <div class="media-am-post-block-modal" aria-hidden="true">
+        <div class="media-am-post-block-modal__backdrop"></div>
+        <div class="media-am-post-block-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="media-am-post-block-title">
+            <div class="media-am-post-block-modal__header">
+                <h2 id="media-am-post-block-title"><?php echo esc_html(return_lang('Տեղադրել գրառման բլոկ', 'Insert post block')); ?></h2>
+                <button type="button" class="button-link media-am-post-block-close" aria-label="<?php echo esc_attr(return_lang('Փակել', 'Close')); ?>">x</button>
+            </div>
+            <div class="media-am-post-block-modal__body">
+                <label for="media-am-post-block-search"><?php echo esc_html(return_lang('Որոնել գրառում', 'Search post')); ?></label>
+                <input type="search" id="media-am-post-block-search" class="widefat" placeholder="<?php echo esc_attr(return_lang('Մուտքագրեք վերնագիր կամ գրառման ID', 'Type a title or paste a post ID')); ?>">
+                <div class="media-am-post-block-results" aria-live="polite"></div>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+add_action('media_buttons', 'media_am_post_block_inserter_button');
+
+function media_am_post_block_search_ajax() {
+    check_ajax_referer('media_am_post_block_search', 'nonce');
+
+    if (!current_user_can('edit_posts')) {
+        wp_send_json_error(array('message' => 'Permission denied.'), 403);
+    }
+
+    $search = isset($_GET['search']) ? sanitize_text_field(wp_unslash($_GET['search'])) : '';
+
+    $query_args = array(
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'posts_per_page' => 10,
+        'orderby' => 'date',
+        'order' => 'DESC',
+    );
+
+    if ($search !== '') {
+        if (ctype_digit($search)) {
+            $query_args['p'] = absint($search);
+        } else {
+            $query_args['s'] = $search;
+        }
+    }
+
+    $posts = new WP_Query($query_args);
+    $results = array();
+
+    if ($posts->have_posts()) {
+        while ($posts->have_posts()) {
+            $posts->the_post();
+            $results[] = array(
+                'id' => get_the_ID(),
+                'title' => get_the_title(),
+                'date' => get_the_date('Y-m-d'),
+            );
+        }
+    }
+
+    wp_reset_postdata();
+    wp_send_json_success($results);
+}
+add_action('wp_ajax_media_am_post_block_search', 'media_am_post_block_search_ajax');
+
 
 function custom_word_description_shortcode($atts, $content = null) {
        

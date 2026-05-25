@@ -75,6 +75,7 @@ get_header();
                 <?php include 'templates/author-links.php' ?>
             </div>
             <?php endif ?>
+            <?php include 'templates/verification-rating-badge.php' ?>
             <div class="post_body">
                 <div class="post_image">
                     <?php
