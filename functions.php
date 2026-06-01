@@ -676,6 +676,12 @@ function media_am_scripts()
         wp_enqueue_style('media_am_verified_posts_section_css', get_template_directory_uri() . '/css/sections/verified-posts-section.css', array('media_am_overlay_post_block_css', 'media_am_soft_post_block_css'), '1.0');
         wp_enqueue_style('media_am_play_overlay_post_block_css', get_template_directory_uri() . '/css/post-blocks/play-overlay-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
         wp_enqueue_style('media_am_library_slider_section_css', get_template_directory_uri() . '/css/sections/library-slider-section.css', array('media_am_play_overlay_post_block_css'), '1.0');
+        wp_enqueue_style('media_am_announcement_post_block_css', get_template_directory_uri() . '/css/post-blocks/announcement-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
+        wp_enqueue_style('media_am_announcements_section_css', get_template_directory_uri() . '/css/sections/announcements-section.css', array('media_am_announcement_post_block_css'), '1.0');
+        wp_enqueue_style('media_am_scene_slider_section_css', get_template_directory_uri() . '/css/sections/scene-slider-section.css', array('media_am_overlay_post_block_css'), '1.0');
+        wp_enqueue_style('media_am_vox_wide_post_block_css', get_template_directory_uri() . '/css/post-blocks/vox-wide-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
+        wp_enqueue_style('media_am_vox_compact_post_block_css', get_template_directory_uri() . '/css/post-blocks/vox-compact-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
+        wp_enqueue_style('media_am_vox_populi_section_css', get_template_directory_uri() . '/css/sections/vox-populi-section.css', array('media_am_vox_wide_post_block_css', 'media_am_vox_compact_post_block_css'), '1.0');
         wp_enqueue_style('media_am_swiper_css',get_template_directory_uri().'/assets/swiper/swiper-bundle.min.css',array(),'1.0');
         wp_enqueue_script('media_am_swiper_script', get_template_directory_uri().'/assets/swiper/swiper-bundle.min.js', array(), true);
         wp_enqueue_script( 'media_am_home_js', get_template_directory_uri() . '/js/home.js', array(), true );

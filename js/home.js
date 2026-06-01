@@ -6,35 +6,32 @@
 
   const authorsSwiper = new Swiper('.authors_carousel .swiper', {
     direction: 'horizontal',
-    loop: true,
-    slidesPerView: 1,
-    spaceBetween: 30,
-    autoplay:true,
-    centeredSlides:true,
-    breakpoints:{
-    380:{
-        centeredSlides:false,
-        slidesPerView:2,
-    },
-    550:{
-        slidesPerView: 3,
-    },    
-    768: {
-        slidesPerView: 4,
-        spaceBetween: 30
+    loop: false,
+    slidesPerView: 'auto',
+    spaceBetween: 36,
+    autoplay: false,
+    breakpoints: {
+      0: {
+        spaceBetween: 16,
       },
-    1180:{
-        slidesPerView: 6,
-        spaceBetween: 30
-    }
+      520: {
+        spaceBetween: 20,
+      },
+      768: {
+        spaceBetween: 36,
+      },
     },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    }
   });
 
   const librarySwiper = new Swiper('.library-slider-section__swiper', {
+    direction: 'horizontal',
+    loop: false,
+    slidesPerView: 'auto',
+    spaceBetween: 24,
+    autoplay: false,
+  });
+
+  const sceneSwiper = new Swiper('.scene-slider-section__swiper', {
     direction: 'horizontal',
     loop: false,
     slidesPerView: 'auto',

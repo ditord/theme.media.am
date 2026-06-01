@@ -40,6 +40,11 @@
     line-height: 1.25rem;
 }
 
+.soft-post-block__author_dummy {
+    align-self: flex-start;
+    height: 2.375rem;
+}
+
 .soft-post-block__title {
     display: -webkit-box;
     min-height: 3.9375rem;
