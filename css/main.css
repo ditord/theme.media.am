@@ -150,8 +150,7 @@ body {
     min-height: 100lvh;
 }
 .page_content{
-    margin: 136px 0;
-    margin-bottom: 48px;
+    margin: 136px 0 48px;
     width: 100%;
 }
 

@@ -1,6 +1,7 @@
 :root {
     --media-am-color-gray-950: #030712;
     --media-am-color-white: #FFFFFF;
+    --media-am-color-white-rgb: 255, 255, 255;
     --media-am-color-media-dark-950: #212530;
     --media-am-color-media-dark-900: #2E3444;
     --media-am-color-media-dark-600: #4D5B7C;
