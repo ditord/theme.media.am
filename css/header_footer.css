@@ -238,7 +238,7 @@
     z-index: 999;
     width: calc(100% - 1rem);
     max-width: 90rem;
-    height: calc(100vh - 8rem);
+    max-height: calc(100vh - 8rem);
     border-radius: 2rem;
     overflow: hidden;
     background-color: rgba(var(--media-am-color-white-rgb), 0.92);
@@ -259,7 +259,7 @@
 .header_menu_inner {
     display: flex;
     width: 100%;
-    height: 100%;
+    max-height: calc(100vh - 8rem);
     min-height: 0;
     flex-direction: column;
     margin: 0 auto;
@@ -274,6 +274,7 @@
 .header_menu_grid {
     flex: 1 1 auto;
     min-height: 0;
+    max-height: calc(100vh - 16rem);
     overflow-y: auto;
     padding-right: 0.5rem;
 }
