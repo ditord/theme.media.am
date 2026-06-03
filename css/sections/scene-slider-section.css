@@ -23,7 +23,7 @@
 
 .scene-slider-section__swiper {
     width: 100%;
-    overflow: visible;
+    overflow: visible !important;
 }
 
 .scene-slider-section__swiper .swiper-slide {

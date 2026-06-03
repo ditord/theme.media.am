@@ -47,6 +47,12 @@ get_header();
         ?>
 
         <?php
+        $viewpoint_section_category_slug = 'viewpoint';
+        $viewpoint_section_posts_count = 6;
+        include get_template_directory() . '/templates/sections/viewpoint-section.php';
+        ?>
+
+        <?php
         $library_slider_category_slug = 'in-the-library';
         $library_slider_posts_count = 6;
         include get_template_directory() . '/templates/sections/library-slider-section.php';
