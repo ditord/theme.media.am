@@ -65,7 +65,7 @@
       header.classList.add('menu-open');
       hamburger.classList.add('is-active');
       hamburger.setAttribute('aria-expanded', 'true');
-      htmlElement.classList.add('no-scroll');
+      //htmlElement.classList.add('no-scroll');
 
       if (backgroundGrey) {
         backgroundGrey.style.display = 'block';

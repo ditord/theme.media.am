@@ -150,9 +150,9 @@ body {
     min-height: 100lvh;
 }
 
-body::-webkit-scrollbar {
+/*body::-webkit-scrollbar {
     display: none;
-}
+}*/
 
 .page_content{
     margin: 10rem 0 3rem;

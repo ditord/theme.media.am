@@ -41,11 +41,38 @@
 
 
 .header_top {
-    display: flex;
+    display: grid;
     width: 100%;
     align-items: center;
-    justify-content: space-between;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     gap: 0.75rem;
+}
+
+.header_partner_logos,
+.header_menu_partner_logos {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header_partner_logo {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.header_partner_logo img {
+    display: block;
+    width: auto;
+    max-height: 1.875rem;
+}
+
+.header_partner_logo--mediaethics img {
+    max-height: 2.5rem;
+}
+
+.header_menu_partner_logos {
+    display: none;
 }
 
 .header_logo {
@@ -120,6 +147,13 @@
     position: relative;
     z-index: 1002;
     justify-self: end;
+}
+
+.header_controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2.5rem;
 }
 
 .header_language_button span {
@@ -320,6 +354,13 @@
     }
 }*/
 
+@media (max-width: 880px) {
+    .header_menu_grid a {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+}
+
 @media (max-width: 768px) {
     .header {
         width: calc(100% - 1rem);
@@ -328,6 +369,40 @@
 
     .header_logo {
         width: 8rem;
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .header_top {
+        grid-template-columns: 2.75rem minmax(0, 1fr) auto;
+    }
+
+    .header_partner_logos {
+        display: none;
+    }
+
+    .header_controls {
+        display: contents;
+    }
+
+    .hamburger {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .header_language_dropdown {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .header_menu_partner_logos {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1rem 3rem;
+    }
+
+    .header_menu_partner_logos .header_partner_logo img {
+        max-height: 2.5rem;
     }
 
     .header_primary_menu a {
@@ -358,6 +433,10 @@
 
     .header_menu_grid ul {
         grid-template-columns: 1fr;
+    }
+
+    .header_menu_partner_logos {
+        padding: 1rem 1rem 0 1rem;
     }
 }
 
