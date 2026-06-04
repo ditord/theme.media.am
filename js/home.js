@@ -23,6 +23,24 @@
     },
   });
 
+  const featuredSwiper = new Swiper('.posts_featured__swiper', {
+    direction: 'horizontal',
+    loop: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    spaceBetween: 24,
+    initialSlide: 0,
+    autoplay: false,
+    breakpoints: {
+      0: {
+        spaceBetween: 16,
+      },
+      768: {
+        spaceBetween: 24,
+      },
+    },
+  });
+
   const librarySwiper = new Swiper('.library-slider-section__swiper', {
     direction: 'horizontal',
     loop: false,

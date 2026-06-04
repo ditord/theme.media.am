@@ -10,21 +10,26 @@ get_header();
         <div class="section-container">
             <?php
 
-            $featured_post_id = null;
-            $futured_post = new WP_Query(array(
-                    'posts_per_page' => 1,
-                    'category_name' => 'featured-post'
+            $featured_posts = new WP_Query(array(
+                    'posts_per_page' => 6,
+                    'category_name' => 'featured-post',
+                    'orderby' => 'date',
+                    'order' => 'DESC',
             ));
 
-            if ($futured_post->have_posts()) :
-                while ($futured_post->have_posts()) : $futured_post->the_post(); ?>
-                    <div class="posts_featured">
-                        <?php
-                        $featured_post_id = $futured_post->ID;
-                        include get_template_directory() . '/templates/post-block-featured.php';
-                        ?>
+            if ($featured_posts->have_posts()) : ?>
+                <div class="posts_featured">
+                    <div class="posts_featured__swiper swiper">
+                        <div class="swiper-wrapper">
+                            <?php while ($featured_posts->have_posts()) : $featured_posts->the_post(); ?>
+                                <div class="swiper-slide">
+                                    <?php include get_template_directory() . '/templates/post-blocks/featured-slide-post-block.php'; ?>
+                                </div>
+                            <?php endwhile; ?>
+                        </div>
                     </div>
-                <?php endwhile;
+                </div>
+                <?php
             endif;
             wp_reset_postdata();
             ?>
@@ -136,18 +141,23 @@ get_header();
                             <div class="swiper-slide">
                                 <a href="<?php echo get_term_link($author->term_id); ?>">
                                     <div class="author_info_container">
-                                        <p class="author_title">
-                                            <?php echo $filed['author_meta']; ?>
-                                        </p>
+                                        <span class="author_image hover-image-scale">
+                                            <img src="<?php echo $image ?>">
+                                        </span>
 
-                                        <p class="author_name">
-                                            <?php echo $author->name ?>
-                                        </p>
+                                        <div class="author_meta_container">
+                                            <p class="author_name">
+                                                <?php echo $author->name ?>
+                                            </p>
+
+                                            <p class="author_title">
+                                                <?php echo $filed['author_meta']; ?>
+                                            </p>
+                                        </div>
+
                                     </div>
 
-                                    <span class="author_image hover-image-scale">
-                                        <img src="<?php echo $image ?>">
-                                    </span>
+
                                 </a>
                             </div>
                         <?php } ?>

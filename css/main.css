@@ -148,6 +148,7 @@ body {
     font-family: "Montserrat", sans-serif;
     background-color: #ffffff;
     min-height: 100lvh;
+    overflow-x: hidden;
 }
 
 /*body::-webkit-scrollbar {
