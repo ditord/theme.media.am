@@ -1,7 +1,5 @@
 .category-plain-posts-section {
-    background-color: var(--media-am-color-section-soft);
-    margin-bottom: 2rem;
-    padding: 5rem 0;
+    padding: 4rem 0;
 }
 
 .category-plain-posts-section__inner {

@@ -27,21 +27,6 @@
 <body <?php body_class(); ?>>
     <div class="background-grey"></div>
 
-    <nav class="header_menu">
-        <div class="header_menu_inner">
-            <div class="header_menu_search">
-                <?php get_template_part('searchform', 'header'); ?>
-            </div>
-
-            <?php
-            wp_nav_menu(array(
-                'theme_location' => 'primary',
-                'container_class' => 'header_menu_grid',
-            ));
-            ?>
-        </div>
-    </nav>
-
     <header class="header">
         <nav class="header_nav">
             <div class="header_top">
@@ -96,6 +81,21 @@
                     'container_class' => 'header_primary_menu_container',
                 ));
                 ?>
+            </div>
+
+            <div class="header_menu">
+                <div class="header_menu_inner">
+                    <div class="header_menu_search">
+                        <?php get_template_part('searchform', 'header'); ?>
+                    </div>
+
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'primary',
+                        'container_class' => 'header_menu_grid',
+                    ));
+                    ?>
+                </div>
             </div>
         </nav>
     </header>

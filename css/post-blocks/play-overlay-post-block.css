@@ -43,11 +43,15 @@
     align-items: center;
     justify-content: center;
     transform: translate(-50%, -50%);
+    border-radius: 100%;
+    backdrop-filter: blur(1rem);
+    background-color: rgba(var(--media-am-color-white-rgb), 0.15);
 }
 
 .play-overlay-post-block__icon img {
-    width: 100%;
-    height: 100%;
+    width: 1.5rem;
+    height: 1.5rem;
+    transform: translateX(0.25rem)!important;
 }
 
 .play-overlay-post-block__content {

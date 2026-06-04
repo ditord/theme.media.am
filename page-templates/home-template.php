@@ -29,7 +29,7 @@ get_header();
             wp_reset_postdata();
             ?>
 
-            <div class="posts_add_banner">
+            <div class="posts_add_banner banner-1">
                 <?php dynamic_sidebar('advertisement-banner-1'); ?>
             </div>
         </div>
@@ -41,21 +41,27 @@ get_header();
         ?>
 
         <?php
+        $viewpoint_section_category_slug = 'critique';
+        $viewpoint_section_posts_count = 6;
+        include get_template_directory() . '/templates/sections/viewpoint-section.php';
+        ?>
+
+        <?php
         $verified_section_category_slug = 'verified';
         $verified_section_posts_count = 5;
         include get_template_directory() . '/templates/sections/verified-posts-section.php';
         ?>
 
         <?php
-        $viewpoint_section_category_slug = 'viewpoint';
-        $viewpoint_section_posts_count = 6;
-        include get_template_directory() . '/templates/sections/viewpoint-section.php';
-        ?>
-
-        <?php
         $library_slider_category_slug = 'in-the-library';
         $library_slider_posts_count = 6;
         include get_template_directory() . '/templates/sections/library-slider-section.php';
+        ?>
+
+        <?php
+        $viewpoint_section_category_slug = 'crossroad';
+        $viewpoint_section_posts_count = 6;
+        include get_template_directory() . '/templates/sections/viewpoint-section.php';
         ?>
 
         <?php
@@ -76,6 +82,13 @@ get_header();
     $scene_slider_posts_count = 6;
     include get_template_directory() . '/templates/sections/scene-slider-section.php';
     ?>
+
+    <?php
+    $media_literacy_slider_category_slug = 'viewpoint';
+    $media_literacy_slider_posts_count = 6;
+    include get_template_directory() . '/templates/sections/media-literacy-slider-section.php';
+    ?>
+
 
     <?php
     $announcements_section_category_slug = 'announcements';

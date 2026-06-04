@@ -678,6 +678,8 @@ function media_am_scripts()
         wp_enqueue_style('media_am_viewpoint_section_css', get_template_directory_uri() . '/css/sections/viewpoint-section.css', array('media_am_viewpoint_post_block_css'), '1.0');
         wp_enqueue_style('media_am_play_overlay_post_block_css', get_template_directory_uri() . '/css/post-blocks/play-overlay-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
         wp_enqueue_style('media_am_library_slider_section_css', get_template_directory_uri() . '/css/sections/library-slider-section.css', array('media_am_play_overlay_post_block_css'), '1.0');
+        wp_enqueue_style('media_am_media_literacy_slide_post_block_css', get_template_directory_uri() . '/css/post-blocks/media-literacy-slide-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
+        wp_enqueue_style('media_am_media_literacy_slider_section_css', get_template_directory_uri() . '/css/sections/media-literacy-slider-section.css', array('media_am_media_literacy_slide_post_block_css'), '1.0');
         wp_enqueue_style('media_am_announcement_post_block_css', get_template_directory_uri() . '/css/post-blocks/announcement-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
         wp_enqueue_style('media_am_announcements_section_css', get_template_directory_uri() . '/css/sections/announcements-section.css', array('media_am_announcement_post_block_css'), '1.0');
         wp_enqueue_style('media_am_scene_slider_section_css', get_template_directory_uri() . '/css/sections/scene-slider-section.css', array('media_am_overlay_post_block_css'), '1.0');

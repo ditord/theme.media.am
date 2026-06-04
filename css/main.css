@@ -155,7 +155,7 @@ body::-webkit-scrollbar {
 }
 
 .page_content{
-    margin: 9rem 0 3rem;
+    margin: 10rem 0 3rem;
     width: 100%;
 }
 
@@ -168,7 +168,7 @@ body::-webkit-scrollbar {
 }
 
 .page_content.section-container{
-    margin: 9rem auto 3rem;
+    margin: 10rem auto 3rem;
 }
 
 img {

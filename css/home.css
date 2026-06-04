@@ -137,10 +137,14 @@
 
 .home_posts .posts_add_banner{
     width: 100%;
-    margin: 6rem 0;
+    margin: 4rem 0;
     height: 200px;
     overflow: hidden;
     border-radius: 1rem;
+}
+
+.home_posts .posts_add_banner.banner-1{
+    margin: 0;
 }
 
 .home_posts .posts_add_banner li,figure{
@@ -365,7 +369,6 @@
 
 .posts_add_banner_double {
     padding: 3.5rem 1rem;
-    background: var(--media-am-color-section-soft);
     width: 100%;
 }
 

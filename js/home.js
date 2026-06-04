@@ -39,5 +39,13 @@
     autoplay: false,
   });
 
+  const mediaLiteracySwiper = new Swiper('.media-literacy-slider-section__swiper', {
+    direction: 'horizontal',
+    loop: false,
+    slidesPerView: 'auto',
+    spaceBetween: 24,
+    autoplay: false,
+  });
+
   })
 })();
