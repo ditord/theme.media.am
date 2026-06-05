@@ -1,14 +1,19 @@
 <?php
 get_header();
+$category = get_queried_object();
+$show_verification_badge = media_am_is_verification_subcategory($category);
 ?>
 <div class="page_content section-container">
     <div class="main_content">
         <div class="category_posts">    
-            <div class="title_container">
-                <h1>
-                    <?php single_cat_title();  ?>
-                </h1>
-            </div>
+            <?php if (!$show_verification_badge) : ?>
+                <div class="title_container">
+                    <h1>
+                        <?php single_cat_title();  ?>
+                    </h1>
+                </div>
+            <?php endif; ?>
+            <?php include 'templates/verification-rating-badge.php' ?>
             <?php if (have_posts()) :?>
             <div class="posts_grid">
                     <?php

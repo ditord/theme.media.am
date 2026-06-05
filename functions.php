@@ -666,6 +666,7 @@ function media_am_scripts()
     wp_enqueue_style('media_am_fonts_css', get_template_directory_uri().'/css/fonts.css',array('media_am_variables_css'),'1.0');
     wp_enqueue_style('media_am_main_css', get_template_directory_uri().'/css/main.css',array('media_am_variables_css'),'1.0');
     wp_enqueue_style('media_am_header_footer_css', get_template_directory_uri().'/css/header_footer.css',array(),'1.0');
+    wp_enqueue_style('media_am_verification_rating_badge_css', get_template_directory_uri().'/css/verification-rating-badge.css',array('media_am_variables_css'),'1.0');
    
     if (is_page_template('page-templates/home-template.php')) {
         wp_enqueue_style('media_am_home_css', get_template_directory_uri() . '/css/home.css', array('media_am_variables_css'), '1.0');
@@ -692,6 +693,9 @@ function media_am_scripts()
     }
     if(is_page_template('page-templates/podcasts-template.php') || is_singular('podcast')){
         wp_enqueue_style('media_am_podcasts_css', get_template_directory_uri() . '/css/podcasts.css', array(), '1.0');
+    }
+    if(is_page_template('page-templates/verdicts-template.php')){
+        wp_enqueue_style('media_am_verdicts_css', get_template_directory_uri() . '/css/verdicts.css', array('media_am_variables_css', 'media_am_verification_rating_badge_css'), '1.0');
     }
     if (is_category() || is_tax('author_posts') || is_date() || (is_home() && !is_front_page())) {
         wp_enqueue_style('media_am_category_css', get_template_directory_uri() . '/css/category.css', array(), '1.0');
@@ -956,6 +960,131 @@ function media_am_post_block_search_ajax() {
     wp_send_json_success($results);
 }
 add_action('wp_ajax_media_am_post_block_search', 'media_am_post_block_search_ajax');
+
+function media_am_get_verification_parent_slugs() {
+    return array(
+        'verified',
+        'verification',
+    );
+}
+
+function media_am_is_verification_subcategory($category) {
+    if (!($category instanceof WP_Term)) {
+        return false;
+    }
+
+    $verification_parent_slugs = media_am_get_verification_parent_slugs();
+    $ancestors = get_ancestors($category->term_id, 'category');
+
+    foreach ($ancestors as $ancestor_id) {
+        $ancestor = get_category($ancestor_id);
+
+        if ($ancestor && !is_wp_error($ancestor) && in_array($ancestor->slug, $verification_parent_slugs, true)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+function media_am_category_image_field($term = null) {
+    $image_id = 0;
+
+    if ($term instanceof WP_Term) {
+        $image_id = absint(get_term_meta($term->term_id, 'media_am_category_image_id', true));
+    }
+
+    $image_url = $image_id ? wp_get_attachment_image_url($image_id, 'medium') : '';
+    wp_nonce_field('media_am_save_category_image', 'media_am_category_image_nonce');
+    ?>
+    <div class="media-am-category-image-field">
+        <input type="hidden" name="media_am_category_image_id" value="<?php echo esc_attr($image_id); ?>" class="media-am-category-image-id">
+        <div class="media-am-category-image-preview<?php echo $image_url ? ' has-image' : ''; ?>">
+            <?php if ($image_url) : ?>
+                <img src="<?php echo esc_url($image_url); ?>" alt="">
+            <?php endif; ?>
+        </div>
+        <button type="button" class="button media-am-category-image-upload">
+            <?php esc_html_e('Choose image', 'textdomain'); ?>
+        </button>
+        <button type="button" class="button media-am-category-image-remove<?php echo $image_url ? '' : ' hidden'; ?>">
+            <?php esc_html_e('Remove image', 'textdomain'); ?>
+        </button>
+    </div>
+    <p class="description"><?php esc_html_e('This image is shown on the category archive page.', 'textdomain'); ?></p>
+    <?php
+}
+
+function media_am_category_image_add_field() {
+    ?>
+    <div class="form-field term-group">
+        <label><?php esc_html_e('Category image', 'textdomain'); ?></label>
+        <?php media_am_category_image_field(); ?>
+    </div>
+    <?php
+}
+add_action('category_add_form_fields', 'media_am_category_image_add_field');
+
+function media_am_category_image_edit_field($term) {
+    ?>
+    <tr class="form-field term-group-wrap">
+        <th scope="row">
+            <label><?php esc_html_e('Category image', 'textdomain'); ?></label>
+        </th>
+        <td><?php media_am_category_image_field($term); ?></td>
+    </tr>
+    <?php
+}
+add_action('category_edit_form_fields', 'media_am_category_image_edit_field');
+
+function media_am_save_category_image($term_id) {
+    if (!isset($_POST['media_am_category_image_nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['media_am_category_image_nonce'])), 'media_am_save_category_image')) {
+        return;
+    }
+
+    if (!current_user_can('manage_categories')) {
+        return;
+    }
+
+    $image_id = isset($_POST['media_am_category_image_id']) ? absint($_POST['media_am_category_image_id']) : 0;
+
+    if ($image_id) {
+        update_term_meta($term_id, 'media_am_category_image_id', $image_id);
+    } else {
+        delete_term_meta($term_id, 'media_am_category_image_id');
+    }
+}
+add_action('created_category', 'media_am_save_category_image');
+add_action('edited_category', 'media_am_save_category_image');
+
+function media_am_category_image_admin_assets($hook) {
+    if (!in_array($hook, array('edit-tags.php', 'term.php'), true)) {
+        return;
+    }
+
+    $screen = get_current_screen();
+    if (!$screen || $screen->taxonomy !== 'category') {
+        return;
+    }
+
+    wp_enqueue_media();
+
+    wp_enqueue_script(
+        'media-am-category-image',
+        get_template_directory_uri() . '/js/admin-category-image.js',
+        array('jquery'),
+        '1.0',
+        true
+    );
+
+    wp_enqueue_style(
+        'media-am-category-image',
+        get_template_directory_uri() . '/css/admin-category-image.css',
+        array(),
+        '1.0'
+    );
+}
+add_action('admin_enqueue_scripts', 'media_am_category_image_admin_assets');
 
 
 function custom_word_description_shortcode($atts, $content = null) {

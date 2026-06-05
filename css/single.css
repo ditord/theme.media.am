@@ -165,27 +165,6 @@
     font-size: 12px;
 }
 
-.post_section .verification_rating_badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin: 0 46px 32px 46px;
-    padding: 8px 12px;
-    border: 1px solid #A01F23;
-    border-radius: 6px;
-    color: #A01F23;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.post_section .verification_rating_badge__score {
-    padding: 2px 6px;
-    border-radius: 4px;
-    background-color: #A01F23;
-    color: #fff;
-}
-
-
 .posts_carousel .swiper{
     padding: 20px 0;
 }
@@ -339,9 +318,6 @@
     }
     .post_section .author_bio{
         flex-direction: row;
-        margin: 0 10px 32px 10px;
-    }
-    .post_section .verification_rating_badge {
         margin: 0 10px 32px 10px;
     }
     .post_section .author_bio .author_info{

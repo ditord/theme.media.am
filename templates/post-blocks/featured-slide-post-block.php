@@ -11,7 +11,7 @@ foreach (get_the_category() as $featured_slide_category) {
 }
 ?>
 
-<article class="featured-slide-post-block">
+<article class="featured-slide-post-block hover-image-scale">
     <a class="featured-slide-post-block__image" href="<?php the_permalink(); ?>">
         <?php if (has_post_thumbnail()) : ?>
             <?php the_post_thumbnail('big'); ?>

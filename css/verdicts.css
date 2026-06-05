@@ -1,0 +1,23 @@
+.verdicts_page {
+    width: 100%;
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: var(--media-am-color-white);
+}
+
+.verdicts_page__title {
+    margin: 0 0 1.5rem 0;
+}
+
+.verdicts_page__content {
+    margin-bottom: 2rem;
+}
+
+.verdicts_page__content > *:first-child {
+    margin-top: 0;
+}
+
+.verdicts_page__content > *:last-child {
+    margin-bottom: 0;
+}
