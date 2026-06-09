@@ -1,6 +1,17 @@
 *{
     box-sizing: border-box;
 }
+
+.page_content {
+    overflow-x: hidden;
+}
+
+@supports (overflow: clip) {
+    .page_content {
+        overflow-x: clip;
+    }
+}
+
 .home_posts{
 
 }
