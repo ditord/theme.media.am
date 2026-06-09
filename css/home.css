@@ -143,6 +143,10 @@
     margin: 0;
 }
 
+.home_posts .posts_add_banner.banner-2{
+    margin-top: 0;
+}
+
 .home_posts .posts_add_banner li,figure{
     list-style-type: none;
     height: 100%;

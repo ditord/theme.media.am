@@ -64,19 +64,19 @@ get_header();
         ?>
 
         <?php
-        $viewpoint_section_category_slug = 'crossroad';
-        $viewpoint_section_posts_count = 6;
-        include get_template_directory() . '/templates/sections/viewpoint-section.php';
+        $crossroad_section_category_slug = 'crossroad';
+        $crossroad_section_posts_count = 5;
+        include get_template_directory() . '/templates/sections/crossroad-section.php';
         ?>
 
-        <?php
-        $vox_populi_section_category_slug = 'vox-populi';
+       <!-- --><?php
+/*        $vox_populi_section_category_slug = 'vox-populi';
         $vox_populi_section_posts_count = 6;
         include get_template_directory() . '/templates/sections/vox-populi-section.php';
-        ?>
+        */?>
 
         <div class="section-container">
-            <div class="posts_add_banner">
+            <div class="posts_add_banner banner-2">
                 <?php dynamic_sidebar('advertisement-banner-2'); ?>
             </div>
         </div>
