@@ -8,15 +8,9 @@ get_header();
 
 
 <?php the_post() ?>
-<div class="page_content section-container">
+<div class="page_content single_post_page">
     <div class="main_content">
         <div class="post_section">
-            
-            <div class="post_category_container">
-                <h2 >
-                    <?php display_primary_category() ?>
-                </h2>
-            </div>
             <div class="post_meta">
                 <div class="post_date">
                     <span class="date_span">
@@ -102,36 +96,29 @@ get_header();
         </div>
         <?php include 'templates/share-buttons.php' ?>
     </div>
-    <?php get_sidebar() ?>
-    <?php if(get_post_meta(get_the_ID(), 'show_send_mail', true) === 'yes'): ?>
-    <div class="mobile_verified">
-        <?php include 'templates/verified-block.php'; ?>
-    </div>
-    <?php endif; ?>
-    <div class="posts_carousel">
-         <div class="swiper">
-            
-            <div class="swiper-wrapper">
+
+    <?php
+    $related_posts = new WP_Query(array(
+        'posts_per_page' => 3,
+        'post__not_in' => array(get_the_ID())
+    ));
+    if ($related_posts->have_posts()) : ?>
+        <section class="single_related_posts">
+            <div class="single_related_posts__grid">
                 <?php
-                    $side_Bar_Posts = new WP_Query(array(
-                        'posts_per_page' => 6,
-                        'post__not_in' => array($post->ID)
-                    ));
-                    if ($side_Bar_Posts->have_posts()) :
-                        while ($side_Bar_Posts->have_posts()) : $side_Bar_Posts->the_post();
-                        ?>
-                        <div class="swiper-slide">
-                            <?php include 'templates/post-block.php'; ?>
-                        </div>
-                         <?php   
-                        endwhile;
-                    endif;
-                    wp_reset_postdata()
+                while ($related_posts->have_posts()) :
+                    $related_posts->the_post();
+                    $category_plain_post_block_category = null;
+                    include get_template_directory() . '/templates/post-blocks/category-plain-post-block.php';
+                endwhile;
                 ?>
             </div>
-        </div>
-
-    </div>
+        </section>
+    <?php
+    endif;
+    wp_reset_postdata();
+    unset($related_posts, $category_plain_post_block_category);
+    ?>
 </div>
 
 <?php get_footer() ?>

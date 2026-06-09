@@ -1,101 +1,75 @@
-.page_content{
-    align-items: flex-start;
-    display: flex;
-    gap: 18px;
-}
-.posts_carousel{
-    display: none;
+.single_post_page.page_content{
+    display: block;
+    padding: 0 1rem;
 }
 
 .main_content{
     position: relative;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0;
+    width: 100%;
+    max-width: 43rem;
+    margin: 0 auto;
     background-color: #fff;
     border-radius: 1rem;
-    min-width: 0;
 }
 
 
 .post_section{
     position: relative;
-    padding: 70px 14px 40px 14px;
-}
-
-.post_section .post_category_container{
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 1rem;
-    border-bottom-left-radius: 0;
-    width: 100%;
-    height: 32px;
-    padding: 6px 22px;
-    background: url(../assets/shapes/category_title_background.svg) 0 0 no-repeat;
-}
-
-.post_section .post_category_container h2 {
-    margin: 0;
-    color: #fff;
-    line-height: 20px;
-    font-size: 12px;
-    font-weight: 500;
-    text-transform: uppercase;
-}
-
-.post_section .post_category_container h2 a {
-    color: #fff;
+    padding: 0 0 2.5rem 0;
 }
 
 .post_section .post_meta{
-    margin: 10px 46px 24px 46px;
+    margin: 0 0 1.5rem 0;
 }
 
 .post_section .post_meta .post_date{
     display: flex;
     gap: 0.5rem;
     z-index: 10;
-    
+    margin-bottom: 0.5rem;
 }
 .post_section .post_meta .post_date .date_separator{
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 600;
-    color: #BCBCBC;
-    line-height: 20px;
+    color: var(--media-am-color-media-dark-500);
+    line-height: 1.25rem;
 }
 .post_section .post_meta .date_span{
-    white-space: no-wrap;
-    font-size: 12px;
+    white-space: nowrap;
+    font-size: 0.75rem;
     font-weight: 500;
-    color: #BCBCBC;
-    line-height: 20px;
+    color: var(--media-am-color-media-dark-500);
+    line-height: 1.25rem;
 }
 
 .post_section .post_meta .post_date .date_bold{
     font-weight: 600;
-    color: #686868;
+    color: var(--media-am-color-media-dark-600);
 }
 
 
 
 .post_section .post_meta .post_title{
-    font-size: 28px;
-    line-height: 40px;
+    font-size: 1.75rem;
+    line-height: 2.5rem;
     margin-top: 0;
     color: #000;
     font-weight: 500;
 }   
 
 .post_section .post_image{
-    max-width: 680px;
-    margin: 0 30px 32px 30px;
+    max-width: 100%;
+    margin: 0 0 2rem 0;
+}
+
+.post_section .post_image img{
+    border-radius: 1rem;
 }
 
 .post_section .post_image figcaption{
     text-align: left;    
     margin: 0.75rem 1rem 0 1rem;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400;
     color: #BCBCBC;
 
@@ -103,19 +77,19 @@
 .post_section .post_content .wp-caption-text{
     text-align: left;    
     margin: 0.75rem 1rem 0 1rem;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400;
     color: #BCBCBC;
 }
 
 .post_section .post_content{
-    margin: 0 46px ;
+    margin: 0;
 }
 
 .post_section .post_content p, .post_section .post_content span{
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 1.5rem;
 }
 
 .post_section .post_content b span{
@@ -127,15 +101,13 @@
 }
 .post_section .post_content blockquote{
     padding: 1rem ;
-    border-left: 4px solid #A01F23;
+    border-left: 0.25rem solid #A01F23;
     background-color: #f5f5f5;
     margin: 1rem 0;
-    border-radius: 12px;
-    /* border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px; */
+    border-radius: 0.75rem;
 }
 .post_section .post_content blockquote p{
-    font-size: 14px;
+    font-size: 0.875rem;
     margin: 0;
     font-style: italic;
     font-weight: 500;
@@ -148,48 +120,34 @@
 
 
 .post_section .author_bio {
-    margin: 0 46px  32px 46px;
-    padding: 8px 12px;
+    margin: 0 0 2rem 0;
+    padding: 0.5rem 0.75rem;
     align-items: center;
 }
 .post_section .author_bio .img_container{
     flex-shrink: 0;
-    width: 52px;
-    height: 52px;
+    width: 3.25rem;
+    height: 3.25rem;
 }
 
 .post_section .author_bio .author_name{
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 .post_section .author_bio .author_meta{
-    font-size: 12px;
-}
-
-.posts_carousel .swiper{
-    padding: 20px 0;
-}
-.posts_carousel .swiper .swiper-wrapper{
-    align-items: stretch;
-}
-.posts_carousel .swiper .swiper-slide{
-    flex-grow: 1;
-}
-.posts_carousel .swiper .post-block .post_title{
-    font-size: 14px;
+    font-size: 0.75rem;
 }
 
 .main_content .share_buttons{
     display: flex;
-    gap: 10px;
-    position: absolute;
-    bottom: -21px;
-    left: 60px;
+    gap: 0.625rem;
+    position: static;
+    margin-top: -1.3125rem;
 }
 
 .main_content .share_buttons a{
     display: flex;
-    width: 42px;
-    height: 42px;
+    width: 2.625rem;
+    height: 2.625rem;
     align-items: center;
     justify-content: center;
     border-radius: 100%;
@@ -222,22 +180,22 @@
 
 
 .post_section .post_content .shortcode_post{
-    margin: 16px 0;
+    margin: 1rem 0;
 }
 .post_section .post_content .shortcode_post .post-block{
     flex-direction: row;
-    height: 156px;
-    min-height: 156px;
+    height: 9.75rem;
+    min-height: 9.75rem;
 }
 .post_section .post_content .shortcode_post .post_meta_container{
     display: flex;
     justify-content: center;
     overflow: hidden;
-    gap: 12px;
+    gap: 0.75rem;
 }
 .post_section .post_content .shortcode_post .post_img_container{
-    height: 156px;
-    width: 260px;
+    height: 9.75rem;
+    width: 16.25rem;
     flex-shrink: 0;
 }
 .ngg-imagebrowser h3{
@@ -256,47 +214,70 @@
 }
 .ngg-imagebrowser-nav .back a.ngg-browser-prev{
     background-color: #A01F23;
-    border-radius: 4px;
+    border-radius: 0.25rem;
 }
 .ngg-imagebrowser-nav .next a.ngg-browser-next{
     background-color: #A01F23;
-    border-radius: 4px;
+    border-radius: 0.25rem;
 }
 
-.mobile_verified{
-    display: none;
+.single_related_posts {
+    width: 100%;
+    max-width: 88rem;
+    margin: 4rem auto 0 auto;
+}
+
+.single_related_posts__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem 1rem;
+}
+
+.single_related_posts .category-plain-post-block__author {
+    align-self: flex-start;
+    padding: 0.75rem;
+    border: 0.0625rem solid var(--media-am-color-media-red-400);
+    border-radius: 1rem;
+    color: var(--media-am-color-media-dark-950);
+    font-size: 1rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+}
+
+.single_related_posts .category-plain-post-block__author_dummy {
+    align-self: flex-start;
+    height: 2.75rem;
 }
 
 @media (max-width:1024px) {
     .post_section .post_content .shortcode_post .post_title{
-        font-size: 14px;
+        font-size: 0.875rem;
     }
     .post_section .post_content .shortcode_post .post_img_container{
-        width: 200px;
+        width: 12.5rem;
     }   
 }
 
 @media (max-width:880px) {
-    aside{
-        display: none;
-    }
-    .page_content{
-        display: block;
-    }
-    .posts_carousel{
-        display: block;
-        margin: 32px 0;
-    }
     .post_section .post_meta .post_title{
-        font-size: 24px;
-        line-height: 32px;
+        font-size: 1.5rem;
+        line-height: 2rem;
     }
-    .mobile_verified{
-        display: block;
-        margin: 3rem 0 2rem 0;
+    .single_related_posts__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    .mobile_verified .verified_container{
-        max-width: none;
+    .single_related_posts .category-plain-post-block__author {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+    }
+    .single_related_posts .category-plain-post-block__author_dummy {
+        height: 2.25rem;
+    }
+    .single_related_posts .category-plain-post-block .plain-post-block__title {
+        font-size: 0.9375rem;
+    }
+    .single_related_posts .category-plain-post-block .plain-post-block__date {
+        font-size: 0.8125rem;
     }
 }
 @media (max-width:660px) {
@@ -311,44 +292,57 @@
 }
 @media(max-width:580px){
     .post_section .post_meta .post_title{
-        font-size: 18px;
+        font-size: 1.125rem;
     }
     .post_section .post_meta{
-        margin: 10px 10px 24px 10px;
+        margin: 0 0 1.5rem 0;
     }
     .post_section .author_bio{
         flex-direction: row;
-        margin: 0 10px 32px 10px;
+        margin: 0 0 2rem 0;
     }
     .post_section .author_bio .author_info{
         flex-direction: row;
         text-align: start;
     }
     .post_section .post_image{
-        margin: 0 12px 32px 12px;
+        margin: 0 0 2rem 0;
     }
     .post_section .post_content{
-        margin: 0 12px ;
+        margin: 0;
     }
     .post_section .post_content p , .post_section .post_content span{
-        font-size: 14px;
+        font-size: 0.875rem;
         font-weight: 400;
-        line-height: 20px;
+        line-height: 1.25rem;
     }
     .post_section .post_content .wp-caption-text{
-        font-size: 12px;
+        font-size: 0.75rem;
     }
     .post_section .post_content blockquote {
         padding: 0.5rem;
     }
     .post_section .post_content blockquote p{
-        font-size: 12px;
+        font-size: 0.75rem;
     }
     .post_section .post_image figcaption{
-        font-size: 12px;
+        font-size: 0.75rem;
     }
     .post_section .wp-caption-text{
-        font-size: 12px;
+        font-size: 0.75rem;
+    }
+    .single_related_posts__grid {
+        grid-template-columns: 1fr;
+    }
+    .single_related_posts .category-plain-post-block__author {
+        font-size: 0.8125rem;
+        line-height: 1.125rem;
+    }
+    .single_related_posts .category-plain-post-block .plain-post-block__title {
+        font-size: 0.875rem;
+    }
+    .single_related_posts .category-plain-post-block .plain-post-block__date {
+        font-size: 0.75rem;
     }
 }
 
@@ -360,14 +354,14 @@
     .post_section .post_content .shortcode_post .post_meta_container{
         display: flex;
     flex-grow: 1;
-    min-height: 150px;
+    min-height: 9.375rem;
     flex-direction: column;
     justify-content: space-between;
-    gap: 4px;
-    padding: 12px 14px 20px 14px ;
+    gap: 0.25rem;
+    padding: 0.75rem 0.875rem 1.25rem 0.875rem ;
     }
     .post_section .post_content .shortcode_post .post_img_container{
-        height: 250px;
+        height: 15.625rem;
         width:100%;
     }
     
@@ -377,11 +371,11 @@
 
     .post_section .author_bio{
         position: relative;
-        padding: 12px 12px 24px 12px ;
+        padding: 0.75rem 0.75rem 1.5rem 0.75rem ;
     }
     .post_section .author_bio .author_links{
         position: absolute;
-        right: 10px;
-        bottom: -20px;
+        right: 0.625rem;
+        bottom: -1.25rem;
     }
 }
