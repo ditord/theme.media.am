@@ -70,6 +70,18 @@
     .overlay-post-block {
         min-height: 22.5rem;
     }
+
+    .overlay-post-block__tag {
+        font-size: 0.875rem;
+    }
+
+    .overlay-post-block__title {
+        font-size: 1rem;
+    }
+
+    .overlay-post-block__date {
+        font-size: 0.8125rem;
+    }
 }
 
 @media (max-width: 520px) {
@@ -80,5 +92,17 @@
         right: 1rem;
         bottom: 1rem;
         left: 1rem;
+    }
+
+    .overlay-post-block__tag,
+    .overlay-post-block__date {
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
+
+    .overlay-post-block__title {
+        min-height: auto;
+        font-size: 0.875rem;
+        -webkit-line-clamp: 3;
     }
 }

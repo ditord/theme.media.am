@@ -47,6 +47,18 @@
     .category-plain-posts-section__featured {
         width: 100%;
     }
+
+    .category-plain-posts-section .plain-post-block__author {
+        font-size: 0.875rem;
+    }
+
+    .category-plain-posts-section .plain-post-block__title {
+        font-size: 0.9375rem;
+    }
+
+    .category-plain-posts-section .plain-post-block__date {
+        font-size: 0.8125rem;
+    }
 }
 
 @media (max-width: 620px) {
@@ -61,5 +73,18 @@
     }
     .category-plain-posts-section__grid {
         grid-template-columns: 1fr;
+    }
+
+    .category-plain-posts-section .plain-post-block__author {
+        font-size: 0.8125rem;
+        line-height: 1.125rem;
+    }
+
+    .category-plain-posts-section .plain-post-block__title {
+        font-size: 0.875rem;
+    }
+
+    .category-plain-posts-section .plain-post-block__date {
+        font-size: 0.75rem;
     }
 }

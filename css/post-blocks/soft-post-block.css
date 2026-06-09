@@ -63,3 +63,24 @@
     font-weight: 400;
     line-height: 1.25rem;
 }
+
+@media (max-width: 768px) {
+    .soft-post-block__author {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8125rem;
+        line-height: 1.125rem;
+    }
+
+    .soft-post-block__author_dummy {
+        height: 2.25rem;
+    }
+
+    .soft-post-block__title {
+        font-size: 0.875rem;
+    }
+
+    .soft-post-block__date {
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
+}

@@ -7,18 +7,15 @@ $show_verification_badge = media_am_is_verification_subcategory($category);
     <div class="main_content">
         <div class="category_posts">    
             <?php if (!$show_verification_badge) : ?>
-                <div class="title_container">
-                    <h1>
-                        <?php single_cat_title();  ?>
-                    </h1>
-                </div>
+                <h1 class="category_posts__title"><?php single_cat_title(); ?></h1>
             <?php endif; ?>
             <?php include 'templates/verification-rating-badge.php' ?>
             <?php if (have_posts()) :?>
             <div class="posts_grid">
                     <?php
                     while (have_posts()) : the_post();
-                        include 'templates/post-block.php';
+                        $category_plain_post_block_category = $category;
+                        include get_template_directory() . '/templates/post-blocks/category-plain-post-block.php';
                     endwhile; ?>
             </div>
             <div class="posts_pagination">
@@ -35,8 +32,7 @@ $show_verification_badge = media_am_is_verification_subcategory($category);
             </div>
             <?php endif; ?>
         </div>        
-    </div>
-    <?php get_sidebar() ?>        
+    </div>   
 </div>
 
 

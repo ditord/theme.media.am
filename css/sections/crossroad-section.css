@@ -140,6 +140,20 @@
     .crossroad-section__featured.viewpoint-post-block--featured .viewpoint-post-block__image {
         flex-basis: 55%;
     }
+
+    .crossroad-section__author {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+    }
+
+    .crossroad-section .plain-post-block__title {
+        font-size: 0.9375rem;
+    }
+
+    .crossroad-section .plain-post-block__date,
+    .crossroad-section__date {
+        font-size: 0.8125rem;
+    }
 }
 
 @media (max-width: 48rem) {
@@ -155,6 +169,29 @@
 
     .crossroad-section__small-card {
         padding: 1rem;
+    }
+
+    .crossroad-section__category {
+        color: var(--media-am-color-media-dark-600);
+        font-size: 0.85rem;
+    }
+
+    .crossroad-section__small-title {
+        font-size: 0.85rem;
+    }
+
+    .crossroad-section__author {
+        font-size: 0.8125rem;
+        line-height: 1.125rem;
+    }
+
+    .crossroad-section .plain-post-block__title {
+        font-size: 0.875rem;
+    }
+
+    .crossroad-section .plain-post-block__date,
+    .crossroad-section__date {
+        font-size: 0.75rem;
     }
 
     .crossroad-section__featured.viewpoint-post-block--featured {

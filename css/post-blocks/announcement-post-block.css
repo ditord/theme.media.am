@@ -75,7 +75,13 @@
 
     .announcement-post-block__title {
         min-height: auto;
-        font-size: 1rem;
+        font-size: 0.875rem;
         -webkit-line-clamp: 3;
+    }
+
+    .announcement-post-block__tag,
+    .announcement-post-block__date {
+        font-size: 0.75rem;
+        line-height: 1rem;
     }
 }
