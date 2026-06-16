@@ -1,8 +1,8 @@
-.page_content{
+.category_archive.page_content{
     display: block;
 }
 
-.main_content{
+.category_archive .main_content{
     background-color: #fff;
     border-radius: 1rem;
 }
@@ -37,6 +37,45 @@
 .category_posts .category-plain-post-block__author_dummy {
     align-self: flex-start;
     height: 2.75rem;
+}
+
+.category_archive--library.page_content {
+    width: 100%;
+    max-width: none;
+    margin: 10rem 0 0 0;
+    padding: 2rem 0 3rem 0;
+    background-color: var(--media-am-color-media-dark-900);
+}
+
+.category_archive--library .main_content {
+    background-color: transparent;
+    border-radius: 0;
+}
+
+.category_archive--library .category_posts__title {
+    color: var(--media-am-color-white);
+}
+
+.category_archive--library .posts_grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.category_archive--library .no_content p {
+    color: var(--media-am-color-media-dark-200);
+}
+
+.category_archive--library .posts_pagination .nav-links .page-numbers {
+    color: var(--media-am-color-white);
+}
+
+.category_archive--library .posts_pagination .nav-links .page-numbers.current {
+    background-color: var(--media-am-color-white);
+    color: var(--media-am-color-media-dark-900);
+}
+
+.category_archive--library .posts_pagination .nav-links .page-numbers.dots:hover {
+    background-color: transparent;
+    color: var(--media-am-color-white);
 }
 
 

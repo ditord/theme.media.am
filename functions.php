@@ -701,7 +701,8 @@ function media_am_scripts()
     if (is_category() || is_tax('author_posts') || is_date() || (is_home() && !is_front_page())) {
         wp_enqueue_style('media_am_plain_post_block_css', get_template_directory_uri() . '/css/post-blocks/plain-post-block.css', array('media_am_variables_css'), '1.0');
         wp_enqueue_style('media_am_viewpoint_post_block_css', get_template_directory_uri() . '/css/post-blocks/viewpoint-post-block.css', array('media_am_variables_css'), '1.0');
-        wp_enqueue_style('media_am_category_css', get_template_directory_uri() . '/css/category.css', array('media_am_plain_post_block_css', 'media_am_viewpoint_post_block_css'), '1.0');
+        wp_enqueue_style('media_am_play_overlay_post_block_css', get_template_directory_uri() . '/css/post-blocks/play-overlay-post-block.css', array('media_am_variables_css'), '1.0');
+        wp_enqueue_style('media_am_category_css', get_template_directory_uri() . '/css/category.css', array('media_am_plain_post_block_css', 'media_am_viewpoint_post_block_css', 'media_am_play_overlay_post_block_css'), '1.0');
     }
 
     if(is_single()){
@@ -1019,11 +1020,37 @@ function media_am_category_image_field($term = null) {
     <?php
 }
 
+function media_am_category_archive_template_field($term = null) {
+    $archive_template = 'default';
+
+    if ($term instanceof WP_Term) {
+        $saved_template = get_term_meta($term->term_id, 'media_am_category_archive_template', true);
+        if (in_array($saved_template, array('default', 'library'), true)) {
+            $archive_template = $saved_template;
+        }
+    }
+    ?>
+    <select name="media_am_category_archive_template">
+        <option value="default" <?php selected($archive_template, 'default'); ?>>
+            <?php esc_html_e('Default', 'textdomain'); ?>
+        </option>
+        <option value="library" <?php selected($archive_template, 'library'); ?>>
+            <?php esc_html_e('Library', 'textdomain'); ?>
+        </option>
+    </select>
+    <p class="description"><?php esc_html_e('Choose how this category archive should display posts.', 'textdomain'); ?></p>
+    <?php
+}
+
 function media_am_category_image_add_field() {
     ?>
     <div class="form-field term-group">
         <label><?php esc_html_e('Category image', 'textdomain'); ?></label>
         <?php media_am_category_image_field(); ?>
+    </div>
+    <div class="form-field term-group">
+        <label><?php esc_html_e('Archive template', 'textdomain'); ?></label>
+        <?php media_am_category_archive_template_field(); ?>
     </div>
     <?php
 }
@@ -1036,6 +1063,12 @@ function media_am_category_image_edit_field($term) {
             <label><?php esc_html_e('Category image', 'textdomain'); ?></label>
         </th>
         <td><?php media_am_category_image_field($term); ?></td>
+    </tr>
+    <tr class="form-field term-group-wrap">
+        <th scope="row">
+            <label><?php esc_html_e('Archive template', 'textdomain'); ?></label>
+        </th>
+        <td><?php media_am_category_archive_template_field($term); ?></td>
     </tr>
     <?php
 }
@@ -1056,6 +1089,14 @@ function media_am_save_category_image($term_id) {
         update_term_meta($term_id, 'media_am_category_image_id', $image_id);
     } else {
         delete_term_meta($term_id, 'media_am_category_image_id');
+    }
+
+    $archive_template = isset($_POST['media_am_category_archive_template']) ? sanitize_key(wp_unslash($_POST['media_am_category_archive_template'])) : 'default';
+
+    if (in_array($archive_template, array('default', 'library'), true) && $archive_template !== 'default') {
+        update_term_meta($term_id, 'media_am_category_archive_template', $archive_template);
+    } else {
+        delete_term_meta($term_id, 'media_am_category_archive_template');
     }
 }
 add_action('created_category', 'media_am_save_category_image');
