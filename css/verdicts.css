@@ -1,13 +1,21 @@
 .verdicts_page {
     width: 100%;
-    max-width: 44rem;
     margin: 0 auto;
-    padding: 1rem;
-    background-color: var(--media-am-color-white);
+}
+
+.verdicts_page__intro {
+    width: 100%;
+    max-width: 78.25rem;
+    margin: 0 auto 1.5rem auto;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    background-color: var(--media-am-color-media-dark-100);
 }
 
 .verdicts_page__title {
     margin: 0 0 1.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 500;
 }
 
 .verdicts_page__content {
@@ -20,4 +28,49 @@
 
 .verdicts_page__content > *:last-child {
     margin-bottom: 0;
+}
+
+.verdicts_page__badges {
+    display: grid;
+    width: 100%;
+    max-width: 78.25rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin: 0 auto;
+}
+
+.verdicts_page__badges .verification_rating_badge {
+    display: grid;
+    grid-template-columns: 3.25rem minmax(0, 1fr);
+    align-items: center;
+    gap: 0.75rem 1rem;
+    margin-top: 0;
+    padding: 1.5rem;
+}
+
+.verdicts_page__badges .verification_rating_badge__image {
+    width: 3.25rem;
+    height: 3.25rem;
+}
+
+.verdicts_page__badges .verification_rating_badge__content {
+    display: contents;
+}
+
+.verdicts_page__badges .verification_rating_badge__title {
+    align-self: center;
+}
+
+.verdicts_page__badges .verification_rating_badge__description {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+    .verdicts_page__intro {
+        padding: 1.25rem;
+    }
+
+    .verdicts_page__badges {
+        grid-template-columns: 1fr;
+    }
 }

@@ -38,10 +38,12 @@ foreach ($verification_parent_ids as $verification_parent_id) {
 <div class="page_content section-container">
     <main class="verdicts_page">
         <?php the_post(); ?>
-        <h1 class="verdicts_page__title"><?php the_title(); ?></h1>
+        <div class="verdicts_page__intro">
+            <h1 class="verdicts_page__title"><?php the_title(); ?></h1>
 
-        <div class="verdicts_page__content">
-            <?php the_content(); ?>
+            <div class="verdicts_page__content">
+                <?php the_content(); ?>
+            </div>
         </div>
 
         <?php if ($verification_categories) : ?>

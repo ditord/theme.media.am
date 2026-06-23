@@ -483,15 +483,23 @@
 
 #single-post-content .ays-poll-main .box-apm .apm-answers .ays-poll-maker-text-answer-main input[type=text] {
     width: 100% !important;
+    border: 0.0625rem solid transparent !important;
     border-radius: 0.75rem !important;
+    outline: 0.125rem solid transparent !important;
+    outline-offset: 0.125rem !important;
     background-color: var(--media-am-color-white) !important;
+    box-shadow: none !important;
     padding: 1rem !important;
     color: var(--media-am-color-media-dark-950) !important;
     height: 3.5rem !important;
+    transition: outline-color 0.2s ease !important;
 }
 
-#single-post-content .ays-poll-main .box-apm .apm-answers .ays-poll-maker-text-answer-main input[type=text]:focus {
-    outline: var(--media-am-color-media-red-400) 2px solid !important;
+#single-post-content .ays-poll-main .box-apm .apm-answers .ays-poll-maker-text-answer-main input[type=text]:focus,
+#single-post-content .ays-poll-main .box-apm .apm-answers .ays-poll-maker-text-answer-main input[type=text]:focus-visible {
+    border-color: transparent !important;
+    outline-color: var(--media-am-color-media-red-400) !important;
+    box-shadow: none !important;
 }
 
 #single-post-content .ays-poll-main .box-apm .apm-answers .ays-poll-maker-text-answer-main input[type=text]::placeholder {
