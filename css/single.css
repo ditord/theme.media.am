@@ -413,6 +413,11 @@
     font-weight: 600 !important;
 }
 
+/*Rating poll has no title*/
+#single-post-content .ays-poll-main .box-apm.rating-poll .apm-title-box {
+    display: none !important;
+}
+
 #single-post-content .ays-poll-main .box-apm .ays_question {
     margin: 0 0 2rem 0 !important;
 }
@@ -423,6 +428,18 @@
     font-size: 1rem !important;
     line-height: 1.35rem !important;
     font-weight: 500 !important;
+}
+
+#single-post-content .ays-poll-main .box-apm.rating-poll .ays_question {
+    margin-bottom: 2rem !important;
+}
+
+#single-post-content .ays-poll-main .box-apm.rating-poll .apm-answers {
+    margin-top: 0 !important;
+}
+
+#single-post-content .ays-poll-main .box-apm.rating-poll .ays_question p {
+    text-align: center !important;
 }
 
 #single-post-content .ays-poll-main .box-apm .apm-answers .ays_label_poll {
@@ -463,6 +480,7 @@
     background-color: var(--media-am-color-white) !important;
     padding: 1rem !important;
     color: var(--media-am-color-media-dark-950) !important;
+    height: 3.5rem !important;
 }
 
 #single-post-content .ays-poll-main .box-apm .apm-answers .ays-poll-maker-text-answer-main input[type=text]:focus {
@@ -472,6 +490,10 @@
 #single-post-content .ays-poll-main .box-apm .apm-answers .ays-poll-maker-text-answer-main input[type=text]::placeholder {
     color: var(--media-am-color-media-dark-300) !important;
     font-size: 0.875rem !important;
+}
+
+#single-post-content .ays-poll-main .box-apm .apm-rating i {
+    color: var(--media-am-color-media-red-900) !important;
 }
 
 #single-post-content [id^="ays-poll-id-"] .apm-button-box {
