@@ -710,6 +710,7 @@ function media_am_scripts()
         wp_enqueue_style('media_am_single_css', get_template_directory_uri() . '/css/single.css', array('media_am_plain_post_block_css'), '1.0');
         wp_enqueue_style('media_am_swiper_css',get_template_directory_uri().'/assets/swiper/swiper-bundle.min.css',array(),'1.0');
         wp_enqueue_script('media_am_swiper_script', get_template_directory_uri().'/assets/swiper/swiper-bundle.min.js', array(), true);
+        wp_enqueue_script('media_am_single_poll_results_js', get_template_directory_uri() . '/js/single-poll-results.js', array(), '1.0', true);
     }
     if (!is_admin() && !is_page('contact-us') && !is_single()) { 
         wp_deregister_script('jquery');           

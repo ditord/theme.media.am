@@ -1,14 +1,4 @@
 
-
-@font-face {
-    font-family: arian_amu;
-    src: url(./css/fonts/arian_amu.ttf);
-}
-
-* {
-    box-sizing: border-box;
-}
-
 /* input[type="text"],
 input[type="password"],
 input[type="date"],
