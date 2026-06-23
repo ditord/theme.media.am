@@ -89,7 +89,7 @@ get_header();
 
                 <?php include 'templates/verification-rating-badge.php' ?>
 
-                <div class="post_content">
+                <div id="single-post-content" class="post_content">
                     <?php the_content() ?>
                 </div>
             </div>

@@ -101,15 +101,14 @@
 }
 .post_section .post_content blockquote{
     padding: 1rem ;
-    border-left: 0.25rem solid #A01F23;
-    background-color: #f5f5f5;
-    margin: 1rem 0;
+    border-left: 0.125rem solid var(--media-am-color-media-red-900);
+    background-color: var(--media-am-color-media-dark-100);
+    margin: 1.5rem 0;
     border-radius: 0.75rem;
 }
 .post_section .post_content blockquote p{
     font-size: 0.875rem;
     margin: 0;
-    font-style: italic;
     font-weight: 500;
 }
 
@@ -379,3 +378,134 @@
         bottom: -1.25rem;
     }
 }
+
+
+
+/* Poll related css */
+
+#single-post-content .ays-poll-main {
+    margin: 2rem 0 !important;
+    width: auto !important;
+}
+
+#single-post-content .ays-poll-main .box-apm{
+    background-color: var(--media-am-color-media-dark-100) !important;
+    border: none !important;
+    border-radius: 1rem !important;
+    padding: 1.5rem !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+#single-post-content .ays-poll-main .box-apm .apm-title-box {
+    margin:0 0 0.75rem 0!important;
+}
+
+#single-post-content .ays-poll-main .box-apm .ays_poll_cb_and_a {
+    margin: 0 !important;
+}
+
+#single-post-content .ays-poll-main .box-apm .apm-title-box div {
+    text-align: start !important;
+    color: var(--media-am-color-media-dark-950) !important;
+    font-size: 1rem !important;
+    line-height: 1.75rem !important;
+    font-weight: 600 !important;
+}
+
+#single-post-content .ays-poll-main .box-apm .ays_question {
+    margin: 0 0 2rem 0 !important;
+}
+
+#single-post-content .ays-poll-main .box-apm .ays_question p {
+    text-align: start !important;
+    color: var(--media-am-color-media-dark-950) !important;
+    font-size: 1rem !important;
+    line-height: 1.35rem !important;
+    font-weight: 500 !important;
+}
+
+#single-post-content .ays-poll-main .box-apm .apm-answers .ays_label_poll {
+    border-radius: 0.75rem !important;
+    border: 1px solid var(--media-am-color-white) !important;
+    background-color: var(--media-am-color-white) !important;
+    padding: 1rem !important;
+}
+
+#single-post-content .ays-poll-main .box-apm .apm-answers .ays_label_poll.ays_poll_label_without_padding{
+    border-radius: 1.25rem !important;
+}
+
+#single-post-content .ays-poll-main .box-apm .apm-answers .ays_label_poll.ays_poll_label_without_padding img {
+    border-radius: 0.75rem !important;
+    max-height: 7rem !important;
+}
+
+#single-post-content .ays-poll-main .box-apm .apm-answers .ays_label_poll .ays-poll-answers * {
+    color: var(--media-am-color-media-dark-950) !important;
+    font-size: 0.875rem !important;
+}
+
+#single-post-content .ays-poll-main .box-apm .apm-answers .ays_label_poll:hover,
+#single-post-content .ays-poll-main .box-apm .apm-answers input[type=radio]:checked + label {
+    border: 1px solid var(--media-am-color-media-red-800) !important;
+    background-color: var(--media-am-color-white) !important;
+}
+
+
+#single-post-content .ays-poll-main .box-apm .apm-answers .ays-poll-maker-text-answer-main{
+    padding: 0 !important;
+}
+
+#single-post-content .ays-poll-main .box-apm .apm-answers .ays-poll-maker-text-answer-main input[type=text] {
+    width: 100% !important;
+    border-radius: 0.75rem !important;
+    background-color: var(--media-am-color-white) !important;
+    padding: 1rem !important;
+    color: var(--media-am-color-media-dark-950) !important;
+}
+
+#single-post-content .ays-poll-main .box-apm .apm-answers .ays-poll-maker-text-answer-main input[type=text]:focus {
+    outline: var(--media-am-color-media-red-400) 2px solid !important;
+}
+
+#single-post-content .ays-poll-main .box-apm .apm-answers .ays-poll-maker-text-answer-main input[type=text]::placeholder {
+    color: var(--media-am-color-media-dark-300) !important;
+    font-size: 0.875rem !important;
+}
+
+#single-post-content [id^="ays-poll-id-"] .apm-button-box {
+    margin: 10px 0 0 0 !important;
+}
+
+#single-post-content [id^="ays-poll-id-"] .apm-button-box input.btn.ays-poll-btn {
+    width: auto !important;
+    font-size: 0.875rem !important;
+    padding: 0.625rem 1.25rem !important;
+    line-height: 1 !important;
+    color: var(--media-am-color-white) !important;
+    background: var(--media-am-color-media-red-900) !important;
+    border: 0.0625rem solid var(--media-am-color-media-red-800) !important;
+    border-radius: 0.75rem !important;
+    filter: none !important;
+    transition: all 0.3s ease-in-out !important;
+    margin: 0 !important;
+}
+
+#single-post-content [id^="ays-poll-id-"] .apm-button-box input.btn.ays-poll-btn:hover {
+    background: var(--media-am-color-media-red-950) !important;
+    filter: none !important;
+}
+
+#single-post-content [id^="ays-poll-id-"] .ays_poll_passed_count {
+    display: none !important;
+}
+
+#single-post-content .ays-poll-main .box-apm .results-apm{
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0.75rem !important;
+    overflow: hidden !important;
+}
+
+/*TODO bolor nyutery ejy check*/
