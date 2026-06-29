@@ -785,14 +785,7 @@ aside{
     color: #A01F23;
     width: 120px;
 }
-@media (max-width:880px) {
-    .home_verified .verified_container{
-        max-width: none;
-    }
-    .verified_container{
-        max-width: 350px;
-    }
-}
+
 @media (max-width:768px) {
     
     .verified_container .verified_icon svg{
