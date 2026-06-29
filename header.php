@@ -30,60 +30,48 @@
     <header class="header">
         <nav class="header_nav">
             <div class="header_top">
-                <div class="header_partner_logos">
-                    <span class="header_partner_logo header_partner_logo--mic">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/mic_logo_eng.svg'); ?>" alt="">
-                    </span>
-
-                    <a class="header_partner_logo header_partner_logo--mediaethics" href="https://mediaethics.am/ethics-sign" target="_blank" rel="noopener">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/mediaethics_logo.png'); ?>" alt="Media Ethics">
-                    </a>
-                </div>
+                <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false">
+                    <img class="header_burger_icon" src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/menu-burger-with-search-icon.svg'); ?>" alt="">
+                    <img class="header_close_icon" src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/close_menu.svg'); ?>" alt="">
+                </button>
 
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="header_logo">
                     <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/media.am_logo_new.svg'); ?>" alt="<?php bloginfo('name'); ?>">
                 </a>
 
-                <div class="header_controls">
-                    <?php if (function_exists('icl_get_languages')) :
-                        $languages = icl_get_languages('skip_missing=0');
-                        $active_language = null;
-                        $other_languages = array();
+                <?php if (function_exists('icl_get_languages')) :
+                    $languages = icl_get_languages('skip_missing=0');
+                    $active_language = null;
+                    $other_languages = array();
 
-                        foreach ($languages as $language) {
-                            if (!empty($language['active'])) {
-                                $active_language = $language;
-                            } else {
-                                $other_languages[] = $language;
-                            }
+                    foreach ($languages as $language) {
+                        if (!empty($language['active'])) {
+                            $active_language = $language;
+                        } else {
+                            $other_languages[] = $language;
                         }
+                    }
 
-                        $active_language_code = $active_language['language_code'] ?? $active_language['code'] ?? ICL_LANGUAGE_CODE;
-                        $active_language_label = strtolower($active_language_code) === 'hy' ? 'hայ' : 'eng';
-                        ?>
-                        <div class="header_language_dropdown">
-                            <button class="header_language_button" type="button" aria-expanded="false">
-                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/language-switcher-icon.svg'); ?>" alt="">
-                                <span><?php echo esc_html($active_language_label); ?></span>
-                            </button>
+                    $active_language_code = $active_language['language_code'] ?? $active_language['code'] ?? ICL_LANGUAGE_CODE;
+                    $active_language_label = strtolower($active_language_code) === 'hy' ? 'հայ' : 'eng';
+                    ?>
+                    <div class="header_language_dropdown">
+                        <button class="header_language_button" type="button" aria-expanded="false">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/language-switcher-icon.svg'); ?>" alt="">
+                            <span><?php echo esc_html($active_language_label); ?></span>
+                        </button>
 
-                            <?php if (!empty($other_languages)) : ?>
-                                <div class="header_language_options">
-                                    <?php foreach ($other_languages as $language) : ?>
-                                        <a href="<?php echo esc_url($language['url']); ?>">
-                                            <?php echo esc_html($language['native_name']); ?>
-                                        </a>
-                                    <?php endforeach; ?>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                    <?php endif; ?>
-
-                    <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false">
-                        <img class="header_burger_icon" src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/menu-burger-with-search-icon.svg'); ?>" alt="">
-                        <img class="header_close_icon" src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/close_menu.svg'); ?>" alt="">
-                    </button>
-                </div>
+                        <?php if (!empty($other_languages)) : ?>
+                            <div class="header_language_options">
+                                <?php foreach ($other_languages as $language) : ?>
+                                    <a href="<?php echo esc_url($language['url']); ?>">
+                                        <?php echo esc_html($language['native_name']); ?>
+                                    </a>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
             </div>
 
             <div class="header_primary_menu">
@@ -107,16 +95,6 @@
                         'container_class' => 'header_menu_grid',
                     ));
                     ?>
-
-                    <div class="header_menu_partner_logos">
-                        <span class="header_partner_logo header_partner_logo--mic">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/mic_logo_eng.svg'); ?>" alt="">
-                        </span>
-
-                        <a class="header_partner_logo header_partner_logo--mediaethics" href="https://mediaethics.am/ethics-sign" target="_blank" rel="noopener">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/mediaethics_logo.png'); ?>" alt="Media Ethics">
-                        </a>
-                    </div>
                 </div>
             </div>
         </nav>

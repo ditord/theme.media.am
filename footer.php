@@ -91,6 +91,16 @@
             <p class="footer_description_p2">
                 <?php lang(get_theme_mod('footer_p2_arm'),get_theme_mod('footer_p2_eng'))?>
             </p>
+
+            <div class="footer_partner_logos">
+                <a class="footer_partner_logo footer_partner_logo--mic" href="https://mediainitiatives.am/en/" target="_blank" rel="noopener">
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/mic_logo_eng.svg'); ?>" alt="">
+                </a>
+
+                <a class="footer_partner_logo footer_partner_logo--mediaethics" href="https://mediaethics.am/ethics-sign" target="_blank" rel="noopener">
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/mediaethics_logo.png'); ?>" alt="Media Ethics">
+                </a>
+            </div>
         </div>
 
         <?php 

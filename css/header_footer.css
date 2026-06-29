@@ -48,33 +48,6 @@
     gap: 0.75rem;
 }
 
-.header_partner_logos,
-.header_menu_partner_logos {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.header_partner_logo {
-    display: flex;
-    align-items: center;
-    min-width: 0;
-}
-
-.header_partner_logo img {
-    display: block;
-    width: auto;
-    max-height: 1.875rem;
-}
-
-.header_partner_logo--mediaethics img {
-    max-height: 2.5rem;
-}
-
-.header_menu_partner_logos {
-    display: none;
-}
-
 .header_logo {
     display: block;
     width: 11.25rem;
@@ -108,6 +81,7 @@
     position: relative;
     width: 2.75rem!important;
     min-width: 2.75rem!important;
+    justify-self: start;
 }
 
 .hamburger:hover,
@@ -147,13 +121,6 @@
     position: relative;
     z-index: 1002;
     justify-self: end;
-}
-
-.header_controls {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 2.5rem;
 }
 
 .header_language_button span {
@@ -377,14 +344,6 @@
         grid-template-columns: 2.75rem minmax(0, 1fr) auto;
     }
 
-    .header_partner_logos {
-        display: none;
-    }
-
-    .header_controls {
-        display: contents;
-    }
-
     .hamburger {
         grid-column: 1;
         grid-row: 1;
@@ -393,16 +352,6 @@
     .header_language_dropdown {
         grid-column: 3;
         grid-row: 1;
-    }
-
-    .header_menu_partner_logos {
-        display: flex;
-        flex-wrap: wrap;
-        padding: 1rem 3rem;
-    }
-
-    .header_menu_partner_logos .header_partner_logo img {
-        max-height: 2.5rem;
     }
 
     .header_primary_menu a {
@@ -435,9 +384,6 @@
         grid-template-columns: 1fr;
     }
 
-    .header_menu_partner_logos {
-        padding: 1rem 1rem 0 1rem;
-    }
 }
 
 /* Unified expanded header */
@@ -614,9 +560,36 @@
     margin-bottom: 1.5rem;
 }
 
+.footer_partner_logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.footer_partner_logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer_partner_logo img {
+    display: block;
+    width: auto;
+    max-height: 3.75rem;
+}
+
+.footer_partner_logo--mediaethics img {
+    max-height: 4rem;
+}
+
 @media (max-width: 480px) {
     .footer_description p {
         font-size: 0.75rem;
+    }
+
+    .footer_partner_logos {
+        flex-wrap: wrap;
     }
 }
 

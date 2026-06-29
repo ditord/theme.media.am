@@ -21,15 +21,18 @@ foreach (get_the_category() as $featured_slide_category) {
     </a>
 
     <div class="featured-slide-post-block__meta">
-        <?php if ($featured_slide_category_name) : ?>
-            <a class="featured-slide-post-block__category" href="<?php echo esc_url($featured_slide_category_link); ?>">
-                <?php echo esc_html($featured_slide_category_name); ?>
-            </a>
-        <?php endif; ?>
+        <div class="featured-slide-post-block__title-wrapper">
+            <?php if ($featured_slide_category_name) : ?>
+                <a class="featured-slide-post-block__category" href="<?php echo esc_url($featured_slide_category_link); ?>">
+                    <?php echo esc_html($featured_slide_category_name); ?>
+                </a>
+            <?php endif; ?>
 
-        <a class="featured-slide-post-block__title" href="<?php the_permalink(); ?>">
-            <?php the_title(); ?>
-        </a>
+            <a class="featured-slide-post-block__title" href="<?php the_permalink(); ?>">
+                <?php the_title(); ?>
+            </a>
+        </div>
+
 
         <time class="featured-slide-post-block__date" datetime="<?php echo esc_attr(get_the_date('c')); ?>">
             <?php media_am_localized_date(get_the_date('j F Y')); ?>
