@@ -1258,3 +1258,96 @@ function save_show_send_mail_meta_box($post_id) {
     }
 }
 add_action('save_post', 'save_show_send_mail_meta_box');
+
+function media_am_add_podcast_template_meta_box() {
+    add_meta_box(
+        'media_am_podcast_template_meta_box',
+        __('Podcast page settings', 'textdomain'),
+        'media_am_render_podcast_template_meta_box',
+        'page',
+        'normal',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'media_am_add_podcast_template_meta_box');
+
+function media_am_render_podcast_template_meta_box($post) {
+    $notice = get_post_meta($post->ID, 'media_am_podcast_notice_text', true);
+
+    if ($notice === '') {
+        $legacy_notice = get_post_meta($post->ID, 'wpcf-text-after-podcast-list', false);
+        $notice = is_array($legacy_notice) ? implode('', $legacy_notice) : '';
+    }
+
+    wp_nonce_field('media_am_podcast_template_meta_box_nonce', 'media_am_podcast_template_nonce');
+    ?>
+    <div class="media-am-podcast-template-settings" data-podcast-template="page-templates/podcasts-template.php">
+        <p>
+            <label for="media_am_podcast_notice_text">
+                <?php esc_html_e('Text after podcast list', 'textdomain'); ?>
+            </label>
+        </p>
+        <textarea id="media_am_podcast_notice_text" name="media_am_podcast_notice_text" class="widefat" rows="4"><?php echo esc_textarea($notice); ?></textarea>
+        <p class="description"><?php esc_html_e('Shown in the notice block above the podcast grid.', 'textdomain'); ?></p>
+    </div>
+    <?php
+}
+
+function media_am_save_podcast_template_meta_box($post_id) {
+    if (!isset($_POST['media_am_podcast_template_nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['media_am_podcast_template_nonce'])), 'media_am_podcast_template_meta_box_nonce')) {
+        return;
+    }
+
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    if (get_post_type($post_id) !== 'page') {
+        return;
+    }
+
+    $notice = isset($_POST['media_am_podcast_notice_text']) ? sanitize_textarea_field(wp_unslash($_POST['media_am_podcast_notice_text'])) : '';
+
+    if ($notice !== '') {
+        update_post_meta($post_id, 'media_am_podcast_notice_text', $notice);
+    } else {
+        delete_post_meta($post_id, 'media_am_podcast_notice_text');
+    }
+}
+add_action('save_post_page', 'media_am_save_podcast_template_meta_box');
+
+function media_am_podcast_template_admin_script() {
+    $screen = get_current_screen();
+    if (!$screen || $screen->post_type !== 'page') {
+        return;
+    }
+    ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var settings = document.querySelector('.media-am-podcast-template-settings');
+            var templateSelect = document.getElementById('page_template');
+
+            if (!settings || !templateSelect) {
+                return;
+            }
+
+            var box = settings.closest('.postbox');
+            var podcastTemplate = settings.getAttribute('data-podcast-template');
+
+            function togglePodcastSettings() {
+                var isPodcastTemplate = templateSelect.value === podcastTemplate;
+                (box || settings).style.display = isPodcastTemplate ? '' : 'none';
+            }
+
+            templateSelect.addEventListener('change', togglePodcastSettings);
+            togglePodcastSettings();
+        });
+    </script>
+    <?php
+}
+add_action('admin_footer-post.php', 'media_am_podcast_template_admin_script');
+add_action('admin_footer-post-new.php', 'media_am_podcast_template_admin_script');

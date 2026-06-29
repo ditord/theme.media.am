@@ -848,20 +848,22 @@ aside{
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    background-color: #fff;
+    background-color: var(--media-am-color-media-dark-50);
     border-radius: 1rem;
-    border: 1px solid #F3EEEE;
     overflow: hidden;
     transition: box-shadow 0.3s ease;
+    padding: 0.5rem;
 }
-.podcast_block:hover{
+/*.podcast_block:hover{
     box-shadow: 0px 20px 25px 4px  #3E0A0C0D;
-}
+}*/
 
 .podcast_block .img_container{
     display: block;
     height: 380px;
     width: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
 }
 .podcast_block .img_container img{
     height: 100%;
@@ -897,7 +899,7 @@ aside{
     display: block;
     border-radius: 50px;
     padding: 6px 12px;
-    background-color: #f5f7FB;
+    background-color: var(--media-am-color-white);
     font-size: 12px;
     font-weight: 400;
     line-height: 20px;
