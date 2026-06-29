@@ -16,6 +16,21 @@
 
 }
 
+.home_posts .category-plain-posts-section__header h2,
+.home_posts .viewpoint-section__header h2,
+.home_posts .verified-posts-section__header h2,
+.home_posts .library-slider-section__header h2,
+.home_posts .crossroad-section__header h2,
+.home_posts .vox-populi-section__header h2,
+.home_posts .announcements-section__header h2,
+.scene-slider-section__header h2,
+.media-literacy-slider-section__header h2,
+.authors_carousel .title_container h3,
+.announcements-section__header h2 {
+    font-size: 1.5rem !important;
+    font-weight: 500 !important;
+}
+
 .posts_featured {
     width: 100%;
     margin-bottom: 4rem;
@@ -242,7 +257,7 @@
 
 .authors_carousel .title_container h3 {
     color: var(--media-am-color-gray-950);
-    font-size: 2.25rem;
+    font-size: 1.5rem;
     line-height: 1.2;
     font-weight: 700;
     text-align: start;
@@ -330,7 +345,7 @@
     }
 
     .authors_carousel .title_container h3 {
-        font-size: 1.875rem;
+        font-size: 1.5rem;
     }
 
     .authors_carousel .swiper-slide {
@@ -361,7 +376,7 @@
     }
 
     .authors_carousel .title_container h3 {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
 
     .authors_carousel .swiper-slide {

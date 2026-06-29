@@ -755,12 +755,16 @@ aside{
     }
 }
 
-
 .verified_container{
+    max-width: 90rem;
+    padding: 0 1rem;
+    margin: 0 auto 4rem 0;
+}
+
+.verified_container_inner{
     margin: 0 auto;
-    margin-bottom: 1rem;
     border: 1px solid #F3EEEE;
-    background-color: #fff;
+    background-color: var(--media-am-color-media-dark-50);
     padding: 1rem;
     border-radius: 1rem;
 }
@@ -822,8 +826,11 @@ aside{
 .verified_container .email_address{
     text-align: center;
     font-size: 14px;
-    font-weight: 500;
     color: #000;
+}
+
+.verified_container .email_address span{
+    font-weight: 500;
 }
 .not_found_container
 {

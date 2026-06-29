@@ -1,7 +1,11 @@
 <?php
 $overlay_post_block_category = isset($overlay_post_block_category) ? $overlay_post_block_category : null;
+$overlay_post_block_show_author = !empty($overlay_post_block_show_author);
 $overlay_post_block_category_name = '';
 $overlay_post_block_category_link = '';
+$overlay_post_block_author = wp_get_object_terms(get_the_ID(), 'author_posts');
+$overlay_post_block_author_name = (!is_wp_error($overlay_post_block_author) && !empty($overlay_post_block_author)) ? $overlay_post_block_author[0]->name : '';
+$overlay_post_block_author_link = (!is_wp_error($overlay_post_block_author) && !empty($overlay_post_block_author)) ? get_term_link($overlay_post_block_author[0]) : '';
 
 if ($overlay_post_block_category instanceof WP_Term) {
     $overlay_post_block_category_name = $overlay_post_block_category->name;
@@ -17,6 +21,10 @@ if ($overlay_post_block_category instanceof WP_Term) {
 if (is_wp_error($overlay_post_block_category_link)) {
     $overlay_post_block_category_link = '';
 }
+
+if (is_wp_error($overlay_post_block_author_link)) {
+    $overlay_post_block_author_link = '';
+}
 ?>
 
 <article class="overlay-post-block">
@@ -29,7 +37,11 @@ if (is_wp_error($overlay_post_block_category_link)) {
     </a>
 
     <div class="overlay-post-block__content">
-        <?php if ($overlay_post_block_category_name) : ?>
+        <?php if ($overlay_post_block_show_author && $overlay_post_block_author_name) : ?>
+            <a class="overlay-post-block__tag overlay-post-block__tag--author" href="<?php echo esc_url($overlay_post_block_author_link); ?>">
+                <?php echo esc_html($overlay_post_block_author_name); ?>
+            </a>
+        <?php elseif ($overlay_post_block_category_name) : ?>
             <a class="overlay-post-block__tag" href="<?php echo esc_url($overlay_post_block_category_link); ?>">
                 <?php echo esc_html($overlay_post_block_category_name); ?>
             </a>

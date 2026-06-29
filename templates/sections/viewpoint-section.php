@@ -23,9 +23,8 @@ if (!$viewpoint_section_posts->have_posts()) {
     return;
 }
 
-$viewpoint_section_featured_post = isset($viewpoint_section_posts->posts[0]) ? $viewpoint_section_posts->posts[0] : null;
-$viewpoint_section_side_posts = array_slice($viewpoint_section_posts->posts, 1, 3);
-$viewpoint_section_bottom_posts = array_slice($viewpoint_section_posts->posts, 4, 2);
+$viewpoint_section_large_posts = array_slice($viewpoint_section_posts->posts, 0, 2);
+$viewpoint_section_compact_posts = array_slice($viewpoint_section_posts->posts, 2, 3);
 ?>
 
 <section class="viewpoint-section">
@@ -35,44 +34,36 @@ $viewpoint_section_bottom_posts = array_slice($viewpoint_section_posts->posts, 4
         </div>
 
         <div class="viewpoint-section__layout">
-            <?php if (!empty($viewpoint_section_side_posts)) : ?>
-                <div class="viewpoint-section__side-column">
+            <?php if (!empty($viewpoint_section_large_posts)) : ?>
+                <div class="viewpoint-section__large-grid">
                     <?php
-                    foreach ($viewpoint_section_side_posts as $post) :
+                    foreach ($viewpoint_section_large_posts as $post) :
                         setup_postdata($post);
+                        $viewpoint_post_block_modifier = 'viewpoint-post-block--large';
                         include get_template_directory() . '/templates/post-blocks/viewpoint-post-block.php';
+                        unset($viewpoint_post_block_modifier);
                     endforeach;
                     ?>
                 </div>
             <?php endif; ?>
 
-            <div class="viewpoint-section__main-column">
-                <?php if ($viewpoint_section_featured_post) : ?>
+            <?php if (!empty($viewpoint_section_compact_posts)) : ?>
+                <div class="viewpoint-section__compact-column">
                     <?php
-                    $post = $viewpoint_section_featured_post;
-                    setup_postdata($post);
-                    $viewpoint_post_block_modifier = 'viewpoint-post-block--featured';
-                    include get_template_directory() . '/templates/post-blocks/viewpoint-post-block.php';
-                    unset($viewpoint_post_block_modifier);
+                    foreach ($viewpoint_section_compact_posts as $post) :
+                        setup_postdata($post);
+                        $viewpoint_post_block_modifier = 'viewpoint-post-block--compact';
+                        include get_template_directory() . '/templates/post-blocks/viewpoint-post-block.php';
+                        unset($viewpoint_post_block_modifier);
+                    endforeach;
                     ?>
-                <?php endif; ?>
-
-                <?php if (!empty($viewpoint_section_bottom_posts)) : ?>
-                    <div class="viewpoint-section__bottom-grid">
-                        <?php
-                        foreach ($viewpoint_section_bottom_posts as $post) :
-                            setup_postdata($post);
-                            include get_template_directory() . '/templates/post-blocks/viewpoint-post-block.php';
-                        endforeach;
-                        ?>
-                    </div>
-                <?php endif; ?>
-            </div>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>
 
 <?php
 wp_reset_postdata();
-unset($viewpoint_section_category_slug, $viewpoint_section_posts_count, $viewpoint_section_category, $viewpoint_section_posts, $viewpoint_section_featured_post, $viewpoint_section_side_posts, $viewpoint_section_bottom_posts);
+unset($viewpoint_section_category_slug, $viewpoint_section_posts_count, $viewpoint_section_category, $viewpoint_section_posts, $viewpoint_section_large_posts, $viewpoint_section_compact_posts);
 ?>

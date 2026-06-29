@@ -58,6 +58,10 @@ get_header();
         ?>
 
         <?php
+        include get_template_directory() . '/templates/verified-block.php';
+        ?>
+
+        <?php
         $library_slider_category_slug = 'in-the-library';
         $library_slider_posts_count = 6;
         include get_template_directory() . '/templates/sections/library-slider-section.php';

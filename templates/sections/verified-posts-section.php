@@ -39,7 +39,9 @@ $verified_section_soft_posts = array_slice($verified_section_posts->posts, 2);
                 foreach ($verified_section_overlay_posts as $post) :
                     setup_postdata($post);
                     $overlay_post_block_category = $verified_section_category;
+                    $overlay_post_block_show_author = true;
                     include get_template_directory() . '/templates/post-blocks/overlay-post-block.php';
+                    unset($overlay_post_block_show_author);
                 endforeach;
                 ?>
             </div>

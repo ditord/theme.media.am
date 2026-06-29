@@ -1,108 +1,75 @@
 .viewpoint-section {
-    padding: 5rem 0;
+    padding: 3.25rem 0;
     background-color: var(--media-am-color-section-soft);
 }
 
 .viewpoint-section__inner {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .viewpoint-section__header {
-    display: inline-flex;
-    min-width: 14.875rem;
-    min-height: 4.6875rem;
+    display: flex;
     align-items: center;
-    padding: 0.5rem;
-    border-right: 0;
-    border-radius: 2.375rem 0 0 2.375rem;
+    padding: 0 0.5rem;
 }
 
 .viewpoint-section__header h2 {
     margin: 0;
     color: var(--media-am-color-gray-950);
-    font-size: 2.25rem;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 500;
     line-height: 1.2;
 }
 
 .viewpoint-section__layout {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 2rem;
-    align-items: start;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(20rem, 1fr);
+    gap: 1.5rem;
+    align-items: stretch;
 }
 
-.viewpoint-section__side-column {
-    display: flex;
-    flex-direction: column;
-    gap: 2.25rem;
+.viewpoint-section__large-grid {
+    display: contents;
 }
 
-.viewpoint-section__main-column {
+.viewpoint-section__compact-column {
     display: flex;
     min-width: 0;
-    grid-column: span 2;
     flex-direction: column;
-    gap: 2.25rem;
-}
-
-.viewpoint-section__bottom-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 2rem;
+    gap: 1rem;
 }
 
 @media (max-width: 1280px) {
     .viewpoint-section__layout {
-        grid-template-columns: 1fr;
-        row-gap: 2.25rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .viewpoint-section__side-column {
+    .viewpoint-section__compact-column {
+        grid-column: 1 / -1;
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        order: 2;
-    }
-
-    .viewpoint-section__main-column {
-        display: contents;
-    }
-
-    .viewpoint-section__main-column > .viewpoint-post-block--featured {
-        order: 1;
-    }
-
-    .viewpoint-section__bottom-grid {
-        order: 3;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 880px) {
     .viewpoint-section {
         padding: 3rem 0;
     }
 
-    .viewpoint-section__inner {
-        gap: 1.5rem;
-    }
-
-    .viewpoint-section__header {
-        min-width: 11rem;
-        min-height: 3.75rem;
-        padding: 0.875rem 1rem;
-        border-radius: 1.875rem 0 0 1.875rem;
-    }
-
-    .viewpoint-section__header h2 {
-        font-size: 1.5rem;
-    }
-
-    .viewpoint-section__layout,
-    .viewpoint-section__side-column,
-    .viewpoint-section__bottom-grid {
+    .viewpoint-section__layout {
         grid-template-columns: 1fr;
-        row-gap: 1.5rem;
+    }
+
+    .viewpoint-section__large-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .viewpoint-section__compact-column {
+        grid-column: auto;
+        grid-template-columns: 1fr;
     }
 }
