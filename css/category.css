@@ -16,6 +16,8 @@
 .category_posts__title {
     margin: 0 0 2rem 0;
     color: var(--media-am-color-gray-950);
+    font-weight: 500;
+    font-size: 1.5rem;
 }
 
 .category_posts .posts_grid{
