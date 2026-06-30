@@ -718,6 +718,7 @@ function media_am_scripts()
     }
 
     wp_enqueue_script( 'media_am_header_js', get_template_directory_uri() . '/js/header.js', array(), true );
+    wp_enqueue_script( 'media_am_cookie_notice_js', get_template_directory_uri() . '/js/cookie-notice.js', array(), '1.0', true );
     wp_enqueue_script( 'media_am_script_js', get_template_directory_uri() . '/js/script.js', array(), true );
    
     //wp_enqueue_script('jquery','https://code.jquery.com/jquery-3.4.1.min.js','','3.4.1');

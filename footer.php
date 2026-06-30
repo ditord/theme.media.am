@@ -138,6 +138,21 @@
         </div>
     </div>
 </footer>
+<div class="cookie_notice" data-cookie-notice hidden>
+    <div class="cookie_notice__content" role="alert" aria-live="polite">
+        <div class="cookie_notice__text">
+            <p class="cookie_notice__title">
+                <?php echo esc_html(trim(return_lang(get_theme_mod('cookie_notice_title_arm', 'Մենք օգտագործում ենք քուքիներ'), get_theme_mod('cookie_notice_title_eng', 'We use cookies')))); ?>
+            </p>
+            <p class="cookie_notice__description">
+                <?php echo esc_html(trim(return_lang(get_theme_mod('cookie_notice_description_arm', 'Մենք օգտագործում ենք քուքիներ կայքի աշխատանքը բարելավելու և բովանդակությունը հարմարեցնելու համար։'), get_theme_mod('cookie_notice_description_eng', 'We use cookies to improve the website experience and personalize content.')))); ?>
+            </p>
+        </div>
+        <button class="cookie_notice__close" type="button" aria-label="<?php echo esc_attr(return_lang('Փակել քուքի ծանուցումը', 'Close cookie notice')); ?>" data-cookie-notice-dismiss>
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/close_menu.svg'); ?>" alt="">
+        </button>
+    </div>
+</div>
 <?php wp_footer() ?>
 
 

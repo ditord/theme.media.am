@@ -799,6 +799,13 @@ aside{
         height: 18px;
     }
 }
+
+@media (max-width: 620px) {
+    .verified_container{
+        margin: 0 auto 1.5rem 0;
+    }
+}
+
 .verified_container .verified_title{
     font-size: 1.25rem;
     font-weight: 500;

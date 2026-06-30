@@ -132,8 +132,8 @@ function media_am_customize_register($wp_customize){
     ));
 
 
-    $wp_customize->add_section('contacts',array(
-        'title'=>'Contacts',
+    $wp_customize->add_section('verified-block',array(
+        'title'=>'Verified block',
         'description'=>'Contact information',
         
     ));
@@ -143,9 +143,114 @@ function media_am_customize_register($wp_customize){
     ));
     $wp_customize->add_control('verified_email',array(
         'label'=>'Email for sending content for verification',
-        'section'=>'contacts',
+        'section'=>'verified-block',
         'priority'=>1,
         'type'=>'text'
+    ));
+
+    $wp_customize->add_setting('verified_title_arm',array(
+        'default'=>__('Ուղարկեք մեզ նյութեր, որոնք ստուգման կարիք ունեն')
+    ));
+    $wp_customize->add_control('verified_title_arm',array(
+        'label'=>'Verified block title arm',
+        'section'=>'verified-block',
+        'priority'=>2,
+        'type'=>'textarea'
+    ));
+
+    $wp_customize->add_setting('verified_title_eng',array(
+        'default'=>__('Send us the materials that need to be verified.')
+    ));
+    $wp_customize->add_control('verified_title_eng',array(
+        'label'=>'Verified block title eng',
+        'section'=>'verified-block',
+        'priority'=>3,
+        'type'=>'textarea'
+    ));
+
+    $wp_customize->add_setting('verified_description_arm',array(
+        'default'=>__('Ուղարկեք մեզ այն լուրերը, լուսանկարրներն ու տեսանյութները, որոնք ձեր կարծիքով ստուգման կարիք ունեն')
+    ));
+    $wp_customize->add_control('verified_description_arm',array(
+        'label'=>'Verified block description arm',
+        'section'=>'verified-block',
+        'priority'=>4,
+        'type'=>'textarea'
+    ));
+
+    $wp_customize->add_setting('verified_description_eng',array(
+        'default'=>__('Send us the articles, photos and videos that need to be verified by your opinion.')
+    ));
+    $wp_customize->add_control('verified_description_eng',array(
+        'label'=>'Verified block description eng',
+        'section'=>'verified-block',
+        'priority'=>5,
+        'type'=>'textarea'
+    ));
+
+    $wp_customize->add_setting('header_verified_title_arm',array(
+        'default'=>__('Ուղարկեք մեզ նյութեր, որոնք ստուգման կարիք ունեն')
+    ));
+    $wp_customize->add_control('header_verified_title_arm',array(
+        'label'=>'Header verified block title arm',
+        'section'=>'verified-block',
+        'priority'=>6,
+        'type'=>'textarea'
+    ));
+
+    $wp_customize->add_setting('header_verified_title_eng',array(
+        'default'=>__('Send us the materials that need to be verified.')
+    ));
+    $wp_customize->add_control('header_verified_title_eng',array(
+        'label'=>'Header verified block title eng',
+        'section'=>'verified-block',
+        'priority'=>7,
+        'type'=>'textarea'
+    ));
+
+    $wp_customize->add_section('cookie-notice',array(
+        'title'=>'Cookie notice',
+        'description'=>'Cookie notice text',
+    ));
+
+    $wp_customize->add_setting('cookie_notice_title_arm',array(
+        'default'=>__('Մենք օգտագործում ենք քուքիներ')
+    ));
+    $wp_customize->add_control('cookie_notice_title_arm',array(
+        'label'=>'Cookie notice title arm',
+        'section'=>'cookie-notice',
+        'priority'=>1,
+        'type'=>'textarea'
+    ));
+
+    $wp_customize->add_setting('cookie_notice_title_eng',array(
+        'default'=>__('We use cookies')
+    ));
+    $wp_customize->add_control('cookie_notice_title_eng',array(
+        'label'=>'Cookie notice title eng',
+        'section'=>'cookie-notice',
+        'priority'=>2,
+        'type'=>'textarea'
+    ));
+
+    $wp_customize->add_setting('cookie_notice_description_arm',array(
+        'default'=>__('Մենք օգտագործում ենք քուքիներ կայքի աշխատանքը բարելավելու և բովանդակությունը հարմարեցնելու համար։')
+    ));
+    $wp_customize->add_control('cookie_notice_description_arm',array(
+        'label'=>'Cookie notice description arm',
+        'section'=>'cookie-notice',
+        'priority'=>3,
+        'type'=>'textarea'
+    ));
+
+    $wp_customize->add_setting('cookie_notice_description_eng',array(
+        'default'=>__('We use cookies to improve the website experience and personalize content.')
+    ));
+    $wp_customize->add_control('cookie_notice_description_eng',array(
+        'label'=>'Cookie notice description eng',
+        'section'=>'cookie-notice',
+        'priority'=>4,
+        'type'=>'textarea'
     ));
 
 }

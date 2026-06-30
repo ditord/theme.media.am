@@ -41,6 +41,7 @@
 @media (max-width: 620px) {
     .media-literacy-slider-section {
         padding: 1.5rem 0;
+        margin: 1.5rem 0;
     }
 
     .media-literacy-slider-section__inner {
