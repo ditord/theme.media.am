@@ -63,7 +63,19 @@
     object-fit: cover;
 }
 
-@media (max-width: 620px) {
+@media (max-width: 768px) {
+    .announcement-post-block__title {
+        font-size: 1rem;
+    }
+
+    .announcement-post-block__tag,
+    .announcement-post-block__date {
+        font-size: 0.8125rem;
+        line-height: 1.125rem;
+    }
+}
+
+@media (max-width: 520px) {
     .announcement-post-block {
         gap: 0.75rem;
         padding: 1rem 0.625rem 0.625rem 0.625rem;

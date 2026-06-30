@@ -229,5 +229,19 @@
     .crossroad-post__author,
     .crossroad-post__tag {
         font-size: 0.8125rem;
+        line-height: 1.125rem;
+    }
+}
+
+@media (max-width: 32.5rem) {
+    .crossroad-post__title {
+        font-size: 0.875rem;
+    }
+
+    .crossroad-post__date,
+    .crossroad-post__author,
+    .crossroad-post__tag {
+        font-size: 0.75rem;
+        line-height: 1rem;
     }
 }

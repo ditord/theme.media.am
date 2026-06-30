@@ -59,6 +59,15 @@
     .verified-posts-section__soft-grid {
         grid-template-columns: 1fr;
     }
+
+    .verified-posts-section .soft-post-block__author {
+        font-size: 0.8125rem;
+        line-height: 1.125rem;
+    }
+
+    .verified-posts-section .soft-post-block__author_dummy {
+        height: 2.25rem;
+    }
 }
 
 @media (max-width: 620px) {
@@ -70,5 +79,16 @@
     }
     .verified-posts-section__header h2 {
         font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 520px) {
+    .verified-posts-section .soft-post-block__author {
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
+
+    .verified-posts-section .soft-post-block__author_dummy {
+        height: 2rem;
     }
 }

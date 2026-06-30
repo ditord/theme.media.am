@@ -48,7 +48,18 @@
     line-height: 1.25rem;
 }
 
-@media (max-width: 620px) {
+@media (max-width: 768px) {
+    .vox-compact-post-block__title {
+        font-size: 0.9375rem;
+    }
+
+    .vox-compact-post-block__date {
+        font-size: 0.8125rem;
+        line-height: 1.125rem;
+    }
+}
+
+@media (max-width: 520px) {
     .vox-compact-post-block__title {
         font-size: 0.875rem;
     }

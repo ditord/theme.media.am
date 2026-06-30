@@ -758,7 +758,7 @@ aside{
 .verified_container{
     max-width: 90rem;
     padding: 0 1rem;
-    margin: 0 auto 4rem 0;
+    margin: 0 auto 4rem auto;
 }
 
 .verified_container_inner{
@@ -819,6 +819,25 @@ aside{
     max-width: 35rem;
     margin: 1rem auto;
 }
+
+@media (max-width: 768px) {
+    .verified_container .verified_title{
+        font-size: 1rem;
+    }
+    .verified_container .verified_description{
+        font-size: 0.9375rem;
+    }
+}
+
+@media (max-width: 520px) {
+    .verified_container .verified_title{
+        font-size: 0.9375rem;
+    }
+    .verified_container .verified_description{
+        font-size: 0.75rem;
+    }
+}
+
 
 .verified_container .media_am_button{
     display: flex;

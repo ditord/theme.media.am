@@ -76,6 +76,26 @@
     }
 
     .soft-post-block__title {
+        font-size: 0.9375rem;
+    }
+
+    .soft-post-block__date {
+        font-size: 0.8125rem;
+        line-height: 1.125rem;
+    }
+}
+
+@media (max-width: 520px) {
+    .soft-post-block__author {
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
+
+    .soft-post-block__author_dummy {
+        height: 2rem;
+    }
+
+    .soft-post-block__title {
         font-size: 0.875rem;
     }
 

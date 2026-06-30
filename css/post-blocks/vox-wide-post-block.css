@@ -69,6 +69,18 @@
     line-height: 1.25rem;
 }
 
+@media (max-width: 768px) {
+    .vox-wide-post-block__tag,
+    .vox-wide-post-block__date {
+        font-size: 0.8125rem;
+        line-height: 1.125rem;
+    }
+
+    .vox-wide-post-block__title {
+        font-size: 0.9375rem;
+    }
+}
+
 @media (max-width: 620px) {
     .vox-wide-post-block {
         flex-direction: column;
@@ -90,7 +102,9 @@
     .vox-wide-post-block__content {
         padding: 0 0.375rem 0.5rem 0.375rem;
     }
+}
 
+@media (max-width: 520px) {
     .vox-wide-post-block__tag,
     .vox-wide-post-block__date {
         font-size: 0.75rem;

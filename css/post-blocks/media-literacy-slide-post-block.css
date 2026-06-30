@@ -91,7 +91,9 @@
     .media-literacy-slide-post-block__content {
         padding: 0 0.375rem 0.5rem 0.375rem;
     }
+}
 
+@media (max-width: 520px) {
     .media-literacy-slide-post-block__title {
         font-size: 0.875rem;
     }

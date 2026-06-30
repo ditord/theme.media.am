@@ -626,4 +626,12 @@
     text-align: right;
 }
 
-/*TODO bolor nyutery ejy check*/
+
+#single-post-content .hideResults p {
+    color: var(--media-am-color-media-dark-950);
+}
+
+#single-post-content .apm-loader svg, #single-post-content .apm-loader svg path{
+    fill: var(--media-am-color-media-red-900);
+    stroke: var(--media-am-color-media-red-900);
+}
