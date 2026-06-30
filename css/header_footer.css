@@ -529,6 +529,7 @@
     }
 
     .header .header_menu_grid {
+        flex: 0 0 auto;
         padding: 0 1rem;
     }
 

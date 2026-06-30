@@ -6,7 +6,7 @@
 .crossroad-section__inner {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .crossroad-section__header {
@@ -22,8 +22,7 @@
 }
 
 .crossroad-section__top {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.948fr);
+    display: flex;
     gap: 1rem;
     align-items: stretch;
 }
@@ -39,6 +38,7 @@
 }
 
 .crossroad-post--text {
+    flex: 0 0 32.5%;
     display: flex;
     min-height: 19.0625rem;
     padding: 1rem 1.25rem;
@@ -47,8 +47,8 @@
 }
 
 .crossroad-post--wide {
-    display: grid;
-    grid-template-columns: minmax(0, 1.055fr) minmax(0, 1fr);
+    display: flex;
+    flex: 0 0 67.5%;
     gap: 1rem;
     align-items: stretch;
     min-height: 19.0625rem;
@@ -58,7 +58,6 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    padding: 0.5rem;
 }
 
 .crossroad-post__media {
@@ -81,6 +80,7 @@
 }
 
 .crossroad-post--wide .crossroad-post__image {
+    flex-basis: 49%;
     aspect-ratio: 464 / 305;
     height: 100%;
 }
@@ -99,6 +99,10 @@
 .crossroad-post--text .crossroad-post__content {
     width: 100%;
     justify-content: space-between;
+}
+
+.crossroad-post--wide .crossroad-post__content{
+    flex-basis: 51%;
 }
 
 .crossroad-post--text .crossroad-post__body {
@@ -175,9 +179,11 @@
 }
 
 @media (max-width: 64rem) {
-    .crossroad-section__top,
+    .crossroad-section__top{
+        flex-direction: column;
+    }
     .crossroad-section__bottom-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .crossroad-post--text {
