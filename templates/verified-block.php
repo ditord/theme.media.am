@@ -14,7 +14,8 @@
                       fill="#A12024"/>
             </svg>
         </div>
-        <p class="verified_disclaimer"><?php lang('Ուղարկեք մեզ նյութեր, որոնք ստուգման կարիք ունեն', 'Send us the materials that need to be verified.'); ?></p>
+        <p class="verified_title"><?php lang('Ուղարկեք մեզ նյութեր, որոնք ստուգման կարիք ունեն', 'Send us the materials that need to be verified.'); ?></p>
+        <p class="verified_description"><?php lang('Ուղարկեք մեզ այն լուրերը, լուսանկարրներն ու տեսանյութները, որոնք ձեր կարծիքով ստուգման կարիք ունեն', 'Send us the articles, photos and videos that need to be verified by your opinion.'); ?></p>
         <a href="mailto:<?php echo get_theme_mod('verified_email'); ?>" class="media_am_button">
             <?php lang('ուղարկել', 'send'); ?>
         </a>
