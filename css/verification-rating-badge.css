@@ -156,7 +156,12 @@
         height: auto;
     }
 
+    .verification_rating_badge--single .verification_rating_badge__main {
+        justify-content: center;
+    }
+
     .verification_rating_badge__action {
+        justify-content: center;
         max-width: none;
         margin-left: 0;
     }
