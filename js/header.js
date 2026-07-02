@@ -7,6 +7,7 @@
     const backgroundGrey = document.querySelector('.background-grey');
     const languageDropdown = document.querySelector('.header_language_dropdown');
     const languageButton = document.querySelector('.header_language_button');
+    let lockedScrollY = 0;
 
     updateHeaderState();
     document.addEventListener('scroll', updateHeaderState, { passive: true });
@@ -65,7 +66,7 @@
       header.classList.add('menu-open');
       hamburger.classList.add('is-active');
       hamburger.setAttribute('aria-expanded', 'true');
-      //htmlElement.classList.add('no-scroll');
+      lockPageScroll();
 
       if (backgroundGrey) {
         backgroundGrey.style.display = 'block';
@@ -88,11 +89,25 @@
       header.classList.remove('menu-open');
       hamburger.classList.remove('is-active');
       hamburger.setAttribute('aria-expanded', 'false');
-      htmlElement.classList.remove('no-scroll');
+      unlockPageScroll();
 
       if (backgroundGrey) {
         backgroundGrey.style.display = 'none';
       }
+    }
+
+    function lockPageScroll() {
+      lockedScrollY = window.scrollY || window.pageYOffset || 0;
+      htmlElement.classList.add('no-scroll');
+      document.body.classList.add('no-scroll');
+      document.body.style.top = `-${lockedScrollY}px`;
+    }
+
+    function unlockPageScroll() {
+      htmlElement.classList.remove('no-scroll');
+      document.body.classList.remove('no-scroll');
+      document.body.style.top = '';
+      window.scrollTo(0, lockedScrollY);
     }
   });
 })();

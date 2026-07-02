@@ -126,7 +126,15 @@ h1{
     }
 }
 html.no-scroll{
-    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+}
+
+body.no-scroll {
+    position: fixed;
+    right: 0;
+    left: 0;
+    width: 100%;
 }
 
 body {
