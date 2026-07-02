@@ -12,7 +12,6 @@
 .verification_rating_badge:hover,
 .verification_rating_badge:focus-visible {
     background-color: var(--media-am-color-media-dark-200);
-    box-shadow: 0 1rem 1.5rem rgba(var(--media-am-color-overlay-rgb), 0.08);
     outline: none;
 }
 
@@ -59,6 +58,82 @@
     color: var(--media-am-color-media-dark-600);
 }
 
+.verification_rating_badge--single {
+    align-items: center;
+    padding: 0.5rem;
+    overflow: hidden;
+}
+
+.verification_rating_badge--single:hover,
+.verification_rating_badge--single:focus-within {
+    background-color: var(--media-am-color-media-dark-150);
+}
+
+.verification_rating_badge__main {
+    display: flex;
+    min-width: 0;
+    flex: 1 1 auto;
+    align-items: center;
+    gap: 0.75rem;
+    color: inherit;
+    text-decoration: none;
+}
+
+.verification_rating_badge--single .verification_rating_badge__image {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.75rem;
+}
+
+.verification_rating_badge--single .verification_rating_badge__content {
+    justify-content: center;
+}
+
+.verification_rating_badge--single .verification_rating_badge__title {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.verification_rating_badge__action {
+    display: flex;
+    width: 100%;
+    max-width: 12.5rem;
+    min-height: 3rem;
+    min-width: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-left: auto;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    background-color: var(--media-am-color-media-dark-200);
+    color: #3F3F3F;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.verification_rating_badge__action:hover,
+.verification_rating_badge__action:focus-visible {
+    background-color: var(--media-am-color-media-dark-300);
+    color: var(--media-am-color-media-dark-950);
+    outline: none;
+}
+
+.verification_rating_badge__action span {
+    min-width: 0;
+}
+
+.verification_rating_badge__action svg {
+    width: 1.375rem;
+    height: 1.375rem;
+    flex: 0 0 1.375rem;
+}
+
 .category_posts .verification_rating_badges {
     margin-bottom: 1.25rem;
 }
@@ -74,5 +149,15 @@
     .verification_rating_badge__image {
         width: 4rem;
         height: 4rem;
+    }
+
+    .verification_rating_badge--single {
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    .verification_rating_badge__action {
+        max-width: none;
+        margin-left: 0;
     }
 }

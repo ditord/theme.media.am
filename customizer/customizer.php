@@ -208,6 +208,26 @@ function media_am_customize_register($wp_customize){
         'type'=>'textarea'
     ));
 
+    $wp_customize->add_setting('single_verdict_badge_action_text_arm',array(
+        'default'=>__('Read about this verdict')
+    ));
+    $wp_customize->add_control('single_verdict_badge_action_text_arm',array(
+        'label'=>'Single verdict badge action text arm',
+        'section'=>'verified-block',
+        'priority'=>8,
+        'type'=>'text'
+    ));
+
+    $wp_customize->add_setting('single_verdict_badge_action_text_eng',array(
+        'default'=>__('Read about this verdict')
+    ));
+    $wp_customize->add_control('single_verdict_badge_action_text_eng',array(
+        'label'=>'Single verdict badge action text eng',
+        'section'=>'verified-block',
+        'priority'=>9,
+        'type'=>'text'
+    ));
+
     $wp_customize->add_section('cookie-notice',array(
         'title'=>'Cookie notice',
         'description'=>'Cookie notice text',

@@ -87,7 +87,11 @@ get_header();
                         <?php endif ?>
                 </div>
 
-                <?php include 'templates/verification-rating-badge.php' ?>
+                <?php
+                $verification_badge_show_single_action = true;
+                include 'templates/verification-rating-badge.php';
+                unset($verification_badge_show_single_action);
+                ?>
 
                 <div id="single-post-content" class="post_content">
                     <?php the_content() ?>
