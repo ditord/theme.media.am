@@ -2,7 +2,7 @@
 <div class="page_content section-container">
     <div class="search_content">
         <div class="title_container">
-            <span><?php lang('ՈՐՈՆՈՒՄ','SEARCH') ?></span>
+            <p><?php lang('ՈՐՈՆՈՒՄ','SEARCH') ?></p>
         </div>
         <div class="search_form">
             <?php
@@ -11,10 +11,11 @@
         </div>    
         
          <?php if (have_posts()) :?>
-            <div class="search_results">
+            <div class="posts_grid">
                 <?php
                  while (have_posts()) : the_post();
-                     include 'templates/post-block.php';
+                     $category_plain_post_block_category = null;
+                     include get_template_directory() . '/templates/post-blocks/category-plain-post-block.php';
                  endwhile; ?>
             </div>
              <?php else: ?>
@@ -33,6 +34,6 @@
              ?>
          </div>
     </div>
-    <?php get_sidebar() ?>        
+    <!-- <?php get_sidebar() ?>         -->
 </div>
 <?php get_footer(); ?>

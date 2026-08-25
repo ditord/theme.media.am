@@ -698,7 +698,7 @@ function media_am_scripts()
     if(is_page_template('page-templates/verdicts-template.php')){
         wp_enqueue_style('media_am_verdicts_css', get_template_directory_uri() . '/css/verdicts.css', array('media_am_variables_css', 'media_am_verification_rating_badge_css'), '1.0');
     }
-    if (is_category() || is_tax('author_posts') || is_date() || (is_home() && !is_front_page())) {
+    if (is_category() || is_tax('author_posts') || is_date() || is_search() || (is_home() && !is_front_page())) {
         wp_enqueue_style('media_am_plain_post_block_css', get_template_directory_uri() . '/css/post-blocks/plain-post-block.css', array('media_am_variables_css'), '1.0');
         wp_enqueue_style('media_am_viewpoint_post_block_css', get_template_directory_uri() . '/css/post-blocks/viewpoint-post-block.css', array('media_am_variables_css'), '1.0');
         wp_enqueue_style('media_am_play_overlay_post_block_css', get_template_directory_uri() . '/css/post-blocks/play-overlay-post-block.css', array('media_am_variables_css'), '1.0');

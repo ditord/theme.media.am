@@ -10,9 +10,20 @@
     max-width: 90rem;
     padding: 0.5rem;
     background-color: var(--media-am-color-white);
+    border-radius: 1.5rem;
     transform: translateX(-50%);
     transition: all 0.25s ease;
 }
+
+.header_expended {
+    max-width: 90rem;
+}
+
+.header_compact {
+    max-width: 77.5rem;
+}
+
+
 
 .header.small,
 .header.menu-open {
@@ -23,8 +34,8 @@
 }
 
 .header.menu-open {
-    border-radius: 1.5rem;
-    padding: 1.5rem;
+    border-radius: 2rem;
+    padding: 1rem;
     /*background-color: rgba(var(--media-am-color-white-rgb), 0.76);
     backdrop-filter: blur(1rem);
     */

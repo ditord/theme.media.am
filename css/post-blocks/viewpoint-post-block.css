@@ -89,14 +89,11 @@
 }
 
 .viewpoint-post-block--large .viewpoint-post-block__title {
-    min-height: 3.9375rem;
-    padding: 0 0.25rem;
+    min-height: 3.4375rem;
+    padding-inline: .25rem;
     -webkit-line-clamp: 3;
 }
 
-.viewpoint-post-block--large .viewpoint-post-block__date {
-    padding: 0 0.25rem;
-}
 
 .viewpoint-post-block--compact {
     display: grid;

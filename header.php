@@ -27,7 +27,7 @@
 <body <?php body_class(); ?>>
     <div class="background-grey"></div>
 
-    <header class="header">
+    <header class="header <?php echo is_front_page() ? 'header_expended' : 'header_compact'; ?>">
         <nav class="header_nav">
             <div class="header_top">
                 <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false">

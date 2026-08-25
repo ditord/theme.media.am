@@ -23,7 +23,7 @@ if ($play_overlay_post_block_category instanceof WP_Term) {
         </span>
 
         <span class="play-overlay-post-block__icon" aria-hidden="true">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/play.svg'); ?>" alt="">
+            <img  class="icon" src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/play.svg'); ?>" alt="play icon">
         </span>
 
         <span class="play-overlay-post-block__content">

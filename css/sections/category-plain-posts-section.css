@@ -39,6 +39,10 @@
     min-width: 0;
 }
 
+.category-plain-posts-section .plain-post-block .plain-post-block__tag{
+    display: none;
+}
+
 @media (max-width: 1024px) {
     .category-plain-posts-section__layout {
         flex-direction: column-reverse;

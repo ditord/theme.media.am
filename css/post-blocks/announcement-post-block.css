@@ -53,6 +53,7 @@
 .announcement-post-block__image {
     display: block;
     aspect-ratio: 5 / 3;
+    border-radius: 0.25rem;
     overflow: hidden;
     background-color: var(--media-am-color-image-placeholder);
 }

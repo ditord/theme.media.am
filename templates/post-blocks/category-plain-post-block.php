@@ -45,8 +45,8 @@ if (is_wp_error($category_plain_post_block_author_link)) {
             <a class="viewpoint-post-block__author category-plain-post-block__author" href="<?php echo esc_url($category_plain_post_block_author_link); ?>">
                 <span><?php echo esc_html($category_plain_post_block_author_name); ?></span>
             </a>
-        <?php else : ?>
-            <div class="category-plain-post-block__author_dummy"></div>
+<!--        --><?php //else : ?>
+<!--            <div class="category-plain-post-block__author_dummy"></div>-->
         <?php endif; ?>
 
         <a class="plain-post-block__title" href="<?php the_permalink(); ?>">

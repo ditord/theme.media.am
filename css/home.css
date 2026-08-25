@@ -349,12 +349,12 @@
     }
 
     .authors_carousel .swiper-slide {
-        width: 12.5rem;
+        width: 18.75rem;
     }
 
     .authors_carousel .swiper-slide .author_info_container,
     .authors_carousel .swiper-slide .author_image {
-        width: 11.5rem;
+        width: 17.75rem;
     }
 
     .authors_carousel .swiper-slide .author_info_container {
@@ -380,7 +380,7 @@
     }
 
     .authors_carousel .swiper-slide {
-        width: 10.75rem;
+        width: 18.75rem;
     }
 
     .authors_carousel .swiper-slide a {
@@ -389,7 +389,7 @@
 
     .authors_carousel .swiper-slide .author_info_container,
     .authors_carousel .swiper-slide .author_image {
-        width: 10rem;
+        width: 17.5rem;
     }
 
     .authors_carousel .swiper-slide .author_info_container {

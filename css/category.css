@@ -171,6 +171,7 @@
     color: #A01F23;
 }
 
+
 @media (max-width:1124px) {
     .calendar_container li thead th {
         padding: 0.5rem 0;
@@ -216,6 +217,10 @@
     .category_posts .category-plain-post-block__author {
         font-size: 0.75rem;
         line-height: 1rem;
+    }
+
+    .category_posts .category-plain-post-block__author_dummy{
+        display: none;
     }
 
     .category_posts .category-plain-post-block .plain-post-block__title {

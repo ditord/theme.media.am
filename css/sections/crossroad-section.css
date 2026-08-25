@@ -3,6 +3,7 @@
     background-color: var(--media-am-color-white);
 }
 
+
 .crossroad-section__inner {
     display: flex;
     flex-direction: column;
@@ -161,29 +162,29 @@
 }
 
 .crossroad-post__tag {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    max-width: calc(100% - 2rem);
-    overflow: hidden;
-    padding: 0.375rem 1rem;
-    border-radius: 0.5rem;
-    background-color: var(--media-am-color-media-red-700);
-    color: var(--media-am-color-white);
-    font-size: 0.875rem;
-    font-weight: 600;
-    line-height: 1.25rem;
-    text-overflow: ellipsis;
-    text-transform: uppercase;
-    white-space: nowrap;
+    /*position: absolute;*/
+    /*top: 1rem;*/
+    /*left: 1rem;*/
+    /*max-width: calc(100% - 2rem);*/
+    /*overflow: hidden;*/
+    /*padding: 0.375rem 1rem;*/
+    /*border-radius: 0.5rem;*/
+    /*background-color: var(--media-am-color-media-red-700);*/
+    /*color: var(--media-am-color-white);*/
+    /*font-size: 0.875rem;*/
+    /*font-weight: 600;*/
+    /*line-height: 1.25rem;*/
+    /*text-overflow: ellipsis;*/
+    /*text-transform: uppercase;*/
+    /*white-space: nowrap;*/
+
+    display: none;
 }
+
 
 @media (max-width: 64rem) {
     .crossroad-section__top{
         flex-direction: column;
-    }
-    .crossroad-section__bottom-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .crossroad-post--text {
@@ -199,6 +200,10 @@
 @media (max-width: 48rem) {
     .crossroad-section {
         padding: 3rem 0;
+    }
+
+    .crossroad-section__bottom-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 
     .crossroad-section__inner {
