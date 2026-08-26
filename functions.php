@@ -413,9 +413,67 @@ function get_post_primary_category($post_id, $term = 'category', $return_all_cat
     return $return;
 }
 
+function media_am_hidden_display_category_slugs()
+{
+    return array(
+        'featured-post',
+        'futured-post',
+        'futured-post-en',
+        'futured-post-en-2',
+        'uncategorized',
+        'uncategorized-hy',
+    );
+}
+
+function media_am_is_hidden_display_category($category)
+{
+    return $category instanceof WP_Term
+        && (
+            in_array($category->slug, media_am_hidden_display_category_slugs(), true)
+            || media_am_is_verification_subcategory($category)
+        );
+}
+
+function media_am_get_post_display_category($post_id = null, $preferred_category = null)
+{
+    $post_id = $post_id ? $post_id : get_the_ID();
+
+    if ($preferred_category instanceof WP_Term && !media_am_is_hidden_display_category($preferred_category)) {
+        return $preferred_category;
+    }
+
+    $primary_category = get_post_primary_category($post_id);
+    if (
+        !empty($primary_category['primary_category'])
+        && $primary_category['primary_category'] instanceof WP_Term
+        && !media_am_is_hidden_display_category($primary_category['primary_category'])
+    ) {
+        return $primary_category['primary_category'];
+    }
+
+    $categories = get_the_category($post_id);
+    foreach ($categories as $category) {
+        if (!media_am_is_hidden_display_category($category)) {
+            return $category;
+        }
+    }
+
+    return null;
+}
+
 
 function display_primary_category($withFeatured = false)
 {
+    if (!$withFeatured) {
+        $category = media_am_get_post_display_category();
+
+        if ($category instanceof WP_Term) {
+            echo '<a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
+        }
+
+        return;
+    }
+
     $category = get_the_category();
     if (ICL_LANGUAGE_CODE == 'hy') {
         $currentID = get_the_ID();
@@ -499,19 +557,10 @@ function display_primary_category($withFeatured = false)
 
 function display_category()
 {
-    $lang = (ICL_LANGUAGE_CODE == "en") ? "/en" : "";
-    $catArr = [];
-    foreach (get_the_category() as $category) {
-        array_push($catArr, $category);
-        for ($i = 0; $i < count($catArr); $i++) {
-            if ($catArr[$i]->slug == 'futured-post' || $catArr[$i]->slug == 'uncategorized'  || $catArr[$i]->slug == 'uncategorized-hy' || $catArr[$i]->slug == 'futured-post-en' || $catArr[$i]->slug == "futured-post-en-2") {
-                array_splice($catArr, $i, 1);
-            }
+    foreach (get_the_category() as $cat) {
+        if (!media_am_is_hidden_display_category($cat)) {
+            echo '<a href="' . esc_url(get_category_link($cat->term_id)) . '">' . esc_html($cat->name) . '</a>';
         }
-    }
-    foreach ($catArr as $cat) {
-
-        echo '<a href="' . $lang . '/category/' . $cat->slug . '">' . esc_html($cat->name) . '</a>';
     }
 }
 function display_category_name()
@@ -1174,12 +1223,32 @@ function custom_search_query( $query ) {
 }
 add_action( 'pre_get_posts', 'custom_search_query' );
 
-function media_am_category_posts_per_page($query) {
-    if (!is_admin() && $query->is_main_query() && $query->is_category()) {
+function media_am_archive_posts_per_page($query) {
+    if (is_admin() || !$query->is_main_query()) {
+        return;
+    }
+
+    if ($query->is_category()) {
+        $posts_per_page = 9;
+        $category = $query->get_queried_object();
+
+        if ($category instanceof WP_Term) {
+            $category_archive_template = get_term_meta($category->term_id, 'media_am_category_archive_template', true);
+
+            if ($category_archive_template === 'library') {
+                $posts_per_page = 10;
+            }
+        }
+
+        $query->set('posts_per_page', $posts_per_page);
+        return;
+    }
+
+    if ($query->is_home() && !$query->is_front_page()) {
         $query->set('posts_per_page', 9);
     }
 }
-add_action('pre_get_posts', 'media_am_category_posts_per_page');
+add_action('pre_get_posts', 'media_am_archive_posts_per_page');
 
 add_filter('get_calendar', function ($calendar_output) {
     if (is_category()) {

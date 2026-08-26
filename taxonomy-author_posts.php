@@ -1,83 +1,75 @@
 <?php
 get_header();
+$author = get_queried_object();
+$filed = get_fields($author);
+$filed = is_array($filed) ? $filed : array();
+$image = isset($filed['author_image']['url']) ? $filed['author_image']['url'] : '';
 ?>
-<div class="page_content section-container">
+<div class="page_content category_archive">
     <div class="main_content">
-        <div class="author_bio">
-            <div class="author_info">
+        <div class="section-container author_bio_container">
+            <div class="author_bio">
+                <div class="author_info">
+                    <?php if ($image) : ?>
+                        <div class="img_container">
+                            <img src="<?php echo esc_url($image); ?>" class="author_image"
+                                 alt="<?php echo esc_attr($author->name); ?>">
+                        </div>
+                    <?php endif; ?>
+
+                    <div>
+                        <h1 class="author_name">
+                            <?php echo esc_html($author->name); ?>
+                        </h1>
+                        <?php if (!empty($filed['author_meta'])) : ?>
+                            <div class="author_meta">
+                                <?php echo wp_kses_post($filed['author_meta']); ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (!empty($author->description)) : ?>
+                            <div class="author_desc">
+                                <?php echo wp_kses_post($author->description); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
                 <?php
-                //   $users = get_terms('author_posts');
-                $author = get_queried_object();
-
-                $filed = get_fields($author);
-                $image = $filed['author_image']['url'];
-                // dump($image);
-
+                $xLink = array_key_exists('author_tw_link', $filed) ? $filed['author_tw_link'] : '';
+                $facebookLink = array_key_exists('author_fb_link', $filed) ? $filed['author_fb_link'] : '';
                 ?>
-                <div class="img_container">
-                    <img src="<?php echo $image ?>" class="author_image"> 
-                </div>
-                
-                <div>
-                    <h1 class="author_name">
-                        <?php echo $author->name ?>
-                    </h1>
-                    <div class="author_meta">
-                        <?php echo $filed['author_meta'] ?>
-                    </div>
-                    <div class="author_desc">
-                        <?php echo $author->description ?>
-                    </div>
-                </div>
+                <?php include get_template_directory() . '/templates/author-links.php'; ?>
             </div>
-            <?php
-                $xLink = (array_key_exists('author_tw_link', $filed)) ? $filed['author_tw_link'] : "";
-                $facebookLink =  (array_key_exists('author_fb_link', $filed)) ? $filed['author_fb_link'] : "";
-            ?>
-            <?php include 'templates/author-links.php' ?>
         </div>
 
-        <div class="category_posts">
-            
-            <div class="title_container">
-                <h1 >
-                    <?php lang('Հոդվածներ', 'Articles') ?>
-                </h1>
-            </div>
-            <div class="posts_grid">
+        <div class="category_posts section-container">
+            <h1 class="category_posts__title">
+                <?php lang('Հոդվածներ', 'Articles'); ?>
+            </h1>
 
-                <?php
-                $author_posts = new WP_Query(array(
-                    'posts_per_page' => 8,
-                )); 
-                // dump( the_post());
-                // dump(count($author_posts->posts));
-                if (have_posts()) :
+            <?php if (have_posts()) : ?>
+                <div class="posts_grid">
+                    <?php
                     while (have_posts()) : the_post();
-                        include 'templates/post-block.php';
+                        include get_template_directory() . '/templates/post-blocks/category-plain-post-block.php';
                     endwhile;
-                else :
-                    echo '<p>No Content Found</p>';
-                endif;
-                ?>
-            </div>
-            <div class="posts_pagination">
-                 <?php the_posts_pagination(array(
-                        'mid_size'           => 2, 
-                        'prev_text'         => '', 
-                        'next_text'         => '', 
-                    )); 
-                ?>
-            </div>
+                    ?>
+                </div>
+                <div class="posts_pagination">
+                    <?php
+                    the_posts_pagination(array(
+                            'mid_size' => 2,
+                            'prev_text' => '',
+                            'next_text' => '',
+                    ));
+                    ?>
+                </div>
+            <?php else : ?>
+                <div class="no_content">
+                    <p><?php lang('Հրապարակումներ չկան', 'No Content Found'); ?></p>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
-    <?php get_sidebar() ?>
 </div>
-
-
-
-
-
-
 
 <?php get_footer(); ?>

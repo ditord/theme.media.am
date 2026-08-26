@@ -2,13 +2,9 @@
 $play_overlay_post_block_category = isset($play_overlay_post_block_category) ? $play_overlay_post_block_category : null;
 $play_overlay_post_block_category_name = '';
 
-if ($play_overlay_post_block_category instanceof WP_Term) {
-    $play_overlay_post_block_category_name = $play_overlay_post_block_category->name;
-} else {
-    $play_overlay_post_block_categories = get_the_category();
-    if (!empty($play_overlay_post_block_categories)) {
-        $play_overlay_post_block_category_name = $play_overlay_post_block_categories[0]->name;
-    }
+$play_overlay_post_block_display_category = media_am_get_post_display_category(get_the_ID(), $play_overlay_post_block_category);
+if ($play_overlay_post_block_display_category instanceof WP_Term) {
+    $play_overlay_post_block_category_name = $play_overlay_post_block_display_category->name;
 }
 ?>
 

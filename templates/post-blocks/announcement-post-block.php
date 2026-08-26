@@ -3,15 +3,10 @@ $announcement_post_block_category = isset($announcement_post_block_category) ? $
 $announcement_post_block_category_name = '';
 $announcement_post_block_category_link = '';
 
-if ($announcement_post_block_category instanceof WP_Term) {
-    $announcement_post_block_category_name = $announcement_post_block_category->name;
-    $announcement_post_block_category_link = get_term_link($announcement_post_block_category);
-} else {
-    $announcement_post_block_categories = get_the_category();
-    if (!empty($announcement_post_block_categories)) {
-        $announcement_post_block_category_name = $announcement_post_block_categories[0]->name;
-        $announcement_post_block_category_link = get_term_link($announcement_post_block_categories[0]);
-    }
+$announcement_post_block_display_category = media_am_get_post_display_category(get_the_ID(), $announcement_post_block_category);
+if ($announcement_post_block_display_category instanceof WP_Term) {
+    $announcement_post_block_category_name = $announcement_post_block_display_category->name;
+    $announcement_post_block_category_link = get_term_link($announcement_post_block_display_category);
 }
 
 if (is_wp_error($announcement_post_block_category_link)) {

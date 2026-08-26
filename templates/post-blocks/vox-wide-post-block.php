@@ -3,15 +3,10 @@ $vox_wide_post_block_category = isset($vox_wide_post_block_category) ? $vox_wide
 $vox_wide_post_block_category_name = '';
 $vox_wide_post_block_category_link = '';
 
-if ($vox_wide_post_block_category instanceof WP_Term) {
-    $vox_wide_post_block_category_name = $vox_wide_post_block_category->name;
-    $vox_wide_post_block_category_link = get_term_link($vox_wide_post_block_category);
-} else {
-    $vox_wide_post_block_categories = get_the_category();
-    if (!empty($vox_wide_post_block_categories)) {
-        $vox_wide_post_block_category_name = $vox_wide_post_block_categories[0]->name;
-        $vox_wide_post_block_category_link = get_term_link($vox_wide_post_block_categories[0]);
-    }
+$vox_wide_post_block_display_category = media_am_get_post_display_category(get_the_ID(), $vox_wide_post_block_category);
+if ($vox_wide_post_block_display_category instanceof WP_Term) {
+    $vox_wide_post_block_category_name = $vox_wide_post_block_display_category->name;
+    $vox_wide_post_block_category_link = get_term_link($vox_wide_post_block_display_category);
 }
 
 if (is_wp_error($vox_wide_post_block_category_link)) {

@@ -1,13 +1,11 @@
 <?php
+$featured_slide_category = media_am_get_post_display_category();
 $featured_slide_category_name = '';
 $featured_slide_category_link = '';
 
-foreach (get_the_category() as $featured_slide_category) {
-    if (!in_array($featured_slide_category->slug, array('featured-post', 'uncategorized', 'uncategorized-hy'), true)) {
-        $featured_slide_category_name = $featured_slide_category->name;
-        $featured_slide_category_link = get_category_link($featured_slide_category->term_id);
-        break;
-    }
+if ($featured_slide_category instanceof WP_Term) {
+    $featured_slide_category_name = $featured_slide_category->name;
+    $featured_slide_category_link = get_category_link($featured_slide_category->term_id);
 }
 ?>
 
