@@ -493,7 +493,7 @@
     align-self: flex-start;
     flex-direction: column;
     gap: 0.875rem;
-    padding: 2rem 1.25rem;
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
     border-radius: 1rem;
     background-color: var(--media-am-color-media-dark-200);
 }

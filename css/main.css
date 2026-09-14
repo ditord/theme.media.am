@@ -232,6 +232,120 @@ img {
     background-color: #911b1f;
 }
 
+.media_am_toast {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 1200;
+    width: min(28rem, calc(100vw - 2rem));
+    animation: media-am-toast-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) 0.8s both;
+}
+
+.media_am_toast.is-closing {
+    animation: media-am-toast-out 0.24s ease-in both;
+}
+
+.media_am_toast[hidden] {
+    display: none;
+}
+
+.media_am_toast__content {
+    position: relative;
+    min-height: 4rem;
+    padding: 1.25rem 3.5rem 1.25rem 1.25rem;
+    border-radius: 1.5rem;
+    background-color: #2E3444CC;
+    backdrop-filter: blur(1.5rem);
+    box-shadow: 0 1rem 2.5rem rgba(var(--media-am-color-overlay-rgb), 0.18);
+}
+
+.media_am_toast__title {
+    margin: 0;
+    color: var(--media-am-color-white);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1.35;
+    text-align: start;
+}
+
+.media_am_toast__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: var(--media-am-color-white);
+    cursor: pointer;
+}
+
+.media_am_toast__close:hover {
+    background-color: var(--media-am-color-media-dark-100);
+}
+
+.media_am_toast__close img {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+}
+
+@keyframes media-am-toast-in {
+    from {
+        opacity: 0;
+        transform: translateY(1rem) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes media-am-toast-out {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(0.75rem) scale(0.98);
+    }
+}
+
+@media (max-width: 48rem) {
+    .media_am_toast {
+        right: 0.5rem;
+        bottom: 0.5rem;
+        width: min(24rem, calc(100vw - 1rem));
+    }
+
+    .media_am_toast__content {
+        min-height: 0;
+        padding: 1rem 3rem 1rem 1rem;
+        border-radius: 1rem;
+    }
+
+    .media_am_toast__title {
+        font-size: 0.8125rem;
+    }
+
+    .media_am_toast__close {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .media_am_toast__close img {
+        width: 0.75rem;
+        height: 0.75rem;
+    }
+}
+
 
 .post-block {
     position: relative;

@@ -16,9 +16,8 @@
         </div>
         <p class="verified_title"><?php lang(get_theme_mod('verified_title_arm', 'Ուղարկեք մեզ նյութեր, որոնք ստուգման կարիք ունեն'), get_theme_mod('verified_title_eng', 'Send us the materials that need to be verified.')); ?></p>
         <p class="verified_description"><?php lang(get_theme_mod('verified_description_arm', 'Ուղարկեք մեզ այն լուրերը, լուսանկարրներն ու տեսանյութները, որոնք ձեր կարծիքով ստուգման կարիք ունեն'), get_theme_mod('verified_description_eng', 'Send us the articles, photos and videos that need to be verified by your opinion.')); ?></p>
-        <a href="mailto:<?php echo get_theme_mod('verified_email'); ?>" class="media_am_button">
+        <a href="<?php echo esc_url(media_am_material_verification_url()); ?>" class="media_am_button">
             <?php lang('ուղարկել', 'send'); ?>
         </a>
-        <p class="email_address"> <?php lang('էլ․ հասցե՝ ', 'email: '); ?><span ><?php echo get_theme_mod('verified_email'); ?></span></p>
     </div>
 </div>

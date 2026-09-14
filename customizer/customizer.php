@@ -132,9 +132,16 @@ function media_am_customize_register($wp_customize){
     ));
 
 
+    $wp_customize->add_panel('verified',array(
+        'title'=>'Verified',
+        'description'=>'Verified customization settings',
+        'priority'=>160,
+    ));
+
     $wp_customize->add_section('verified-block',array(
         'title'=>'Verified block',
         'description'=>'Contact information',
+        'panel'=>'verified',
         
     ));
 
@@ -227,6 +234,70 @@ function media_am_customize_register($wp_customize){
         'priority'=>9,
         'type'=>'text'
     ));
+
+    $wp_customize->add_section('verified-form',array(
+        'title'=>'Verified form',
+        'description'=>'Verified form labels',
+        'panel'=>'verified',
+    ));
+
+    $verified_form_fields = array(
+        'verified_form_textarea_1_label' => array(
+            'label'=>'Textarea 1 label',
+            'type'=>'textarea',
+            'default_arm'=>'Պնդումը, որը ձեր կարծիքով կասկածելի է։',
+            'default_eng'=>'The claim that you think is suspicious.',
+        ),
+        'verified_form_textarea_2_label' => array(
+            'label'=>'Textarea 2 label',
+            'type'=>'textarea',
+            'default_arm'=>'Որտեղի՞ց եք այդ մասին տեղեկացել։ Ուղարկեք մեզ բովանդակության (տեսքտ, պատկեր, տեսանյութ) հղումը։',
+            'default_eng'=>'Where did you learn about it? Send us the link to the content (text, image, video).',
+        ),
+        'verified_form_name_input_label' => array(
+            'label'=>'Name input label',
+            'type'=>'text',
+            'default_arm'=>'Ձեր անունը։',
+            'default_eng'=>'Your name.',
+        ),
+        'verified_form_contact_input_label' => array(
+            'label'=>'Contact input label',
+            'type'=>'text',
+            'default_arm'=>'Ինչպես կապ հաստատել ձեզ հետ (հեռախոսահամար, էլ․ փոստի հասցե)։',
+            'default_eng'=>'How to contact you (phone number, email address).',
+        ),
+        'verified_form_agree_input_label' => array(
+            'label'=>'Agree input label',
+            'type'=>'text',
+            'default_arm'=>'Համաձա՞յն եք, որ ձեր անունը հրապարակվի նյութում։',
+            'default_eng'=>'Do you agree to have your name published in the article?',
+        ),
+    );
+
+    $verified_form_priority = 1;
+    foreach ($verified_form_fields as $verified_form_setting_id => $verified_form_field) {
+        $wp_customize->add_setting($verified_form_setting_id . '_arm',array(
+            'default'=>__($verified_form_field['default_arm'])
+        ));
+        $wp_customize->add_control($verified_form_setting_id . '_arm',array(
+            'label'=>$verified_form_field['label'] . ' arm',
+            'section'=>'verified-form',
+            'priority'=>$verified_form_priority,
+            'type'=>$verified_form_field['type']
+        ));
+        $verified_form_priority++;
+
+        $wp_customize->add_setting($verified_form_setting_id . '_eng',array(
+            'default'=>__($verified_form_field['default_eng'])
+        ));
+        $wp_customize->add_control($verified_form_setting_id . '_eng',array(
+            'label'=>$verified_form_field['label'] . ' eng',
+            'section'=>'verified-form',
+            'priority'=>$verified_form_priority,
+            'type'=>$verified_form_field['type']
+        ));
+        $verified_form_priority++;
+    }
 
     $wp_customize->add_section('cookie-notice',array(
         'title'=>'Cookie notice',

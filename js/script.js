@@ -44,6 +44,38 @@
         });
       
       }
+
+      const toast = document.querySelector('[data-media-am-toast]');
+      if (toast) {
+        if (window.history && window.history.replaceState) {
+          const currentUrl = new URL(window.location.href);
+          currentUrl.searchParams.delete('material_verification_success');
+          window.history.replaceState({}, document.title, currentUrl.toString());
+        }
+
+        let toastClosed = false;
+        let toastTimer = null;
+        const closeToast = function () {
+          if (toastClosed) {
+            return;
+          }
+
+          toastClosed = true;
+          toast.classList.add('is-closing');
+          setTimeout(function () {
+            toast.hidden = true;
+          }, 240);
+        };
+
+        toastTimer = setTimeout(closeToast, 5000);
+
+        document.addEventListener('click', function (event) {
+          if (event.target.closest('[data-media-am-toast-close]')) {
+            clearTimeout(toastTimer);
+            closeToast();
+          }
+        });
+      }
     
     
       document.querySelectorAll('.post-block, .podcast_block').forEach(function(postBlock) {
