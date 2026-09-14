@@ -46,10 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['material_verification
         }
     }
 
-    if (empty($recipients)) {
-        $material_verification_errors['form'] = true;
-    }
-
     if (empty($material_verification_errors)) {
         $agree_text = $material_verification_values['agree'] === 'yes' ? 'Yes' : 'No';
         $message = "Sender name: {$material_verification_values['name']}\n";
@@ -58,25 +54,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['material_verification
         $message .= "Suspicious claim:\n{$material_verification_values['claim']}\n\n";
         $message .= "Source / content link:\n{$material_verification_values['source']}\n";
 
-        $sent = wp_mail(
-            $recipients,
-            'Verification Material Form',
-            $message,
-            array('Content-Type: text/plain; charset=UTF-8')
-        );
+        $material_verification_mail_sent = false;
 
-        if ($sent) {
-            $material_verification_redirect_url = home_url('/');
+        if (empty($recipients)) {
+            error_log('Media.am material verification form: no valid recipient emails configured in verified_email.');
+        } else {
+            $material_verification_mail_sent = wp_mail(
+                $recipients,
+                'Verification Material Form',
+                $message,
+                array('Content-Type: text/plain; charset=UTF-8')
+            );
 
-            if (has_filter('wpml_home_url')) {
-                $material_verification_redirect_url = apply_filters('wpml_home_url', $material_verification_redirect_url);
+            if (!$material_verification_mail_sent) {
+                error_log('Media.am material verification form: wp_mail returned false for subject "Verification Material Form" to recipients: ' . implode(', ', $recipients));
             }
-
-            wp_safe_redirect(add_query_arg('material_verification_success', '1', $material_verification_redirect_url));
-            exit;
         }
 
-        $material_verification_errors['form'] = true;
+        $material_verification_redirect_url = home_url('/');
+
+        if (has_filter('wpml_home_url')) {
+            $material_verification_redirect_url = apply_filters('wpml_home_url', $material_verification_redirect_url);
+        }
+
+        $material_verification_toast_arg = $material_verification_mail_sent ? 'material_verification_success' : 'material_verification_error';
+
+        wp_safe_redirect(add_query_arg($material_verification_toast_arg, '1', $material_verification_redirect_url));
+        exit;
     }
 }
 

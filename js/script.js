@@ -50,6 +50,7 @@
         if (window.history && window.history.replaceState) {
           const currentUrl = new URL(window.location.href);
           currentUrl.searchParams.delete('material_verification_success');
+          currentUrl.searchParams.delete('material_verification_error');
           window.history.replaceState({}, document.title, currentUrl.toString());
         }
 

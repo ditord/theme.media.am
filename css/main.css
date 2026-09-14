@@ -259,6 +259,10 @@ img {
     box-shadow: 0 1rem 2.5rem rgba(var(--media-am-color-overlay-rgb), 0.18);
 }
 
+.media_am_toast--warning .media_am_toast__content {
+    background-color: #A01F23E6;
+}
+
 .media_am_toast__title {
     margin: 0;
     color: var(--media-am-color-white);

@@ -846,22 +846,33 @@ function media_am_scripts()
 
     wp_enqueue_script( 'media_am_header_js', get_template_directory_uri() . '/js/header.js', array(), true );
     wp_enqueue_script( 'media_am_cookie_notice_js', get_template_directory_uri() . '/js/cookie-notice.js', array(), '1.0', true );
-    wp_enqueue_script( 'media_am_script_js', get_template_directory_uri() . '/js/script.js', array(), '1.2', true );
+    wp_enqueue_script( 'media_am_script_js', get_template_directory_uri() . '/js/script.js', array(), '1.3', true );
    
     //wp_enqueue_script('jquery','https://code.jquery.com/jquery-3.4.1.min.js','','3.4.1');
 }
 add_action('wp_enqueue_scripts', 'media_am_scripts');
 
-function media_am_material_verification_success_toast()
+function media_am_material_verification_toast()
 {
-    if (!isset($_GET['material_verification_success']) || $_GET['material_verification_success'] !== '1') {
+    $toast_type = '';
+    $toast_message = '';
+
+    if (isset($_GET['material_verification_success']) && $_GET['material_verification_success'] === '1') {
+        $toast_type = 'success';
+        $toast_message = return_lang('Ձեր հայտն ուղարկված է։', 'Your submission has been sent.');
+    } elseif (isset($_GET['material_verification_error']) && $_GET['material_verification_error'] === '1') {
+        $toast_type = 'warning';
+        $toast_message = return_lang('Խնդրում ենք փորձել ավելի ուշ։', 'Please try again later.');
+    }
+
+    if (!$toast_type || !$toast_message) {
         return;
     }
     ?>
-    <div class="media_am_toast media_am_toast--success" role="status" aria-live="polite" data-media-am-toast>
+    <div class="media_am_toast media_am_toast--<?php echo esc_attr($toast_type); ?>" role="status" aria-live="polite" data-media-am-toast>
         <div class="media_am_toast__content">
             <p class="media_am_toast__title">
-                <?php echo esc_html(return_lang('Ձեր հայտն ուղարկված է։', 'Your submission has been sent.')); ?>
+                <?php echo esc_html($toast_message); ?>
             </p>
             <button type="button" class="media_am_toast__close" aria-label="<?php echo esc_attr(return_lang('Փակել', 'Close')); ?>" data-media-am-toast-close>
                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/close_menu.svg'); ?>" alt="">
@@ -870,7 +881,7 @@ function media_am_material_verification_success_toast()
     </div>
     <?php
 }
-add_action('wp_footer', 'media_am_material_verification_success_toast');
+add_action('wp_footer', 'media_am_material_verification_toast');
 
 
 
