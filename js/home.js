@@ -10,6 +10,10 @@
     slidesPerView: 'auto',
     spaceBetween: 36,
     autoplay: false,
+    pagination: {
+      el: '.authors_carousel .swiper-pagination',
+      clickable: true,
+    },
     breakpoints: {
       0: {
         spaceBetween: 16,
@@ -31,6 +35,10 @@
     spaceBetween: 24,
     initialSlide: 0,
     autoplay: false,
+    pagination: {
+      el: '.posts_featured__swiper .swiper-pagination',
+      clickable: true,
+    },
     breakpoints: {
       0: {
         spaceBetween: 16,
@@ -47,6 +55,10 @@
     slidesPerView: 'auto',
     spaceBetween: 24,
     autoplay: false,
+    pagination: {
+      el: '.library-slider-section__swiper .swiper-pagination',
+      clickable: true,
+    },
   });
 
   const sceneSwiper = new Swiper('.scene-slider-section__swiper', {
@@ -55,6 +67,10 @@
     slidesPerView: 'auto',
     spaceBetween: 24,
     autoplay: false,
+    pagination: {
+      el: '.scene-slider-section__swiper .swiper-pagination',
+      clickable: true,
+    },
   });
 
   const mediaLiteracySwiper = new Swiper('.media-literacy-slider-section__swiper', {
@@ -63,6 +79,10 @@
     slidesPerView: 'auto',
     spaceBetween: 24,
     autoplay: false,
+    pagination: {
+      el: '.media-literacy-slider-section__swiper .swiper-pagination',
+      clickable: true,
+    },
   });
 
   })

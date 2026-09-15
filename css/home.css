@@ -46,6 +46,66 @@
     height: min(34.375rem, calc((100vw - 2rem) * 0.6111));
 }
 
+.home .swiper-pagination,
+.page-template-home-template .swiper-pagination {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    line-height: 1;
+}
+
+.home .swiper-pagination-bullet,
+.page-template-home-template .swiper-pagination-bullet {
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 0 !important;
+    border-radius: 999rem;
+    background-color: var(--media-am-color-media-dark-200);
+    opacity: 1;
+    transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+.home .swiper-pagination-bullet-active,
+.page-template-home-template .swiper-pagination-bullet-active {
+    width: 1.5rem;
+    /*background-color: var(--media-am-color-media-red-950);*/
+}
+
+.home .library-slider-section .swiper-pagination-bullet,
+.home .scene-slider-section .swiper-pagination-bullet,
+.page-template-home-template .library-slider-section .swiper-pagination-bullet,
+.page-template-home-template .scene-slider-section .swiper-pagination-bullet {
+    background-color: rgba(255, 255, 255, 0.36);
+    backdrop-filter: blur(0.5rem);
+}
+
+.home .library-slider-section .swiper-pagination-bullet-active,
+.home .scene-slider-section .swiper-pagination-bullet-active,
+.page-template-home-template .library-slider-section .swiper-pagination-bullet-active,
+.page-template-home-template .scene-slider-section .swiper-pagination-bullet-active {
+    background-color: rgba(255, 255, 255, 0.92);
+}
+
+.home .library-slider-section .swiper-pagination,
+.home .scene-slider-section .swiper-pagination,
+.page-template-home-template .library-slider-section .swiper-pagination,
+.page-template-home-template .scene-slider-section .swiper-pagination {
+    justify-content: flex-end;
+    padding-inline: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .home .library-slider-section .swiper-pagination,
+    .home .scene-slider-section .swiper-pagination,
+    .page-template-home-template .library-slider-section .swiper-pagination,
+    .page-template-home-template .scene-slider-section .swiper-pagination {
+        justify-content: center;
+    }
+}
+
 .featured-slide-post-block {
     position: relative;
     display: block;

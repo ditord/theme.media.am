@@ -17,7 +17,7 @@ get_header();
                         <span class="date_bold"><?php lang('Հրապարակվել է ՝ ','Published ')?></span>
                         <?php media_am_localized_date(get_the_date('j F Y')) ?>
                     </span>
-                    <?php if (get_the_date('j F Y') !== get_the_modified_date('j F Y')): ?>
+                    <?php if (get_the_date('j F Y') !== get_the_modified_date('j F Y') && get_post_meta(get_the_ID(), 'hide_updated_date', true) !== 'yes'): ?>
                     <span class="date_separator">
                         |
                     </span>

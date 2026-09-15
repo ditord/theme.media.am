@@ -44,6 +44,7 @@ if (!$library_slider_posts->have_posts()) {
                 endwhile;
                 ?>
             </div>
+            <div class="swiper-pagination"></div>
         </div>
     </div>
 </section>

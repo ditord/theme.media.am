@@ -792,7 +792,7 @@ function media_am_scripts()
     wp_enqueue_style('media_am_verification_rating_badge_css', get_template_directory_uri().'/css/verification-rating-badge.css',array('media_am_variables_css'),'1.0');
    
     if (is_page_template('page-templates/home-template.php')) {
-        wp_enqueue_style('media_am_home_css', get_template_directory_uri() . '/css/home.css', array('media_am_variables_css'), '1.0');
+        wp_enqueue_style('media_am_home_css', get_template_directory_uri() . '/css/home.css', array('media_am_variables_css'), '1.4');
         wp_enqueue_style('media_am_plain_post_block_css', get_template_directory_uri() . '/css/post-blocks/plain-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
         wp_enqueue_style('media_am_category_plain_posts_section_css', get_template_directory_uri() . '/css/sections/category-plain-posts-section.css', array('media_am_variables_css', 'media_am_plain_post_block_css'), '1.0');
         wp_enqueue_style('media_am_overlay_post_block_css', get_template_directory_uri() . '/css/post-blocks/overlay-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
@@ -813,7 +813,7 @@ function media_am_scripts()
         wp_enqueue_style('media_am_vox_populi_section_css', get_template_directory_uri() . '/css/sections/vox-populi-section.css', array('media_am_vox_wide_post_block_css', 'media_am_vox_compact_post_block_css'), '1.0');
         wp_enqueue_style('media_am_swiper_css',get_template_directory_uri().'/assets/swiper/swiper-bundle.min.css',array(),'1.0');
         wp_enqueue_script('media_am_swiper_script', get_template_directory_uri().'/assets/swiper/swiper-bundle.min.js', array(), true);
-        wp_enqueue_script( 'media_am_home_js', get_template_directory_uri() . '/js/home.js', array(), true );
+        wp_enqueue_script( 'media_am_home_js', get_template_directory_uri() . '/js/home.js', array(), '1.1', true );
     }
     if(is_page_template('page-templates/podcasts-template.php') || is_singular('podcast')){
         wp_enqueue_style('media_am_podcasts_css', get_template_directory_uri() . '/css/podcasts.css', array(), '1.0');
@@ -1387,7 +1387,7 @@ add_filter('get_calendar', function ($calendar_output) {
 function add_show_send_mail_meta_box() {
     add_meta_box(
         'show_send_mail_meta_box',    // ID
-        __('Verified', 'textdomain'), // Title
+        __('Post Settings', 'textdomain'), // Title
         'render_show_send_mail_meta_box', // Callback function
         'post',                       // Screen to display (posts)
         'side',                       // Context (side column)
@@ -1401,16 +1401,26 @@ function render_show_send_mail_meta_box($post) {
     // Retrieve current value of 'show_send_mail'
     $show_send_mail = get_post_meta($post->ID, 'show_send_mail', true);
     $checked = ($show_send_mail === 'yes') ? 'checked' : ''; // Checkbox checked if 'yes'
+    $hide_updated_date = get_post_meta($post->ID, 'hide_updated_date', true);
+    $hide_updated_date_checked = ($hide_updated_date === 'yes') ? 'checked' : '';
 
     // Nonce field for security
     wp_nonce_field('show_send_mail_meta_box_nonce', 'show_send_mail_nonce');
 
     // Render the checkbox
     ?>
+    <?php /*
     <p>
         <label>
             <input type="checkbox" name="show_send_mail" value="yes" <?php echo $checked; ?>>
             <?php _e('Show send materials for verification', 'textdomain'); ?>
+        </label>
+    </p>
+    */ ?>
+    <p>
+        <label>
+            <input type="checkbox" name="hide_updated_date" value="yes" <?php echo $hide_updated_date_checked; ?>>
+            <?php _e('Hide Updated date', 'textdomain'); ?>
         </label>
     </p>
     <?php
@@ -1429,11 +1439,19 @@ function save_show_send_mail_meta_box($post_id) {
         return;
     }
 
+    /*
     // Check if checkbox is set
     if (isset($_POST['show_send_mail']) && $_POST['show_send_mail'] === 'yes') {
         update_post_meta($post_id, 'show_send_mail', 'yes'); // Add post meta
     } else {
         delete_post_meta($post_id, 'show_send_mail'); // Remove post meta
+    }
+    */
+
+    if (isset($_POST['hide_updated_date']) && $_POST['hide_updated_date'] === 'yes') {
+        update_post_meta($post_id, 'hide_updated_date', 'yes');
+    } else {
+        delete_post_meta($post_id, 'hide_updated_date');
     }
 }
 add_action('save_post', 'save_show_send_mail_meta_box');

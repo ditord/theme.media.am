@@ -27,6 +27,7 @@ get_header();
                                 </div>
                             <?php endwhile; ?>
                         </div>
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
                 <?php
@@ -170,6 +171,7 @@ get_header();
                         // endif;
                     endforeach; ?>
                 </div>
+                <div class="swiper-pagination"></div>
 
             </div>
         </div>
