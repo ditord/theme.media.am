@@ -490,7 +490,8 @@
     display: flex;
     flex: 0 0 calc(25% - 1rem);
     min-width: 16rem;
-    align-self: flex-start;
+    align-self: stretch;
+    justify-content: space-between;
     flex-direction: column;
     gap: 0.875rem;
     padding: 1rem 0.5rem 0.5rem 0.5rem;
