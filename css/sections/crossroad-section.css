@@ -7,7 +7,7 @@
 .crossroad-section__inner {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .crossroad-section__header {
