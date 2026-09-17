@@ -52,6 +52,15 @@ function media_am_customize_register($wp_customize){
         'priority'=>1,
         'type'=>'text'
     ));
+    $wp_customize->add_setting('footer_tiktok',array(
+        'default'=>__('#')
+    ));
+    $wp_customize->add_control('footer_tiktok',array(
+        'label'=>'TikTok url',
+        'section'=>'footer',
+        'priority'=>1,
+        'type'=>'text'
+    ));
     $wp_customize->add_setting('footer_vim',array(
         'default'=>__('#')
     ));

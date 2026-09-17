@@ -19,16 +19,49 @@
 .home_posts .category-plain-posts-section__header h2,
 .home_posts .viewpoint-section__header h2,
 .home_posts .verified-posts-section__header h2,
-.home_posts .library-slider-section__header h2,
 .home_posts .crossroad-section__header h2,
 .home_posts .vox-populi-section__header h2,
 .home_posts .announcements-section__header h2,
-.scene-slider-section__header h2,
 .media-literacy-slider-section__header h2,
 .authors_carousel .title_container h3,
 .announcements-section__header h2 {
+    font-size: 1.25rem !important;
+    font-weight: 500 !important;
+}
+
+.home_posts .category-plain-posts-section__header h2 a,
+.home_posts .viewpoint-section__header h2 a,
+.home_posts .verified-posts-section__header h2 a,
+.home_posts .crossroad-section__header h2 a,
+.home_posts .vox-populi-section__header h2 a,
+.home_posts .announcements-section__header h2 a,
+.media-literacy-slider-section__header h2 a,
+.announcements-section__header h2 a {
+    display: inline-block;
+    padding: 1rem 1.25rem;
+    border-left: 1px solid var(--media-am-color-media-red-950);
+    border-bottom: 1px solid var(--media-am-color-media-red-950);
+    border-radius: 9999rem 9999rem 0 9999rem;
+    color: inherit;
+    font-size: 1.25rem;
+    font-weight: inherit;
+    line-height: inherit;
+    text-decoration: none;
+}
+
+.home_posts .library-slider-section__header h2,
+.scene-slider-section__header h2 {
     font-size: 1.5rem !important;
     font-weight: 500 !important;
+}
+
+.home_posts .library-slider-section__header h2 a,
+.scene-slider-section__header h2 a {
+    color: inherit;
+    font-size: 1.5rem;
+    font-weight: inherit;
+    line-height: inherit;
+    text-decoration: none;
 }
 
 .posts_featured {

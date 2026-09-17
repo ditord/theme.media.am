@@ -27,7 +27,11 @@ if (!$media_literacy_slider_posts->have_posts()) {
 <section class="media-literacy-slider-section">
     <div class="media-literacy-slider-section__inner section-container">
         <div class="media-literacy-slider-section__header">
-            <h2><?php echo esc_html($media_literacy_slider_category->name); ?></h2>
+            <h2>
+                <a href="<?php echo esc_url(get_category_link($media_literacy_slider_category->term_id)); ?>">
+                    <?php echo esc_html($media_literacy_slider_category->name); ?>
+                </a>
+            </h2>
         </div>
 
         <div class="media-literacy-slider-section__swiper swiper">

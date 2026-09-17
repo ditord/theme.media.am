@@ -30,7 +30,11 @@ $section_grid_posts = array_slice($section_posts->posts, 1);
 <section class="category-plain-posts-section">
     <div class="category-plain-posts-section__inner section-container">
         <div class="category-plain-posts-section__header">
-            <h2><?php echo esc_html($section_category->name); ?></h2>
+            <h2>
+                <a href="<?php echo esc_url(get_category_link($section_category->term_id)); ?>">
+                    <?php echo esc_html($section_category->name); ?>
+                </a>
+            </h2>
         </div>
 
         <div class="category-plain-posts-section__layout">

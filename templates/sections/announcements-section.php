@@ -27,7 +27,11 @@ if (!$announcements_section_posts->have_posts()) {
 <section class="announcements-section">
     <div class="announcements-section__inner section-container">
         <div class="announcements-section__header">
-            <h2><?php echo esc_html($announcements_section_category->name); ?></h2>
+            <h2>
+                <a href="<?php echo esc_url(get_category_link($announcements_section_category->term_id)); ?>">
+                    <?php echo esc_html($announcements_section_category->name); ?>
+                </a>
+            </h2>
         </div>
 
         <div class="announcements-section__grid">

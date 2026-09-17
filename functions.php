@@ -792,7 +792,7 @@ function media_am_scripts()
     wp_enqueue_style('media_am_verification_rating_badge_css', get_template_directory_uri().'/css/verification-rating-badge.css',array('media_am_variables_css'),'1.0');
    
     if (is_page_template('page-templates/home-template.php')) {
-        wp_enqueue_style('media_am_home_css', get_template_directory_uri() . '/css/home.css', array('media_am_variables_css'), '1.4');
+        wp_enqueue_style('media_am_home_css', get_template_directory_uri() . '/css/home.css', array('media_am_variables_css'), '1.6');
         wp_enqueue_style('media_am_plain_post_block_css', get_template_directory_uri() . '/css/post-blocks/plain-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
         wp_enqueue_style('media_am_category_plain_posts_section_css', get_template_directory_uri() . '/css/sections/category-plain-posts-section.css', array('media_am_variables_css', 'media_am_plain_post_block_css'), '1.0');
         wp_enqueue_style('media_am_overlay_post_block_css', get_template_directory_uri() . '/css/post-blocks/overlay-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');

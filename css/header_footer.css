@@ -663,6 +663,18 @@
     fill: #A01F23;
 }
 
+.footer_soc_links_icon {
+    display: block;
+    width: 25px;
+    height: 25px;
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+.footer_soc_links a:hover .footer_soc_links_icon {
+    color: #A01F23;
+}
+
 @media (max-width: 900px) {
     .footer_soc_links_flex {
         gap: 2rem;

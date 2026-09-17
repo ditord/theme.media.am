@@ -30,7 +30,11 @@ $vox_populi_compact_posts = array_slice($vox_populi_section_posts->posts, 2);
 <section class="vox-populi-section">
     <div class="vox-populi-section__inner section-container">
         <div class="vox-populi-section__header">
-            <h2><?php echo esc_html($vox_populi_section_category->name); ?></h2>
+            <h2>
+                <a href="<?php echo esc_url(get_category_link($vox_populi_section_category->term_id)); ?>">
+                    <?php echo esc_html($vox_populi_section_category->name); ?>
+                </a>
+            </h2>
         </div>
 
         <?php if (!empty($vox_populi_wide_posts)) : ?>

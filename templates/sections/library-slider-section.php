@@ -27,7 +27,11 @@ if (!$library_slider_posts->have_posts()) {
 <section class="library-slider-section">
     <div class="library-slider-section__inner section-container">
         <div class="library-slider-section__header">
-            <h2><?php echo esc_html($library_slider_category->name); ?></h2>
+            <h2>
+                <a href="<?php echo esc_url(get_category_link($library_slider_category->term_id)); ?>">
+                    <?php echo esc_html($library_slider_category->name); ?>
+                </a>
+            </h2>
         </div>
 
         <div class="library-slider-section__swiper swiper">

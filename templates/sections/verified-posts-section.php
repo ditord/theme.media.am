@@ -30,7 +30,11 @@ $verified_section_soft_posts = array_slice($verified_section_posts->posts, 2);
 <section class="verified-posts-section">
     <div class="verified-posts-section__inner section-container">
         <div class="verified-posts-section__header">
-            <h2><?php echo esc_html($verified_section_category->name); ?></h2>
+            <h2>
+                <a href="<?php echo esc_url(get_category_link($verified_section_category->term_id)); ?>">
+                    <?php echo esc_html($verified_section_category->name); ?>
+                </a>
+            </h2>
         </div>
 
         <?php if (!empty($verified_section_overlay_posts)) : ?>

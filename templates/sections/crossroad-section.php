@@ -48,7 +48,11 @@ $crossroad_get_author = function ($post_id) {
 <section class="crossroad-section">
     <div class="crossroad-section__inner section-container">
         <div class="crossroad-section__header">
-            <h2><?php echo esc_html($crossroad_section_category->name); ?></h2>
+            <h2>
+                <a href="<?php echo esc_url(get_category_link($crossroad_section_category->term_id)); ?>">
+                    <?php echo esc_html($crossroad_section_category->name); ?>
+                </a>
+            </h2>
         </div>
 
         <div class="crossroad-section__top">

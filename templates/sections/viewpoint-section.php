@@ -30,7 +30,11 @@ $viewpoint_section_compact_posts = array_slice($viewpoint_section_posts->posts, 
 <section class="viewpoint-section">
     <div class="viewpoint-section__inner section-container">
         <div class="viewpoint-section__header">
-            <h2><?php echo esc_html($viewpoint_section_category->name); ?></h2>
+            <h2>
+                <a href="<?php echo esc_url(get_category_link($viewpoint_section_category->term_id)); ?>">
+                    <?php echo esc_html($viewpoint_section_category->name); ?>
+                </a>
+            </h2>
         </div>
 
         <div class="viewpoint-section__layout">
