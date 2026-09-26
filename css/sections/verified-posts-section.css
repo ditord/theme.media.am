@@ -1,0 +1,94 @@
+.verified-posts-section {
+    background-color: var(--media-am-color-white);
+    padding: 4rem 0;
+}
+
+.verified-posts-section__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.verified-posts-section__header {
+    padding: 0.5rem;
+}
+
+.verified-posts-section__header h2 {
+    margin: 0;
+    color: var(--media-am-color-gray-950);
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.verified-posts-section__overlay-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.verified-posts-section__soft-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.verified-posts-section .soft-post-block__author {
+    padding: 0.5rem 0.75rem;
+    border: 0;
+    border-radius: 0.75rem;
+    background-color: var(--media-am-color-white);
+    color: var(--media-am-color-media-dark-950);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+}
+
+.verified-posts-section .soft-post-block__author_dummy {
+    height: 2.75rem;
+}
+
+@media (max-width: 1024px) {
+    .verified-posts-section__soft-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .verified-posts-section__overlay-grid,
+    .verified-posts-section__soft-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .verified-posts-section .soft-post-block__author {
+        font-size: 0.8125rem;
+        line-height: 1.125rem;
+    }
+
+    .verified-posts-section .soft-post-block__author_dummy {
+        height: 2.25rem;
+    }
+}
+
+@media (max-width: 620px) {
+    .verified-posts-section {
+        padding: 1.5rem 0;
+    }
+    .verified-posts-section__inner {
+        gap: 1.25rem;
+    }
+    .verified-posts-section__header h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 520px) {
+    .verified-posts-section .soft-post-block__author {
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
+
+    .verified-posts-section .soft-post-block__author_dummy {
+        height: 2rem;
+    }
+}

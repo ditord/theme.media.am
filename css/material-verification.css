@@ -1,0 +1,135 @@
+.material_verification_page_content h1 {
+    margin: 0 0 1.5rem 0;
+}
+
+.material_verification_form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.material_verification_form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.material_verification_form__field label,
+.material_verification_form__field legend {
+    margin-left: 0.5rem;
+    color: #0F172A;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+}
+
+.material_verification_form__field input[type="text"],
+.material_verification_form__field textarea {
+    width: 100%;
+    max-width: 100%;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #F6F6F6;
+    padding: 0.75rem 1rem;
+    color: #0F172A;
+    font: inherit;
+    outline: none;
+}
+
+.material_verification_form__field textarea {
+    min-height: 8rem;
+    resize: vertical;
+}
+
+.material_verification_form__field input[type="text"]:focus,
+.material_verification_form__field textarea:focus {
+    box-shadow: 0 0 0 0.125rem #F3EEEE;
+}
+
+.material_verification_form__field.is-danger label,
+.material_verification_form__field.is-danger legend {
+    color: #A01F23;
+}
+
+.material_verification_form__field.is-danger input[type="text"],
+.material_verification_form__field.is-danger textarea {
+    box-shadow: 0 0 0 0.125rem #A01F23;
+}
+
+.material_verification_form__options {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.material_verification_form__options label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0;
+    cursor: pointer;
+}
+
+.material_verification_form__options input {
+    position: absolute;
+    width: 0.0625rem;
+    height: 0.0625rem;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.material_verification_form__options span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #F6F6F6;
+    color: #0F172A;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.material_verification_form__options input:checked + span {
+    background-color: #A01F23;
+    color: #fff;
+}
+
+.material_verification_form__field.is-danger .material_verification_form__options span {
+    box-shadow: 0 0 0 0.125rem #A01F23;
+}
+
+.material_verification_form__options input:focus-visible + span {
+    box-shadow: 0 0 0 0.125rem #F3EEEE;
+}
+
+.material_verification_form__submit {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    justify-content: center;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+}
+
+.material_verification_form__submit svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    flex-shrink: 0;
+}
+
+@media (max-width: 520px) {
+    .material_verification_form__options {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}

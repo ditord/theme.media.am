@@ -1,31 +1,41 @@
 .page-template-podcasts-template .page_content{
-    max-width: 75rem;
+    max-width: 78.25rem;
     padding: 0 0.75rem;
 }
-.podcasts_content{
-    max-width: 648px;
-    padding: 0 0.5rem;
+.podcasts_intro{
+    width: 100%;
+    max-width: 78.25rem;
+    margin: 0 auto 1.5rem auto;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    background-color: var(--media-am-color-media-dark-100);
 }
-.podcasts_content h1{
-    text-transform: uppercase;
+.podcasts_intro h1{
+    margin: 0 0 1.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 500;
 }
-.podcasts_content p{
-    margin-block-end: 1.5rem;
+.podcasts_content > *:first-child {
+    margin-top: 0;
+}
+.podcasts_content > *:last-child {
+    margin-bottom: 0;
 }
 .podcasts_main{
-    margin-top: 4rem;
+    margin-top: 3.25rem;
 }
 .podcasts_main .podcasts_notice{
     padding: 1rem 3rem;
     border: 1px solid #A01F23;
     border-radius: 12px;
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
 }
 
 .podcasts_main .podcasts_notice p{
     font-weight: 500;
-    font-size: 14px;
+    font-size: 16px;
     margin: 0;
+    font-style: normal;
     color: #000;
 }
 
@@ -100,6 +110,36 @@
     margin-bottom: 20px;
 }
 
+.single_podcast_page .podcast_content {
+    margin: 0;
+}
+
+.single_podcast_page .podcast_content iframe {
+    display: block;
+    max-width: 100%;
+    border-radius: 1rem;
+}
+
+.single_podcast_page .podcast_content .podcast_players {
+    margin: 2rem 0 0 0;
+}
+
+.single_podcast_page .podcast_content .podcast_desc {
+    margin: 2rem 0 0 0;
+}
+
+.single_podcast_related {
+    width: 100%;
+    max-width: 88rem;
+    margin: 4rem auto 0 auto;
+}
+
+.single_podcast_related__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem 1rem;
+}
+
 
 
 .podcast_content .podcast_players .player_icon{
@@ -154,6 +194,9 @@
 
 
 @media (max-width:768px) {
+    .podcasts_intro{
+        padding: 1.25rem;
+    }
     .podcasts_main .podcasts_notice{
         padding: 1rem ;
         margin-bottom: 2rem;
@@ -176,6 +219,9 @@
     .page-template-podcasts-template .page_content{
         padding: 0 1rem;
     }
+    .single_podcast_related__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width:620px) {
@@ -185,5 +231,11 @@
     }
     .podcast_content{
         margin: 0 1rem;
+    }
+    .single_podcast_page .podcast_content {
+        margin: 0;
+    }
+    .single_podcast_related__grid {
+        grid-template-columns: 1fr;
     }
 }

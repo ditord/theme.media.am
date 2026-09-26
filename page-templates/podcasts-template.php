@@ -30,17 +30,25 @@ function sortByOrder($a, $b) {
 //usort($loop->posts, 'sortByOrder');
 
 ?>
-<div class="page_content"> 
-    <div class="podcasts_content">
-        <?php the_content() ?>
+<div class="page_content section-container"> 
+    <div class="podcasts_intro">
+        <!--<h1 class="podcasts_intro__title"><?php /*the_title(); */?></h1>-->
+
+        <div class="podcasts_content">
+            <?php the_content() ?>
+        </div>
     </div>
 
     <div class="podcasts_main">
         <div class="podcasts_notice">
             <?php 
-            $tapl = implode(get_post_meta($pageID, "wpcf-text-after-podcast-list", false)); 
+            $tapl = get_post_meta($pageID, 'media_am_podcast_notice_text', true);
+
+            if ($tapl === '') {
+                $tapl = implode(get_post_meta($pageID, "wpcf-text-after-podcast-list", false));
+            }
             ?>
-            <p><?php echo $tapl; ?></p>
+            <p><?php echo esc_html($tapl); ?></p>
         </div>
         <div class="podcasts_grid">
             <?php

@@ -1,0 +1,23 @@
+.media-am-category-image-field {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.media-am-category-image-preview {
+    display: none;
+    width: 8rem;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.media-am-category-image-preview.has-image {
+    display: block;
+}
+
+.media-am-category-image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

@@ -1,7 +1,7 @@
 <?php $autor = wp_get_object_terms($post->ID, "author_posts");
 // dump($post);
 $catname_han = "";
-if(is_object($cat) && property_exists($cat,"name")){
+if(isset($cat) && is_object($cat) && property_exists($cat,"name")){
     $catname_han = $cat->name;
 }
 

@@ -358,6 +358,48 @@ function return_lang($text1, $text2)
         return $text2;
     }
 }
+
+function media_am_material_verification_url()
+{
+    $url = home_url('/material-verification/');
+    $pages = get_pages(array(
+        'meta_key' => '_wp_page_template',
+        'meta_value' => 'page-material-verification.php',
+        'number' => 1,
+        'post_status' => 'publish',
+    ));
+
+    if (!empty($pages)) {
+        $page_id = $pages[0]->ID;
+
+        if (has_filter('wpml_object_id')) {
+            $translated_page_id = apply_filters('wpml_object_id', $page_id, 'page', true, ICL_LANGUAGE_CODE);
+            $page_id = $translated_page_id ? $translated_page_id : $page_id;
+        }
+
+        $url = get_permalink($page_id);
+    }
+
+    if (has_filter('wpml_permalink')) {
+        $url = apply_filters('wpml_permalink', $url, ICL_LANGUAGE_CODE);
+    }
+
+    return $url;
+}
+
+function media_am_verified_send_icon()
+{
+    ?>
+    <svg width="18" height="18" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <path d="M54.6583 1.10959C54.5174 0.951418 54.3329 0.838481 54.1279 0.785011C53.9229 0.73154 53.7067 0.739927 53.5065 0.809117L4.05659 17.9792C3.88446 18.0386 3.73028 18.1408 3.60855 18.2762C3.48682 18.4117 3.40155 18.5758 3.36076 18.7533C3.31998 18.9307 3.32502 19.1157 3.37541 19.2906C3.42579 19.4656 3.51988 19.6249 3.6488 19.7535L13.2068 29.2829L16.5335 43.8274C16.5335 43.8274 16.5335 43.8918 16.5693 43.9275C16.5859 43.9865 16.6074 44.0439 16.6337 44.0992C16.6622 44.1371 16.6933 44.1729 16.7267 44.2066L16.7839 44.2781C16.8348 44.3238 16.8899 44.3645 16.9485 44.3997L17.0057 44.4426C17.0869 44.4869 17.1735 44.5206 17.2633 44.5428C17.3393 44.5512 17.4161 44.5512 17.4922 44.5428C17.573 44.552 17.6546 44.552 17.7354 44.5428L29.1822 41.6811L33.2028 44.3783C33.3308 44.4642 33.4758 44.5215 33.628 44.5463C33.7801 44.5712 33.9358 44.563 34.0845 44.5222C34.2331 44.4815 34.3713 44.4092 34.4895 44.3103C34.6078 44.2114 34.7033 44.0882 34.7696 43.949L54.83 2.28288C54.9199 2.09208 54.9515 1.87904 54.9209 1.67037C54.8904 1.4617 54.7991 1.26665 54.6583 1.10959ZM26.8642 40.1358L20.4254 41.7527L23.5447 37.9252L26.8642 40.1358ZM33.4246 41.953L24.6464 36.0579L40.8507 14.7241C41.0009 14.527 41.0782 14.2841 41.0697 14.0364C41.0611 13.7888 40.9671 13.5518 40.8037 13.3656C40.6402 13.1794 40.4174 13.0555 40.173 13.0149C39.9286 12.9744 39.6776 13.0196 39.4628 13.143L30.4127 18.2868C30.1651 18.4273 29.9834 18.6603 29.9076 18.9347C29.8318 19.209 29.8681 19.5023 30.0085 19.7499C30.1489 19.9975 30.3819 20.1792 30.6563 20.255C30.9307 20.3308 31.2239 20.2945 31.4715 20.1541L35.9787 17.5929L18.0931 41.1088L15.4103 29.2757L26.9858 22.6938C27.2334 22.5534 27.4151 22.3204 27.4909 22.046C27.5667 21.7717 27.5305 21.4784 27.39 21.2308C27.2496 20.9832 27.0166 20.8015 26.7422 20.7257C26.4679 20.6499 26.1746 20.6862 25.927 20.8266L14.3515 27.4085L6.37455 19.4101L51.7823 3.6708L33.4246 41.953Z" fill="currentColor"/>
+        <path d="M12.5982 35.6423C12.7119 35.5586 12.808 35.4535 12.881 35.3327C12.954 35.212 13.0026 35.078 13.0238 34.9385C13.0451 34.799 13.0386 34.6566 13.0049 34.5196C12.9711 34.3826 12.9107 34.2536 12.8271 34.1399C12.7435 34.0262 12.6383 33.9301 12.5176 33.8571C12.3968 33.784 12.2629 33.7355 12.1233 33.7143C11.9838 33.693 11.8415 33.6994 11.7045 33.7332C11.5675 33.7669 11.4384 33.8273 11.3247 33.9109L4.26353 39.0906C4.14938 39.1733 4.05264 39.2776 3.97882 39.3977C3.90499 39.5177 3.85554 39.6512 3.83329 39.7904C3.81103 39.9295 3.81641 40.0717 3.84911 40.2088C3.88181 40.3459 3.94119 40.4752 4.02387 40.5894C4.10655 40.7035 4.21089 40.8003 4.33096 40.8741C4.45103 40.9479 4.58446 40.9974 4.72364 41.0196C4.86281 41.0419 5.00501 41.0365 5.14211 41.0038C5.27921 40.9711 5.40853 40.9117 5.52268 40.8291L12.5982 35.6423Z" fill="currentColor"/>
+        <path d="M3.00408 49.2497L0.900744 50.9309C0.790822 51.0192 0.699371 51.1283 0.631613 51.252C0.563854 51.3756 0.521114 51.5114 0.505834 51.6516C0.490555 51.7918 0.503035 51.9336 0.54256 52.0689C0.582086 52.2043 0.647883 52.3305 0.736196 52.4404C0.82451 52.5504 0.933609 52.6418 1.05727 52.7096C1.18092 52.7773 1.31671 52.8201 1.45689 52.8353C1.59706 52.8506 1.73887 52.8381 1.87422 52.7986C2.00957 52.7591 2.13581 52.6933 2.24574 52.605L4.34907 50.9237C4.46793 50.8391 4.56827 50.7311 4.64396 50.6063C4.71965 50.4816 4.76911 50.3427 4.7893 50.1982C4.80949 50.0537 4.8 49.9065 4.7614 49.7658C4.72281 49.6251 4.65591 49.4937 4.56482 49.3797C4.47372 49.2657 4.36033 49.1715 4.23159 49.1028C4.10284 49.0342 3.96144 48.9924 3.81602 48.9803C3.67061 48.9681 3.52424 48.9857 3.38587 49.032C3.24749 49.0783 3.12002 49.1524 3.01124 49.2497H3.00408Z" fill="currentColor"/>
+        <path d="M13.1485 42.5105C13.0603 42.4005 12.9512 42.309 12.8275 42.2412C12.7039 42.1734 12.568 42.1306 12.4279 42.1153C12.2877 42.1 12.1458 42.1125 12.0105 42.1521C11.8751 42.1917 11.7489 42.2575 11.639 42.3459L5.32897 47.3897C5.21904 47.478 5.12759 47.5871 5.05983 47.7107C4.99208 47.8344 4.94934 47.9702 4.93406 48.1103C4.91878 48.2505 4.93126 48.3923 4.97078 48.5277C5.01031 48.663 5.07611 48.7893 5.16442 48.8992C5.25273 49.0091 5.36183 49.1006 5.48549 49.1683C5.60914 49.2361 5.74494 49.2788 5.88511 49.2941C6.02528 49.3094 6.16709 49.2969 6.30244 49.2574C6.43779 49.2179 6.56404 49.1521 6.67396 49.0637L12.984 44.02C13.094 43.9318 13.1855 43.8227 13.2533 43.699C13.3211 43.5754 13.3638 43.4396 13.3791 43.2994C13.3944 43.1592 13.3819 43.0173 13.3423 42.882C13.3028 42.7466 13.2369 42.6204 13.1485 42.5105Z" fill="currentColor"/>
+        <path d="M16.9126 46.6381L9.415 52.6262C9.21048 52.809 9.08376 53.0633 9.06087 53.3366C9.03798 53.61 9.12067 53.8818 9.29194 54.0961C9.46321 54.3104 9.71005 54.451 9.98175 54.489C10.2535 54.5269 10.5294 54.4594 10.7528 54.3003L18.2505 48.3122C18.3693 48.2275 18.4696 48.1195 18.5453 47.9948C18.621 47.87 18.6705 47.7311 18.6907 47.5866C18.7109 47.4421 18.7014 47.295 18.6628 47.1543C18.6242 47.0135 18.5573 46.8822 18.4662 46.7682C18.3751 46.6542 18.2617 46.56 18.133 46.4913C18.0042 46.4226 17.8628 46.3809 17.7174 46.3687C17.572 46.3565 17.4256 46.3741 17.2872 46.4205C17.1489 46.4668 17.0214 46.5408 16.9126 46.6381Z" fill="currentColor"/>
+    </svg>
+    <?php
+}
+
 function display_media_outlet($arg, $hy, $en)
 {
     if (strlen($arg) != 0) {
@@ -413,9 +455,67 @@ function get_post_primary_category($post_id, $term = 'category', $return_all_cat
     return $return;
 }
 
+function media_am_hidden_display_category_slugs()
+{
+    return array(
+        'featured-post',
+        'futured-post',
+        'futured-post-en',
+        'futured-post-en-2',
+        'uncategorized',
+        'uncategorized-hy',
+    );
+}
+
+function media_am_is_hidden_display_category($category)
+{
+    return $category instanceof WP_Term
+        && (
+            in_array($category->slug, media_am_hidden_display_category_slugs(), true)
+            || media_am_is_verification_subcategory($category)
+        );
+}
+
+function media_am_get_post_display_category($post_id = null, $preferred_category = null)
+{
+    $post_id = $post_id ? $post_id : get_the_ID();
+
+    if ($preferred_category instanceof WP_Term && !media_am_is_hidden_display_category($preferred_category)) {
+        return $preferred_category;
+    }
+
+    $primary_category = get_post_primary_category($post_id);
+    if (
+        !empty($primary_category['primary_category'])
+        && $primary_category['primary_category'] instanceof WP_Term
+        && !media_am_is_hidden_display_category($primary_category['primary_category'])
+    ) {
+        return $primary_category['primary_category'];
+    }
+
+    $categories = get_the_category($post_id);
+    foreach ($categories as $category) {
+        if (!media_am_is_hidden_display_category($category)) {
+            return $category;
+        }
+    }
+
+    return null;
+}
+
 
 function display_primary_category($withFeatured = false)
 {
+    if (!$withFeatured) {
+        $category = media_am_get_post_display_category();
+
+        if ($category instanceof WP_Term) {
+            echo '<a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
+        }
+
+        return;
+    }
+
     $category = get_the_category();
     if (ICL_LANGUAGE_CODE == 'hy') {
         $currentID = get_the_ID();
@@ -499,19 +599,10 @@ function display_primary_category($withFeatured = false)
 
 function display_category()
 {
-    $lang = (ICL_LANGUAGE_CODE == "en") ? "/en" : "";
-    $catArr = [];
-    foreach (get_the_category() as $category) {
-        array_push($catArr, $category);
-        for ($i = 0; $i < count($catArr); $i++) {
-            if ($catArr[$i]->slug == 'futured-post' || $catArr[$i]->slug == 'uncategorized'  || $catArr[$i]->slug == 'uncategorized-hy' || $catArr[$i]->slug == 'futured-post-en' || $catArr[$i]->slug == "futured-post-en-2") {
-                array_splice($catArr, $i, 1);
-            }
+    foreach (get_the_category() as $cat) {
+        if (!media_am_is_hidden_display_category($cat)) {
+            echo '<a href="' . esc_url(get_category_link($cat->term_id)) . '">' . esc_html($cat->name) . '</a>';
         }
-    }
-    foreach ($catArr as $cat) {
-
-        echo '<a href="' . $lang . '/category/' . $cat->slug . '">' . esc_html($cat->name) . '</a>';
     }
 }
 function display_category_name()
@@ -559,6 +650,38 @@ function add_futured_image()
     add_image_size('podcast', 260, 260, true);
 }
 add_action("after_setup_theme", "add_futured_image");
+
+function media_am_configure_smtp($phpmailer)
+{
+    if (
+        !defined('MEDIA_AM_SMTP_HOST')
+        || !defined('MEDIA_AM_SMTP_USERNAME')
+        || !defined('MEDIA_AM_SMTP_PASSWORD')
+    ) {
+        return;
+    }
+
+    $phpmailer->isSMTP();
+    $phpmailer->Host = MEDIA_AM_SMTP_HOST;
+    $phpmailer->Port = defined('MEDIA_AM_SMTP_PORT') ? MEDIA_AM_SMTP_PORT : 587;
+    $phpmailer->SMTPAuth = true;
+    $phpmailer->Username = MEDIA_AM_SMTP_USERNAME;
+    $phpmailer->Password = MEDIA_AM_SMTP_PASSWORD;
+
+    if (defined('MEDIA_AM_SMTP_SECURE') && MEDIA_AM_SMTP_SECURE !== '') {
+        $phpmailer->SMTPSecure = MEDIA_AM_SMTP_SECURE;
+    }
+
+    if (defined('MEDIA_AM_SMTP_FROM') && is_email(MEDIA_AM_SMTP_FROM)) {
+        $phpmailer->From = MEDIA_AM_SMTP_FROM;
+        $phpmailer->Sender = MEDIA_AM_SMTP_FROM;
+    }
+
+    if (defined('MEDIA_AM_SMTP_FROM_NAME') && MEDIA_AM_SMTP_FROM_NAME !== '') {
+        $phpmailer->FromName = MEDIA_AM_SMTP_FROM_NAME;
+    }
+}
+add_action('phpmailer_init', 'media_am_configure_smtp');
 
 // the_post_thumbnail( 'full' );
 function widgetsInit()
@@ -662,27 +785,59 @@ add_action('init', 'autor_for_post', 0);
 function media_am_scripts()
 {
 
-    wp_enqueue_style('media_am_fonts_css', get_template_directory_uri().'/css/fonts.css',array(),'1.0');
-    wp_enqueue_style('media_am_main_css', get_template_directory_uri().'/css/main.css',array(),'1.0');
+    wp_enqueue_style('media_am_variables_css', get_template_directory_uri().'/css/variables.css',array(),'1.0');
+    wp_enqueue_style('media_am_fonts_css', get_template_directory_uri().'/css/fonts.css',array('media_am_variables_css'),'1.0');
+    wp_enqueue_style('media_am_main_css', get_template_directory_uri().'/css/main.css',array('media_am_variables_css'),'1.1');
     wp_enqueue_style('media_am_header_footer_css', get_template_directory_uri().'/css/header_footer.css',array(),'1.0');
+    wp_enqueue_style('media_am_verification_rating_badge_css', get_template_directory_uri().'/css/verification-rating-badge.css',array('media_am_variables_css'),'1.0');
    
     if (is_page_template('page-templates/home-template.php')) {
-        wp_enqueue_style('media_am_home_css', get_template_directory_uri() . '/css/home.css', array(), '1.0');
+        wp_enqueue_style('media_am_home_css', get_template_directory_uri() . '/css/home.css', array('media_am_variables_css'), '1.7');
+        wp_enqueue_style('media_am_plain_post_block_css', get_template_directory_uri() . '/css/post-blocks/plain-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
+        wp_enqueue_style('media_am_category_plain_posts_section_css', get_template_directory_uri() . '/css/sections/category-plain-posts-section.css', array('media_am_variables_css', 'media_am_plain_post_block_css'), '1.1');
+        wp_enqueue_style('media_am_overlay_post_block_css', get_template_directory_uri() . '/css/post-blocks/overlay-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
+        wp_enqueue_style('media_am_soft_post_block_css', get_template_directory_uri() . '/css/post-blocks/soft-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
+        wp_enqueue_style('media_am_verified_posts_section_css', get_template_directory_uri() . '/css/sections/verified-posts-section.css', array('media_am_overlay_post_block_css', 'media_am_soft_post_block_css'), '1.1');
+        wp_enqueue_style('media_am_viewpoint_post_block_css', get_template_directory_uri() . '/css/post-blocks/viewpoint-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
+        wp_enqueue_style('media_am_viewpoint_section_css', get_template_directory_uri() . '/css/sections/viewpoint-section.css', array('media_am_viewpoint_post_block_css'), '1.0');
+        wp_enqueue_style('media_am_play_overlay_post_block_css', get_template_directory_uri() . '/css/post-blocks/play-overlay-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
+        wp_enqueue_style('media_am_library_slider_section_css', get_template_directory_uri() . '/css/sections/library-slider-section.css', array('media_am_play_overlay_post_block_css'), '1.1');
+        wp_enqueue_style('media_am_media_literacy_slide_post_block_css', get_template_directory_uri() . '/css/post-blocks/media-literacy-slide-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
+        wp_enqueue_style('media_am_media_literacy_slider_section_css', get_template_directory_uri() . '/css/sections/media-literacy-slider-section.css', array('media_am_media_literacy_slide_post_block_css'), '1.0');
+        wp_enqueue_style('media_am_announcement_post_block_css', get_template_directory_uri() . '/css/post-blocks/announcement-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
+        wp_enqueue_style('media_am_announcements_section_css', get_template_directory_uri() . '/css/sections/announcements-section.css', array('media_am_announcement_post_block_css'), '1.1');
+        wp_enqueue_style('media_am_scene_slider_section_css', get_template_directory_uri() . '/css/sections/scene-slider-section.css', array('media_am_overlay_post_block_css'), '1.1');
+        wp_enqueue_style('media_am_crossroad_section_css', get_template_directory_uri() . '/css/sections/crossroad-section.css', array('media_am_variables_css', 'media_am_home_css'), '1.1');
+        wp_enqueue_style('media_am_vox_wide_post_block_css', get_template_directory_uri() . '/css/post-blocks/vox-wide-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
+        wp_enqueue_style('media_am_vox_compact_post_block_css', get_template_directory_uri() . '/css/post-blocks/vox-compact-post-block.css', array('media_am_variables_css', 'media_am_home_css'), '1.0');
+        wp_enqueue_style('media_am_vox_populi_section_css', get_template_directory_uri() . '/css/sections/vox-populi-section.css', array('media_am_vox_wide_post_block_css', 'media_am_vox_compact_post_block_css'), '1.0');
         wp_enqueue_style('media_am_swiper_css',get_template_directory_uri().'/assets/swiper/swiper-bundle.min.css',array(),'1.0');
         wp_enqueue_script('media_am_swiper_script', get_template_directory_uri().'/assets/swiper/swiper-bundle.min.js', array(), true);
-        wp_enqueue_script( 'media_am_home_js', get_template_directory_uri() . '/js/home.js', array(), true );
+        wp_enqueue_script( 'media_am_home_js', get_template_directory_uri() . '/js/home.js', array(), '1.1', true );
     }
     if(is_page_template('page-templates/podcasts-template.php') || is_singular('podcast')){
         wp_enqueue_style('media_am_podcasts_css', get_template_directory_uri() . '/css/podcasts.css', array(), '1.0');
     }
-    if (is_category() || is_tax('author_posts') || is_date() || (is_home() && !is_front_page())) {
-        wp_enqueue_style('media_am_category_css', get_template_directory_uri() . '/css/category.css', array(), '1.0');
+    if(is_page_template('page-templates/verdicts-template.php')){
+        wp_enqueue_style('media_am_verdicts_css', get_template_directory_uri() . '/css/verdicts.css', array('media_am_variables_css', 'media_am_verification_rating_badge_css'), '1.0');
+    }
+    if (is_page_template('page-material-verification.php') || is_page('material-verification')) {
+        wp_enqueue_style('media_am_material_verification_css', get_template_directory_uri() . '/css/material-verification.css', array('media_am_variables_css', 'media_am_main_css'), '1.0');
+        wp_enqueue_script('media_am_material_verification_js', get_template_directory_uri() . '/js/material-verification.js', array(), '1.0', true);
+    }
+    if (is_category() || is_tax('author_posts') || is_date() || is_search() || (is_home() && !is_front_page())) {
+        wp_enqueue_style('media_am_plain_post_block_css', get_template_directory_uri() . '/css/post-blocks/plain-post-block.css', array('media_am_variables_css'), '1.0');
+        wp_enqueue_style('media_am_viewpoint_post_block_css', get_template_directory_uri() . '/css/post-blocks/viewpoint-post-block.css', array('media_am_variables_css'), '1.0');
+        wp_enqueue_style('media_am_play_overlay_post_block_css', get_template_directory_uri() . '/css/post-blocks/play-overlay-post-block.css', array('media_am_variables_css'), '1.0');
+        wp_enqueue_style('media_am_category_css', get_template_directory_uri() . '/css/category.css', array('media_am_plain_post_block_css', 'media_am_viewpoint_post_block_css', 'media_am_play_overlay_post_block_css'), '1.0');
     }
 
     if(is_single()){
-        wp_enqueue_style('media_am_single_css', get_template_directory_uri() . '/css/single.css', array(), '1.0');
+        wp_enqueue_style('media_am_plain_post_block_css', get_template_directory_uri() . '/css/post-blocks/plain-post-block.css', array('media_am_variables_css'), '1.0');
+        wp_enqueue_style('media_am_single_css', get_template_directory_uri() . '/css/single.css', array('media_am_plain_post_block_css'), '1.0');
         wp_enqueue_style('media_am_swiper_css',get_template_directory_uri().'/assets/swiper/swiper-bundle.min.css',array(),'1.0');
         wp_enqueue_script('media_am_swiper_script', get_template_directory_uri().'/assets/swiper/swiper-bundle.min.js', array(), true);
+        wp_enqueue_script('media_am_single_poll_results_js', get_template_directory_uri() . '/js/single-poll-results.js', array(), '1.0', true);
     }
     if (!is_admin() && !is_page('contact-us') && !is_single()) { 
         wp_deregister_script('jquery');           
@@ -690,11 +845,43 @@ function media_am_scripts()
     }
 
     wp_enqueue_script( 'media_am_header_js', get_template_directory_uri() . '/js/header.js', array(), true );
-    wp_enqueue_script( 'media_am_script_js', get_template_directory_uri() . '/js/script.js', array(), true );
+    wp_enqueue_script( 'media_am_cookie_notice_js', get_template_directory_uri() . '/js/cookie-notice.js', array(), '1.0', true );
+    wp_enqueue_script( 'media_am_script_js', get_template_directory_uri() . '/js/script.js', array(), '1.3', true );
    
     //wp_enqueue_script('jquery','https://code.jquery.com/jquery-3.4.1.min.js','','3.4.1');
 }
 add_action('wp_enqueue_scripts', 'media_am_scripts');
+
+function media_am_material_verification_toast()
+{
+    $toast_type = '';
+    $toast_message = '';
+
+    if (isset($_GET['material_verification_success']) && $_GET['material_verification_success'] === '1') {
+        $toast_type = 'success';
+        $toast_message = return_lang('Ձեր հայտն ուղարկված է։', 'Your submission has been sent.');
+    } elseif (isset($_GET['material_verification_error']) && $_GET['material_verification_error'] === '1') {
+        $toast_type = 'warning';
+        $toast_message = return_lang('Խնդրում ենք փորձել ավելի ուշ։', 'Please try again later.');
+    }
+
+    if (!$toast_type || !$toast_message) {
+        return;
+    }
+    ?>
+    <div class="media_am_toast media_am_toast--<?php echo esc_attr($toast_type); ?>" role="status" aria-live="polite" data-media-am-toast>
+        <div class="media_am_toast__content">
+            <p class="media_am_toast__title">
+                <?php echo esc_html($toast_message); ?>
+            </p>
+            <button type="button" class="media_am_toast__close" aria-label="<?php echo esc_attr(return_lang('Փակել', 'Close')); ?>" data-media-am-toast-close>
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/close_menu.svg'); ?>" alt="">
+            </button>
+        </div>
+    </div>
+    <?php
+}
+add_action('wp_footer', 'media_am_material_verification_toast');
 
 
 
@@ -822,6 +1009,288 @@ function custom_post_block_shortcode($atts) {
 }
 add_shortcode('post_block', 'custom_post_block_shortcode');
 
+function media_am_post_block_inserter_admin_assets($hook) {
+    if (!in_array($hook, array('post.php', 'post-new.php'), true)) {
+        return;
+    }
+
+    $screen = get_current_screen();
+    if (!$screen || $screen->post_type !== 'post') {
+        return;
+    }
+
+    wp_enqueue_script(
+        'media-am-post-block-inserter',
+        get_template_directory_uri() . '/js/admin-post-block-inserter.js',
+        array('jquery'),
+        '1.0',
+        true
+    );
+
+    wp_localize_script(
+        'media-am-post-block-inserter',
+        'mediaAmPostBlockInserter',
+        array(
+            'ajaxUrl' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('media_am_post_block_search'),
+            'strings' => array(
+                'noPostsFound' => return_lang('Գրառումներ չեն գտնվել։', 'No posts found.'),
+                'searching' => return_lang('Որոնում...', 'Searching...'),
+                'searchFailed' => return_lang('Որոնումը ձախողվեց։', 'Search failed.'),
+                'idLabel' => return_lang('ID', 'ID'),
+            ),
+        )
+    );
+
+    wp_enqueue_style(
+        'media-am-post-block-inserter',
+        get_template_directory_uri() . '/css/admin-post-block-inserter.css',
+        array(),
+        '1.0'
+    );
+}
+add_action('admin_enqueue_scripts', 'media_am_post_block_inserter_admin_assets');
+
+function media_am_post_block_inserter_button($editor_id) {
+    if ($editor_id !== 'content') {
+        return;
+    }
+
+    $screen = get_current_screen();
+    if (!$screen || $screen->post_type !== 'post') {
+        return;
+    }
+    ?>
+    <button type="button" class="button media-am-post-block-open">
+        <?php echo esc_html(return_lang('Տեղադրել գրառման բլոկ', 'Insert post block')); ?>
+    </button>
+    <div class="media-am-post-block-modal" aria-hidden="true">
+        <div class="media-am-post-block-modal__backdrop"></div>
+        <div class="media-am-post-block-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="media-am-post-block-title">
+            <div class="media-am-post-block-modal__header">
+                <h2 id="media-am-post-block-title"><?php echo esc_html(return_lang('Տեղադրել գրառման բլոկ', 'Insert post block')); ?></h2>
+                <button type="button" class="button-link media-am-post-block-close" aria-label="<?php echo esc_attr(return_lang('Փակել', 'Close')); ?>">x</button>
+            </div>
+            <div class="media-am-post-block-modal__body">
+                <label for="media-am-post-block-search"><?php echo esc_html(return_lang('Որոնել գրառում', 'Search post')); ?></label>
+                <input type="search" id="media-am-post-block-search" class="widefat" placeholder="<?php echo esc_attr(return_lang('Մուտքագրեք վերնագիր կամ գրառման ID', 'Type a title or paste a post ID')); ?>">
+                <div class="media-am-post-block-results" aria-live="polite"></div>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+add_action('media_buttons', 'media_am_post_block_inserter_button');
+
+function media_am_post_block_search_ajax() {
+    check_ajax_referer('media_am_post_block_search', 'nonce');
+
+    if (!current_user_can('edit_posts')) {
+        wp_send_json_error(array('message' => 'Permission denied.'), 403);
+    }
+
+    $search = isset($_GET['search']) ? sanitize_text_field(wp_unslash($_GET['search'])) : '';
+
+    $query_args = array(
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'posts_per_page' => 10,
+        'orderby' => 'date',
+        'order' => 'DESC',
+    );
+
+    if ($search !== '') {
+        if (ctype_digit($search)) {
+            $query_args['p'] = absint($search);
+        } else {
+            $query_args['s'] = $search;
+        }
+    }
+
+    $posts = new WP_Query($query_args);
+    $results = array();
+
+    if ($posts->have_posts()) {
+        while ($posts->have_posts()) {
+            $posts->the_post();
+            $results[] = array(
+                'id' => get_the_ID(),
+                'title' => get_the_title(),
+                'date' => get_the_date('Y-m-d'),
+            );
+        }
+    }
+
+    wp_reset_postdata();
+    wp_send_json_success($results);
+}
+add_action('wp_ajax_media_am_post_block_search', 'media_am_post_block_search_ajax');
+
+function media_am_get_verification_parent_slugs() {
+    return array(
+        'verified',
+        'verification',
+    );
+}
+
+function media_am_is_verification_subcategory($category) {
+    if (!($category instanceof WP_Term)) {
+        return false;
+    }
+
+    $verification_parent_slugs = media_am_get_verification_parent_slugs();
+    $ancestors = get_ancestors($category->term_id, 'category');
+
+    foreach ($ancestors as $ancestor_id) {
+        $ancestor = get_category($ancestor_id);
+
+        if ($ancestor && !is_wp_error($ancestor) && in_array($ancestor->slug, $verification_parent_slugs, true)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+function media_am_category_image_field($term = null) {
+    $image_id = 0;
+
+    if ($term instanceof WP_Term) {
+        $image_id = absint(get_term_meta($term->term_id, 'media_am_category_image_id', true));
+    }
+
+    $image_url = $image_id ? wp_get_attachment_image_url($image_id, 'medium') : '';
+    wp_nonce_field('media_am_save_category_image', 'media_am_category_image_nonce');
+    ?>
+    <div class="media-am-category-image-field">
+        <input type="hidden" name="media_am_category_image_id" value="<?php echo esc_attr($image_id); ?>" class="media-am-category-image-id">
+        <div class="media-am-category-image-preview<?php echo $image_url ? ' has-image' : ''; ?>">
+            <?php if ($image_url) : ?>
+                <img src="<?php echo esc_url($image_url); ?>" alt="">
+            <?php endif; ?>
+        </div>
+        <button type="button" class="button media-am-category-image-upload">
+            <?php esc_html_e('Choose image', 'textdomain'); ?>
+        </button>
+        <button type="button" class="button media-am-category-image-remove<?php echo $image_url ? '' : ' hidden'; ?>">
+            <?php esc_html_e('Remove image', 'textdomain'); ?>
+        </button>
+    </div>
+    <p class="description"><?php esc_html_e('This image is shown on the category archive page.', 'textdomain'); ?></p>
+    <?php
+}
+
+function media_am_category_archive_template_field($term = null) {
+    $archive_template = 'default';
+
+    if ($term instanceof WP_Term) {
+        $saved_template = get_term_meta($term->term_id, 'media_am_category_archive_template', true);
+        if (in_array($saved_template, array('default', 'library'), true)) {
+            $archive_template = $saved_template;
+        }
+    }
+    ?>
+    <select name="media_am_category_archive_template">
+        <option value="default" <?php selected($archive_template, 'default'); ?>>
+            <?php esc_html_e('Default', 'textdomain'); ?>
+        </option>
+        <option value="library" <?php selected($archive_template, 'library'); ?>>
+            <?php esc_html_e('Library', 'textdomain'); ?>
+        </option>
+    </select>
+    <p class="description"><?php esc_html_e('Choose how this category archive should display posts.', 'textdomain'); ?></p>
+    <?php
+}
+
+function media_am_category_image_add_field() {
+    ?>
+    <div class="form-field term-group">
+        <label><?php esc_html_e('Category image', 'textdomain'); ?></label>
+        <?php media_am_category_image_field(); ?>
+    </div>
+    <div class="form-field term-group">
+        <label><?php esc_html_e('Archive template', 'textdomain'); ?></label>
+        <?php media_am_category_archive_template_field(); ?>
+    </div>
+    <?php
+}
+add_action('category_add_form_fields', 'media_am_category_image_add_field');
+
+function media_am_category_image_edit_field($term) {
+    ?>
+    <tr class="form-field term-group-wrap">
+        <th scope="row">
+            <label><?php esc_html_e('Category image', 'textdomain'); ?></label>
+        </th>
+        <td><?php media_am_category_image_field($term); ?></td>
+    </tr>
+    <tr class="form-field term-group-wrap">
+        <th scope="row">
+            <label><?php esc_html_e('Archive template', 'textdomain'); ?></label>
+        </th>
+        <td><?php media_am_category_archive_template_field($term); ?></td>
+    </tr>
+    <?php
+}
+add_action('category_edit_form_fields', 'media_am_category_image_edit_field');
+
+function media_am_save_category_image($term_id) {
+    if (!isset($_POST['media_am_category_image_nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['media_am_category_image_nonce'])), 'media_am_save_category_image')) {
+        return;
+    }
+
+    if (!current_user_can('manage_categories')) {
+        return;
+    }
+
+    $image_id = isset($_POST['media_am_category_image_id']) ? absint($_POST['media_am_category_image_id']) : 0;
+
+    if ($image_id) {
+        update_term_meta($term_id, 'media_am_category_image_id', $image_id);
+    } else {
+        delete_term_meta($term_id, 'media_am_category_image_id');
+    }
+
+    $archive_template = isset($_POST['media_am_category_archive_template']) ? sanitize_key(wp_unslash($_POST['media_am_category_archive_template'])) : 'default';
+
+    if (in_array($archive_template, array('default', 'library'), true) && $archive_template !== 'default') {
+        update_term_meta($term_id, 'media_am_category_archive_template', $archive_template);
+    } else {
+        delete_term_meta($term_id, 'media_am_category_archive_template');
+    }
+}
+add_action('created_category', 'media_am_save_category_image');
+add_action('edited_category', 'media_am_save_category_image');
+
+function media_am_category_image_admin_assets($hook) {
+    if (!in_array($hook, array('edit-tags.php', 'term.php'), true)) {
+        return;
+    }
+
+    $screen = get_current_screen();
+    if (!$screen || $screen->taxonomy !== 'category') {
+        return;
+    }
+
+    wp_enqueue_media();
+
+    wp_enqueue_script(
+        'media-am-category-image',
+        get_template_directory_uri() . '/js/admin-category-image.js',
+        array('jquery'),
+        '1.0',
+        true
+    );
+
+    wp_enqueue_style(
+        'media-am-category-image',
+        get_template_directory_uri() . '/css/admin-category-image.css',
+        array(),
+        '1.0'
+    );
+}
+add_action('admin_enqueue_scripts', 'media_am_category_image_admin_assets');
+
 
 function custom_word_description_shortcode($atts, $content = null) {
        
@@ -863,6 +1332,33 @@ function custom_search_query( $query ) {
 }
 add_action( 'pre_get_posts', 'custom_search_query' );
 
+function media_am_archive_posts_per_page($query) {
+    if (is_admin() || !$query->is_main_query()) {
+        return;
+    }
+
+    if ($query->is_category()) {
+        $posts_per_page = 9;
+        $category = $query->get_queried_object();
+
+        if ($category instanceof WP_Term) {
+            $category_archive_template = get_term_meta($category->term_id, 'media_am_category_archive_template', true);
+
+            if ($category_archive_template === 'library') {
+                $posts_per_page = 10;
+            }
+        }
+
+        $query->set('posts_per_page', $posts_per_page);
+        return;
+    }
+
+    if ($query->is_home() && !$query->is_front_page()) {
+        $query->set('posts_per_page', 9);
+    }
+}
+add_action('pre_get_posts', 'media_am_archive_posts_per_page');
+
 add_filter('get_calendar', function ($calendar_output) {
     if (is_category()) {
         // Get the current category slug
@@ -891,7 +1387,7 @@ add_filter('get_calendar', function ($calendar_output) {
 function add_show_send_mail_meta_box() {
     add_meta_box(
         'show_send_mail_meta_box',    // ID
-        __('Verified', 'textdomain'), // Title
+        __('Post Settings', 'textdomain'), // Title
         'render_show_send_mail_meta_box', // Callback function
         'post',                       // Screen to display (posts)
         'side',                       // Context (side column)
@@ -905,16 +1401,26 @@ function render_show_send_mail_meta_box($post) {
     // Retrieve current value of 'show_send_mail'
     $show_send_mail = get_post_meta($post->ID, 'show_send_mail', true);
     $checked = ($show_send_mail === 'yes') ? 'checked' : ''; // Checkbox checked if 'yes'
+    $hide_updated_date = get_post_meta($post->ID, 'hide_updated_date', true);
+    $hide_updated_date_checked = ($hide_updated_date === 'yes') ? 'checked' : '';
 
     // Nonce field for security
     wp_nonce_field('show_send_mail_meta_box_nonce', 'show_send_mail_nonce');
 
     // Render the checkbox
     ?>
+    <?php /*
     <p>
         <label>
             <input type="checkbox" name="show_send_mail" value="yes" <?php echo $checked; ?>>
             <?php _e('Show send materials for verification', 'textdomain'); ?>
+        </label>
+    </p>
+    */ ?>
+    <p>
+        <label>
+            <input type="checkbox" name="hide_updated_date" value="yes" <?php echo $hide_updated_date_checked; ?>>
+            <?php _e('Hide Updated date', 'textdomain'); ?>
         </label>
     </p>
     <?php
@@ -933,11 +1439,112 @@ function save_show_send_mail_meta_box($post_id) {
         return;
     }
 
+    /*
     // Check if checkbox is set
     if (isset($_POST['show_send_mail']) && $_POST['show_send_mail'] === 'yes') {
         update_post_meta($post_id, 'show_send_mail', 'yes'); // Add post meta
     } else {
         delete_post_meta($post_id, 'show_send_mail'); // Remove post meta
     }
+    */
+
+    if (isset($_POST['hide_updated_date']) && $_POST['hide_updated_date'] === 'yes') {
+        update_post_meta($post_id, 'hide_updated_date', 'yes');
+    } else {
+        delete_post_meta($post_id, 'hide_updated_date');
+    }
 }
 add_action('save_post', 'save_show_send_mail_meta_box');
+
+function media_am_add_podcast_template_meta_box() {
+    add_meta_box(
+        'media_am_podcast_template_meta_box',
+        __('Podcast page settings', 'textdomain'),
+        'media_am_render_podcast_template_meta_box',
+        'page',
+        'normal',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'media_am_add_podcast_template_meta_box');
+
+function media_am_render_podcast_template_meta_box($post) {
+    $notice = get_post_meta($post->ID, 'media_am_podcast_notice_text', true);
+
+    if ($notice === '') {
+        $legacy_notice = get_post_meta($post->ID, 'wpcf-text-after-podcast-list', false);
+        $notice = is_array($legacy_notice) ? implode('', $legacy_notice) : '';
+    }
+
+    wp_nonce_field('media_am_podcast_template_meta_box_nonce', 'media_am_podcast_template_nonce');
+    ?>
+    <div class="media-am-podcast-template-settings" data-podcast-template="page-templates/podcasts-template.php">
+        <p>
+            <label for="media_am_podcast_notice_text">
+                <?php esc_html_e('Text after podcast list', 'textdomain'); ?>
+            </label>
+        </p>
+        <textarea id="media_am_podcast_notice_text" name="media_am_podcast_notice_text" class="widefat" rows="4"><?php echo esc_textarea($notice); ?></textarea>
+        <p class="description"><?php esc_html_e('Shown in the notice block above the podcast grid.', 'textdomain'); ?></p>
+    </div>
+    <?php
+}
+
+function media_am_save_podcast_template_meta_box($post_id) {
+    if (!isset($_POST['media_am_podcast_template_nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['media_am_podcast_template_nonce'])), 'media_am_podcast_template_meta_box_nonce')) {
+        return;
+    }
+
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    if (get_post_type($post_id) !== 'page') {
+        return;
+    }
+
+    $notice = isset($_POST['media_am_podcast_notice_text']) ? sanitize_textarea_field(wp_unslash($_POST['media_am_podcast_notice_text'])) : '';
+
+    if ($notice !== '') {
+        update_post_meta($post_id, 'media_am_podcast_notice_text', $notice);
+    } else {
+        delete_post_meta($post_id, 'media_am_podcast_notice_text');
+    }
+}
+add_action('save_post_page', 'media_am_save_podcast_template_meta_box');
+
+function media_am_podcast_template_admin_script() {
+    $screen = get_current_screen();
+    if (!$screen || $screen->post_type !== 'page') {
+        return;
+    }
+    ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var settings = document.querySelector('.media-am-podcast-template-settings');
+            var templateSelect = document.getElementById('page_template');
+
+            if (!settings || !templateSelect) {
+                return;
+            }
+
+            var box = settings.closest('.postbox');
+            var podcastTemplate = settings.getAttribute('data-podcast-template');
+
+            function togglePodcastSettings() {
+                var isPodcastTemplate = templateSelect.value === podcastTemplate;
+                (box || settings).style.display = isPodcastTemplate ? '' : 'none';
+            }
+
+            templateSelect.addEventListener('change', togglePodcastSettings);
+            togglePodcastSettings();
+        });
+    </script>
+    <?php
+}
+add_action('admin_footer-post.php', 'media_am_podcast_template_admin_script');
+add_action('admin_footer-post-new.php', 'media_am_podcast_template_admin_script');

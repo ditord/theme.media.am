@@ -4,37 +4,86 @@
   document.addEventListener('DOMContentLoaded', function () {
     
 
-  const swiper = new Swiper('.swiper', {
+  const authorsSwiper = new Swiper('.authors_carousel .swiper', {
     direction: 'horizontal',
-    loop: true,
-    slidesPerView: 1,
-    spaceBetween: 30,
-    autoplay:true,
-    centeredSlides:true,
-    breakpoints:{
-    380:{
-        centeredSlides:false,
-        slidesPerView:2,
+    loop: false,
+    slidesPerView: 'auto',
+    spaceBetween: 36,
+    autoplay: false,
+    pagination: {
+      el: '.authors_carousel .swiper-pagination',
+      clickable: true,
     },
-    550:{
-        slidesPerView: 3,
-    },    
-    768: {
-        slidesPerView: 4,
-        spaceBetween: 30
+    breakpoints: {
+      0: {
+        spaceBetween: 16,
       },
-    1180:{
-        slidesPerView: 6,
-        spaceBetween: 30
-    }
+      520: {
+        spaceBetween: 20,
+      },
+      768: {
+        spaceBetween: 36,
+      },
     },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    }
   });
 
+  const featuredSwiper = new Swiper('.posts_featured__swiper', {
+    direction: 'horizontal',
+    loop: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    spaceBetween: 24,
+    initialSlide: 0,
+    autoplay: false,
+    pagination: {
+      el: '.posts_featured__swiper .swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      0: {
+        spaceBetween: 16,
+      },
+      768: {
+        spaceBetween: 24,
+      },
+    },
+  });
 
+  const librarySwiper = new Swiper('.library-slider-section__swiper', {
+    direction: 'horizontal',
+    loop: false,
+    slidesPerView: 'auto',
+    spaceBetween: 24,
+    autoplay: false,
+    pagination: {
+      el: '.library-slider-section__swiper .swiper-pagination',
+      clickable: true,
+    },
+  });
+
+  const sceneSwiper = new Swiper('.scene-slider-section__swiper', {
+    direction: 'horizontal',
+    loop: false,
+    slidesPerView: 'auto',
+    spaceBetween: 24,
+    autoplay: false,
+    pagination: {
+      el: '.scene-slider-section__swiper .swiper-pagination',
+      clickable: true,
+    },
+  });
+
+  const mediaLiteracySwiper = new Swiper('.media-literacy-slider-section__swiper', {
+    direction: 'horizontal',
+    loop: false,
+    slidesPerView: 'auto',
+    spaceBetween: 24,
+    autoplay: false,
+    pagination: {
+      el: '.media-literacy-slider-section__swiper .swiper-pagination',
+      clickable: true,
+    },
+  });
 
   })
 })();
