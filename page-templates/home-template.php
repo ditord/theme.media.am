@@ -137,7 +137,7 @@ get_header();
                     <?php foreach ($users as $author) : ?>
                         <?php
                         $filed = get_fields($author);
-                        $image = $filed['author_image']['sizes']['medium'];
+                        $image = $filed['author_image']['sizes']['large'];
                         //dump($filed);
                         $hideAuthor = (array_key_exists("author_hideinfirstpage", $filed)) ? $filed["author_hideinfirstpage"] : "";
                         ?>
