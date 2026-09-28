@@ -229,14 +229,30 @@
     display: none;
 }
 
-.ngg-imagebrowser-nav .back a.ngg-browser-prev {
+.ngg-imagebrowser-nav .back a.ngg-browser-prev, .ngg-imagebrowser-nav .back a.ngg-browser-prev:hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #A01F23;
     border-radius: 0.25rem;
+    color: #fff;
 }
 
-.ngg-imagebrowser-nav .next a.ngg-browser-next {
+.ngg-imagebrowser-nav .back a.ngg-browser-prev i {
+    font-style: normal;
+}
+
+.ngg-imagebrowser-nav .next a.ngg-browser-next,.ngg-imagebrowser-nav .next a.ngg-browser-next:hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #A01F23;
     border-radius: 0.25rem;
+    color: #fff;
+}
+
+.ngg-imagebrowser-nav .next a.ngg-browser-next i {
+    font-style: normal;
 }
 
 .single_related_posts {

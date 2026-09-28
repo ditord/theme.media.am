@@ -1,7 +1,7 @@
 <?php get_header() ?>
 
 <div class="page_content section-container">
-    <div class="contact_us_content">
+    <div id="single-post-content" class="contact_us_content">
         <?php the_content() ?>
         <div class="form_container">
         <?php echo do_shortcode( '[ninja_form id=1]' ); ?>
