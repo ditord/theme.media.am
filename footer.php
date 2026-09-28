@@ -105,7 +105,7 @@
                     <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/mic_logo_eng.svg'); ?>" alt="">
                 </a>
 
-                <a class="footer_partner_logo footer_partner_logo--mediaethics" href="https://mediaethics.am/ethics-sign" target="_blank" rel="noopener">
+                <a class="footer_partner_logo footer_partner_logo--mediaethics" href="https://mediaethics.am/media-outlets/media-am/" target="_blank" rel="noopener">
                     <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/mediaethics_logo.png'); ?>" alt="Media Ethics">
                 </a>
             </div>
