@@ -12,7 +12,7 @@ if ($featured_slide_category instanceof WP_Term) {
 <article class="featured-slide-post-block hover-image-scale">
     <a class="featured-slide-post-block__image" href="<?php the_permalink(); ?>">
         <?php if (has_post_thumbnail()) : ?>
-            <?php the_post_thumbnail('big'); ?>
+            <?php the_post_thumbnail(); ?>
         <?php else : ?>
             <img src="<?php echo esc_url(get_template_directory_uri() . '/images/transparent_background.png'); ?>" alt="">
         <?php endif; ?>
