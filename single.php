@@ -30,6 +30,12 @@ get_header();
                  <h1 class="post_title">
                      <?php the_title() ?>
                  </h1>
+                 <?php $post_display_category = media_am_get_post_display_category(get_the_ID()); ?>
+                 <?php if ($post_display_category instanceof WP_Term) : ?>
+                     <a class="single-post-category" href="<?php echo esc_url(get_category_link($post_display_category->term_id)); ?>">
+                         <?php echo esc_html($post_display_category->name); ?>
+                     </a>
+                 <?php endif; ?>
         
             </div>
             <?php if ($user) : 
